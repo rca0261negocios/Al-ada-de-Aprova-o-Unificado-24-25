@@ -1,0 +1,1105 @@
+<html>
+
+<head>
+	<!-- CONTROLE DE VERSAO 
+
+	SM2CE - AGO.24 - PROPJETO ALCADAS - 24-25
+
+	-->
+
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="/widget_pesquisa_satisfacao/resources/js/initPesquisaDeSatisfacao.js"></script>
+	<!-- Importação da widget -->
+	<script type="text/javascript" src="/util/resources/js/Utils.js"></script>
+	<script type="text/javascript" src="/SistemaChamados/resources/js/util/getParamsUrl.js"></script>
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form class='col-md-12' name="form" role="form">
+			<div id="app">
+				<input type="hidden" name="ehSugestaoCompras" id="ehSugestaoCompras">
+				<input type="hidden" name="prodJsonSugest" id="prodJsonSugest">				
+				<input type="hidden" name="poolAbertura" id="poolAbertura">				
+
+				<!-- REVISAO ALCADAS 24-25 SM2 RCA 09.2024 -->
+				<input type="hidden" name="orig_documentid"     id="orig_documentid" />    
+				<input type="hidden" name="orig_version"        id="orig_version" />
+				<input type="hidden" name="orig_docSolicitacao" id="orig_docSolicitacao" />
+				<input type="hidden" name="seAprovado"          id="seAprovado" />
+				<input type="hidden" name="operacao"            id="operacao" value="Sollicita&ccedil;&atilde;o de Compras" />
+
+				<fieldset>
+					<legend>Dados da solicitação</legend>
+					<div class='row'>
+						<div class="form-group col-md-6">
+							<label for="nomeSolicitante" class="required">Nome Solicitante</label>
+							<input type="text" class="form-control disabled" id="nomeSolicitante" name='nomeSolicitante'
+								v-model="form.nomeSolicitante" readonly>
+							<input type='hidden' id='idSolicitante' name='idSolicitante' v-model="form.idSolicitante">
+							<input type='hidden' id='emailSolicitante' name='emailSolicitante'
+								v-model="form.emailSolicitante">
+						</div>
+						<div class="form-group  col-md-6">
+							<label for="" class="required">Data Solicitação</label>
+							<input type="text" class="form-control disabled" id="dataSolicitacao" name='dataSolicitacao'
+								readonly>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset name='fieldsetInfo' id='fieldsetInfo'>
+					<legend>Informações</legend>
+					<div class="row col-md-12">
+						<div class="alert alert-info font" role="alert">
+							ATENÃÃO!
+							<p><a class="alert-link alert font">I. Solicitação Oncoprod: O chamado dos medicamentos Roche deve ser aberto separadamente dos demais fabricantes.</a></p>
+							<p><a class="alert-link alert font">II. Demais acordos comerciais: Não incluir medicamentos da Oncoprod nos chamados dos demais fabricantes.</a></p>
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-md-4">
+							<label for="filial" class="required">Filial</label>
+							<div class="input-group">
+								<input type="hidden" class="form-control" name="codFilialFluig" id=codFilialFluig
+									v-model="form.codFilialFluig" readonly="readonly" />
+								<input type="hidden" class="form-control" name="codFilial" id="codFilial"
+									v-model="form.codFilial" readonly="readonly" />
+								<input type="hidden" class="form-control" name="ufFilial" id="ufFilial"
+									v-model="form.ufFilial" readonly="readonly" />
+								<input type="text" class="form-control" name="filial" id="filial" v-model="form.filial"
+									readonly="readonly" />
+									<input type="hidden" name="nomFili" id="nomFili">
+									<input type="hidden" name="classificacaoFili" id="classificacaoFili" 
+									v-model="form.classificacaoFili">
+								<span
+									class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+									id="zoomFilial" name='zoomFilial' style="top: 0; bottom: 0;" @click="zoomFilial"
+									:disabled="!edicao"></span>
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="centroDeCusto" class="required">Centro de custo</label>
+							<div class="input-group">
+								<input type="hidden" class="form-control" name="codCentroCusto" id="codCentroCusto"
+									v-model="form.codCentroCusto" readonly="readonly" />
+								<input type="text" class="form-control" name="centroDeCusto" id="centroDeCusto"
+									v-model="form.centroDeCusto" readonly="readonly" />
+								<span
+									class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+									id="zoomCentroCusto" style="top: 0; bottom: 0;" @click="zoomCCusto"
+									:disabled="!edicao"></span>
+							</div>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="localEntrega" class="required">Local da Entrega</label>
+							<input type="text" class="form-control" name="localEntrega" id="localEntrega"
+								v-model="form.localEntrega" :readonly="!edicao" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="infoAdicionais">Informações Adicionais</label>
+							<textarea class="form-control" name="infoAdicionais" id="infoAdicionais"
+								v-model="form.infoAdicionais" rows="3"
+								:readonly="atividadeAtual > process.analiseComprador"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-3">
+							<label for="dataNecessidade">Data da Necessidade</label>
+							<div class="input-group date" id="dataNecessidadeContent">
+								<input type="text" class="form-control" name="dataNecessidade" id="dataNecessidade"
+									readonly="readonly">
+								<span class="input-group-addon">
+									<span class="fluigicon fluigicon-calendar" :disabled="!edicao"></span>
+								</span>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="prioridade">Prioridade</label>
+							<!--  -->
+							<select class="form-control" name="prioridade" id="prioridade" v-model="form.prioridade"
+								:disabled="!edicao" onchange="exibeMotivoEmergencial(this)">
+								<option value="N" selected="selected">Normal</option>
+								<option value="O">Oncoprod</option>
+								<option value="E">Emergencial</option>
+							</select>
+							<input type="hidden" name="prioridadeHidden" id="prioridadeHidden" :value="form.prioridade"
+								value="N">
+							<input type="hidden" name="prioridadeOriginal" id="prioridadeOriginal" value="N">
+							<input type="hidden" name="responsavelAltPriori" id="responsavelAltPriori" value="">
+						</div>
+						<div class="form-group col-md-6" style="display: none;" id="div_motivoEmergencial">
+                            <label for="motivoEmergencial">Motivo Emergencial:</label>
+                            <select :disabled="!edicao" class="form-control" id="motivoEmergencial" name="motivoEmergencial">
+                                <option value="">Selecione o motivo</option>
+								<option value="Falha operacional fornecedor">Falha operacional fornecedor</option>
+                                <option value="Pedido de compras bloqueado fornecedor">Pedido de compras bloqueado fornecedor</option>
+                                <option value="Pedido de remessa fora contagem Oncoprod">Pedido de remessa fora contagem Oncoprod</option>
+                                <option value="Projeção insuficiente">Projeção insuficiente</option>
+                                <option value="Ruptura mercado">Ruptura mercado</option>
+                                <option value="Solicitação de compras fora do calendÃ¡rio">Solicitação de compras fora do calendÃ¡rio</option>
+                                <option value="Ruptura Oncoprod">Ruptura Oncoprod</option>
+								<option value="Ruptura Fornecedor Acordo Comercial">Ruptura Fornecedor Acordo Comercial</option>
+                            </select>
+                        </div>
+
+<!-- 						<div class="col-md-3">
+                            <div class="col-lg-9 form-group">
+                                <label for="prioridadeGeral" class="col-lg-3 control-label">Prioridade:</label>
+                                <div class="col-lg-6">
+                                    <select class="form-control" id="prioridadeGeral" name="prioridadeGeral">
+                                            <option value="N">Normal</option>
+                                            <option value="E">Emergencial</option>
+                                            <option value="O">Oncoprod</option>
+                                        </select>
+                                    <input type="hidden" id="hiddenPrioridadeGeral" name="hiddenPrioridadeGeral" value="N">
+                                    <input type="hidden" id="respAlteracaoPriori" name="respAlteracaoPriori">
+                                    <input type="hidden" id="hiddenPrioridadeGeralOrig" name="hiddenPrioridadeGeralOrig" value="N">
+                                </div>
+                            </div>
+                        </div> -->
+						<div class="form-group col-md-3" v-show="!edicao">
+							<label for="isImportado">Importado</label><br>
+							<input name="isImportado" id="isImportado" type="checkbox" data-on-text="Sim"
+								data-off-text="Não">
+						</div>
+					</div>
+					<div class="row" id="divJustAlteracao">
+						<div class="form-group col-md-12">
+							<label for="justicativaAltPrioridade">Justificativa alteração de prioridade</label>
+							<textarea class="form-control" name="justicativaAltPrioridade" id="justicativaAltPrioridade"
+								v-model="form.justicativaAltPrioridade" :disabled="!edicao" rows="3"></textarea>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Produtos</legend>
+					<div class="row col-md-12 sugestao" style="display:none;">
+						<div class="alert alert-warning font alert-link" role="alert">
+							<b>ATENÃÃO! PARA RESETAR OS VALORES BASTA REINICIAR A PÃGINA.</b>
+						</div>
+					</div>
+					<ul class="nav nav-tabs clearfix" role="tablist">
+						<li class="active"><a href="#contentProdutos" data-toggle="tab">Produtos</a></li>
+						<li v-show="!edicao"><a href="#contentDesvinculado" role="tab" data-toggle="tab">Produtos
+								Desvinculados</a></li>
+						<li v-show="!edicao && atividadeAtual > process.inconsistencia"><a href="#contentPedidosGerados"
+								role="tab" data-toggle="tab">Pedidos Gerados</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="contentProdutos" class="tab-pane active">
+							<div class="row">
+								<div class="form-group col-md-2">
+									<button type="button" class="btn btn-primary" id="addProd" @click="addProduto"
+										:disabled="atividadeAtual != process.inicio && atividadeAtual != 0">Adicionar
+										Produto
+										<span class="fluigicon fluigicon-plus fluigicon-xs"></span></button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="table-responsive col-md-12 max-table-height">
+									<table tablename="tbProd" class="table table-striped" id="tbProd" name="tbProd"
+										noaddbutton="true" customFnDelete="deleteProduto(this)">
+										<thead>
+											<tr>
+												<th class="fixedHeader required">Item</th>
+												<th class="fixedHeader required">Primeira Compra</th>
+												<th class="fixedHeader required" style="z-index:3;">Produto</th>
+												<th class="required">Nome Produto </th>
+												<th class="required">Unidade</th>
+												<th class="required">Quantidade</th>
+												<th class="required" v-show="!edicao">Valor Produto </th>
+												<th class="required" v-show="!edicao">Valor Total</th>
+												<th class="required" v-show="!edicao">Valor do IPI</th>
+												<th class="required" v-show="!edicao">Vencedor Cotação</th>
+												<th class="required">Fabricante </th>
+												<th class="required">Saldo</th>
+												<th class="required">Cons. Médio </th>
+												<th class="required colcfechada">C. Fechada</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="min-table-field" style="max-width:75px;">
+													<input type="text" id="itemProd" name="itemProd"
+														class="form-control" value="" readonly="readonly" />
+												</td>
+												<td class="min-table-field" style="min-width:90px!important;">
+													<select name="tdSelectPrimeiraCompra" id="tdSelectPrimeiraCompra" class="form-control" :disabled="atividadeAtual > process.inicio || atividadeAtual > process.correcaoSolicitacao">
+														<option value="nao">Não</option>
+														<option value="sim">Sim</option>
+													</select>
+												</td>
+												<td class="med-table-field">
+													<div class="input-group">
+														<input type="text" id="codProd" name="codProd"
+															class="form-control" readonly="readonly" />
+													
+														<span
+															class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+															name="zoomProd" id="zoomProd" style="top: 0; bottom: 0;"
+															@click="zoomProduto(this)"
+															:disabled="atividadeAtual > process.analiseComprador"></span>
+													</div>
+												</td>
+												<td class="big-table-field">
+													<input type="text" id="nomeProd" name="nomeProd"
+														class="form-control readonly" readonly="readonly" />
+												</td>
+												<td class="min-table-field">
+													<input type="text" id="unidadeProd" name="unidadeProd"
+														class="form-control" readonly="readonly" />
+												</td>
+												<td class="min-table-field">
+													<input type="text" id="qtdProd" name="qtdProd"
+														onkeyup="somenteNumeros(this)" class="form-control"
+														:readonly="!edicao" />
+												</td>
+												<td v-show="!edicao" style="min-width: 170px;">
+													<div class="input-group">
+														<input type="text" id="valorProd" name="valorProd"
+															class="form-control" readonly="readonly" />
+														<span
+															class="btn btn-default fluigicon fluigicon-process-adhoc fluigicon-xs buttonCrud input-group-addon modalCotacaoProduto"
+															name="modalCotacaoProduto" id="modalCotacaoProduto"
+															style="top: 0; bottom: 0;"
+															v-show="form.tipoCotacao == 'fechada'"
+															:disabled="atividadeAtual > process.analiseComprador"
+															onclick="vueApp.openCotacao(this,'produto')"></span>
+													</div>
+												</td>
+												<td class="med-table-field" v-show="!edicao">
+													<input type="text" id="valorTotalProd" name="valorTotalProd"
+														class="form-control readonly" readonly="readonly" />
+												</td>
+												<td class="med-table-field" v-show="!edicao">
+													<input type="text" id="valIpiProd" name="valIpiProd"
+														class="form-control"
+														:readonly="atividadeAtual != process.analiseComprador" />
+												</td>
+												<td class="med-table-field" v-show="!edicao">
+													<input type="text" id="fornecedorVencedorProd"
+														name="fornecedorVencedorProd" class="form-control readonly"
+														readonly="readonly" />
+													<input type="hidden" id="cnpjVencedorProd"
+														name="cnpjVencedorProd" />
+													<input type="hidden" id="codFornVencedorProd"
+														name="codFornVencedorProd" />
+													<input type="hidden" id="checkProd"
+														name="checkProd" />
+												</td>
+												<td class="med-table-field">
+													<input type="text" id="fabricanteProd" name="fabricanteProd"
+														class="form-control readonly" readonly="readonly" />
+													<input type="hidden" id="contaContabilProd" name="contaContabilProd"
+														class="form-control readonly" readonly="readonly" />
+												</td>
+												<td class="min-table-field">
+													<input type="text" id="saldoProd" name="saldoProd"
+														class="form-control readonly" readonly="readonly" />
+												</td>
+												<td class="min-table-field">
+													<input type="text" id="custoMensalProd" name="custoMensalProd"
+														class="form-control" readonly="readonly" />
+												</td>
+												<td class="min-table-field colcfechada">
+													<input type="checkbox" id="isFechadaProd" name="isFechadaProd"
+														style="margin-top:10px;" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<br>
+							<div class="row" v-show="!edicao">
+							
+								<legend>Resumo</legend>
+								<div id="resumoFornecedores" >
+	                            	<table tablename="tbResumo" id="tbResumo" class="table table-striped responsive tablesorter" noaddbutton="true" nodeletebutton="true">
+	                                	<thead>
+	                                    	<tr>                                                 
+	                                        	<th>Nome Fornecedor:</th>
+	                                            <th>Sub total</th>
+	                                            <th>Faturamento mÃ­nimo</th>                                                    
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                    	<tr>                                                    
+	                                        	<td style="width: 40%;">
+	                                            	<input type="hidden" class="form-control" id="codFornecResumo" name="codFornecResumo" >
+	                                                <input type="text" class="form-control" id="nomeFornecResumo" name="nomeFornecResumo" readonly>
+	                                            </td>
+	                                            <td style="width: 30%;">
+	                                            	<input type="text" class="form-control" id="totalFornecResumo" name="totalFornecResumo" readonly>
+	                                            </td>
+	                                            <td style="width: 30%;">
+	                                            	<input type="text" class="form-control" id="faturMinResumo" name="faturMinResumo" readonly>
+	                                            </td>
+	                                        </tr>
+	                                    </tbody>
+	                            	</table>	                                                                     
+                                </div>
+							
+								<div class="form-group col-md-12">
+									<label for="valorTotalSolicitacao">Valor Total da Solicitacao</label>
+									<input type="text" class="form-control" id="valorTotalSolicitacao"
+										name="valorTotalSolicitacao" v-model="form.valorTotalSolicitacao"
+										readonly="readonly" value="R$ 0,00">
+								</div>
+							</div>
+						</div>
+						<div id="contentDesvinculado" class="tab-pane">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+										<br>
+										<button type="button" class="btn btn-primary"
+											@click="gerarSolicitacaoDesvinculada"
+											:disabled="atividadeAtual > process.analiseComprador">Gerar
+											Solicitação</button>
+									</div>
+								</div>
+								<div class="col-md-3" v-show="form.codSolicitacaoDesvinculada != ''">
+									<div class="form-group"><label> NÃºmero Solicitação Gerada </label>
+										<button type="button" class="btn btn-primary" id="btnSolicitacaoDesvinculada"
+											@click="openSolicitacao(form.codSolicitacaoDesvinculada)">{{form.codSolicitacaoDesvinculada}}</button>
+
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="table-responsive col-md-12">
+									<table tablename="tbDesvinculado" class="table table-striped" id="tbDesvinculado"
+										noaddbutton="true" nodeletebutton="true">
+										<thead>
+											<tr>
+												<th class="min-table-field">CÃ³digo</th>
+												<th class="big-table-field">Nome</th>
+												<th class="min-table-field">Quantidade</th>
+												<th class="med-table-field">Valor</th>
+												<th class="med-table-field">Total</th>
+												<th class="med-table-field">C. Fechada</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="">
+													<input type="text" class="form-control" name="codDesvinculado"
+														id="codDesvinculado" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="nomeDesvinculado"
+														id="nomeDesvinculado" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="qtdDesvinculado"
+														id="qtdDesvinculado" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="valorDesvinculado"
+														id="valorDesvinculado" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control"
+														name="valorTotalDesvinculado" id="totalDesvinculado"
+														readonly="readonly">
+												</td>
+												<td>
+													<input type="checkbox" id="isFechadaDesvinculado"
+														name="isFechadaDesvinculado" style="margin-top:10px;" />
+												</td>
+												<td style="display:none;">
+													<input type="hidden" name="unidadeDesvinculado"
+														id="unidadeDesvinculado" readonly="readonly">
+													<input type="hidden" name="ipiDesvinculado" id="ipiDesvinculado"
+														readonly="readonly">
+													<input type="hidden" name="valIpiDesvinculado"
+														id="valIpiDesvinculado" readonly="readonly">
+													<input type="hidden" name="fornecedorVencedorDesvinculado"
+														id="fornecedorVencedorDesvinculado" readonly="readonly">
+													<input type="hidden" name="cnpjVencedorDesvinculado"
+														id="cnpjVencedorDesvinculado" readonly="readonly">
+													<input type="hidden" name="codFornVencedorDesvinculado"
+														id="codFornVencedorDesvinculado" readonly="readonly">
+													<input type="hidden" name="fabricanteDesvinculado"
+														id="fabricanteDesvinculado" readonly="readonly">
+													<input type="hidden" name="contaContabilDesvinculado"
+														id="contaContabilDesvinculado" readonly="readonly">
+													<input type="hidden" name="custoMensalDesvinculado"
+														id="custoMensalDesvinculado" readonly="readonly">
+													<input type="hidden" name="itemDesvinculado" id="itemDesvinculado"
+														readonly="readonly">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id="contentPedidosGerados" class="tab-pane">
+							<div class="row">
+								<div class="table-responsive col-md-12">
+									<table tablename="tbPedidosGerados" class="table table-striped"
+										id="tbPedidosGerados" noaddbutton="true" nodeletebutton="true">
+										<thead>
+											<tr>
+												<th class="min-table-field">Seq.</th>
+												<th class="med-table-field">Pedido</th>
+												<th class="med-table-field">Produto</th>
+												<th class="big-table-field">Descrição</th>
+												<th class="big-table-field">Fornecedor</th>
+												<th class="min-table-field">Qtde.</th>
+												<th class="med-table-field">Total</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoCod"
+														id="pedGeradoCod" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoPedido"
+														id="pedGeradoPedido" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoProduto"
+														id="pedGeradoProduto" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoDescricao"
+														id="pedGeradoDescricao" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoFornecedor"
+														id="pedGeradoFornecedor" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoQuantidade"
+														id="pedGeradoQuantidade" readonly="readonly">
+												</td>
+												<td class="">
+													<input type="text" class="form-control" name="pedGeradoTotal"
+														id="pedGeradoTotal" readonly="readonly">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset v-show="!edicao">
+					<legend>Aglutinar Solicitação</legend>
+					<div class="row">
+						<div class="form-group col-md-3">
+							<input id="isAglutinar" name="isAglutinar" type="checkbox" data-on-text="Sim"
+								data-off-text="Não" :readonly="atividadeAtual > process.analiseComprador">
+						</div>
+					</div>
+					<div v-show="form.isAglutinar">
+						<div class="row">
+							<div class="input-group col-md-2">
+								<button type="button" class="btn btn-primary" id="addAgl" @click="addAglutinacao"
+									:disabled="atividadeAtual > process.analiseComprador">Adicionar
+									Solicitação
+									<span class="fluigicon fluigicon-plus fluigicon-xs"></span>
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<table tablename="tbAgl" class="table table-striped" id="tbAgl" noaddbutton="true"
+									customFnDelete="deleteAglutinacao(this)">
+									<thead>
+										<tr>
+											<th class="col-md-6">Solicitação</th>
+											<th class="col-md-6">Identificador</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="col-md-6">
+												<div class="input-group">
+													<input type="text" class="form-control" name="codAgl" id="codAgl"
+														readonly="readonly">
+													<span
+														class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+														name="zoomAgl" id="zoomAgl" style="top: 0; bottom: 0;"
+														@click="zoomAglutinacao(this)"></span>
+												</div>
+											</td>
+											<td class="col-md-6">
+												<input type="text" class="form-control" name="descAgl" id="descAgl"
+													readonly="readonly">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset v-show="!edicao && form.tipoCotacao == 'fechada'">
+					<legend>Fornecedor Exclusivo</legend>
+					<div class="row">
+						<div class="form-group col-md-2"></br>
+							<input id="possuiExclusividade" name="possuiExclusividade" type="checkbox"
+								data-on-text="Sim" data-off-text="Não"
+								:readonly="atividadeAtual > process.analiseComprador">
+							<input type="hidden" name="possuiExclusividadeHidden" id="possuiExclusividadeHidden"
+								:value="form.possuiExclusividade">
+						</div>
+						<div class="form-group col-md-2" v-show="form.possuiExclusividade == true">
+							<label for="motivoExclusividade">Motivo Exclusividade</label>
+							<select class="form-control" name="motivoExclusividade" id="motivoExclusividade"
+								v-model="form.motivoExclusividade"
+								:disabled="atividadeAtual > process.analiseComprador">
+								<option value="fabricante">Fabricante</option>
+								<option value="prazo">Prazo</option>
+								<option value="outros">Outros</option>
+							</select>
+							<input type="hidden" name="motivoExclusividadeHidden" id="motivoExclusividadeHidden"
+								:value="form.motivoExclusividade">
+						</div>
+						<div class="form-group col-md-4"
+							v-show="form.motivoExclusividade == 'outros' && form.possuiExclusividade == true">
+							<label for="forneExclusivo">Justificativa da Exclusividade</label>
+							<input type="text" name="txtMotivoExclusividade" id="txtMotivoExclusividade"
+								class="form-control" :readonly="atividadeAtual > process.analiseComprador">
+						</div>
+					</div>
+				</fieldset>
+				<fieldset v-show="!edicao">
+					<legend>Fornecedores e Cotação</legend>
+					<div class="row">
+						<div class="form-group col-md-2">
+							<label for="tipoCotacao">Tipo Cotação</label>
+							<select class="form-control" name="tipoCotacao" id="tipoCotacao" v-model="form.tipoCotacao" 
+								:disabled="form.prioridade == 'N' || form.prioridade == 'O'|| form.prioridade == 'E'">
+								<option value="" disabled="disabled" selected="selected"></option>
+								<option value="fechada">Fechada</option>
+								<option value="tabela">Tabela de Preço</option>
+							</select>
+							<input type="hidden" name="tipoCotacaoHidden" id="tipoCotacaoHidden" :value="form.tipoCotacao">
+						</div>
+						<div class="form-group col-md-2" v-show="form.codSolicitacaoVinculada != ''">
+							<label for="btnSolicitacaoVinculada">Solicitação Vinculada</label> <br>
+							<button type="button" class="btn btn-primary" id="btnSolicitacaoVinculada"
+								@click="openSolicitacao(form.codSolicitacaoVinculada)">{{form.codSolicitacaoVinculada}}</button>
+						</div>
+						<!-- <div class="form-group col-md-3">
+							<label for="valCotacao">Validade da Cotação</label>k
+							<input type="text" class="form-control" name="valCotacao" id="valCotacao" v-model="form.valCotacao">
+						</div>-->
+					</div>
+					<div id="contentFornecedor">
+						<div class="row">
+							<div class="form-group col-md-2">
+								<button type="button" class="btn btn-primary" id="addAgl" @click="addFornecedor"
+									:disabled="form.tipoCotacao == 'tabela' || atividadeAtual > process.analiseComprador">Adicionar
+									Fornecedor
+									<span class="fluigicon fluigicon-plus fluigicon-xs"></span></button>
+							</div>
+							<div class="form-group col-md-2">
+								<button type="button" class="btn btn-primary" id="loadValorTabela"
+									@click="carregaraValorAllProdutos" v-if="form.tipoCotacao == 'fechada'"
+									:disabled="atividadeAtual > process.analiseComprador">
+									Tabela de Preço <span
+										class="fluigicon fluigicon-stats-download fluigicon-xs"></span>
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="table-responsive col-md-12 max-table-height">
+								<table tablename="tbFornecedor" class="table table-striped" id="tbFornecedor"
+									noaddbutton="true" customFnDelete="deleteFornecedor(this)">
+									<thead>
+										<tr>
+											<th class="min-table-field">Item</th>
+											<th class="big-table-field">Nome</th>
+											<th class="min-table-field">Loja</th>
+											<th class="med-table-field">CNPJ</th>
+											<th class="min-table-field">T. Preco</th>
+											<th class="min-table-field" v-show="form.tipoCotacaoHidden == 'fechada'">Cotação</th>
+											<th class="med-table-field">Dias Prazo</th>
+											<th class="med-table-field">Prazo Entrega</th>
+											<th class="med-table-field">Condição de Pagamento</th>
+											<th class="med-table-field">Forma de Pagamento</th>
+											<th class="min-table-field">Frete</th>
+											<th class="med-table-field">Valor Frete</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="">
+												<input type="text" class="form-control" name="itemForn" id="itemForn"
+													readonly="readonly">
+											</td>
+											<td class="">
+												<div class="input-group">
+													<input type="hidden" name="codForn" id="codForn">
+													<input type="text" class="form-control" name="nomeForn"
+														id="nomeForn" readonly="readonly">
+													<span
+														class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+														name="zoomForn" id="zoomForn" style="top: 0; bottom: 0;"></span>
+												</div>
+											</td>
+											<td class="">
+												<input type="text" class="form-control" name="lojaForn" id="lojaForn"
+													readonly="readonly">
+											</td>
+											<td class="">
+												<input type="text" class="form-control" name="cnpjForn" id="cnpjForn"
+													readonly="readonly">
+											</td>
+											<td class="">
+												<input type="text" class="form-control" name="tabelaPrecoForn"
+													id="tabelaPrecoForn" readonly="readonly">
+											</td>
+											<td v-show="form.tipoCotacao == 'tipoCotacaoHidden'">
+												<button type="button" class="btn btn-primary" id="openCotacao"
+													onclick="vueApp.openCotacao(this,'fornecedor')"
+													:disabled="atividadeAtual > process.analiseComprador">Cotar
+													<span class="fluigicon fluigicon-money-circle fluigicon-sm"></span>
+												</button>
+											</td>
+											<td class="">
+												<div class="input-group" id="prazoFornContent">
+													<input type="text" class="form-control" name="diasPrazo"
+														id="diasPrazo" readonly="readonly">													
+												</div>
+											</td>
+											<td class="">
+												<div class="input-group date" id="prazoFornContent">
+													<input type="text" class="form-control" name="prazoForn"
+														id="prazoForn" onBlur="definirDiasPrazo(this)" readonly="readonly">
+													<span class="input-group-addon">
+														<span class="fluigicon fluigicon-calendar"></span>
+													</span>
+												</div>
+											</td>
+											<td class="">
+												<div class="input-group">
+													<input type="hidden" name="codCondForn" id="codCondForn">
+													<input type="text" class="form-control" name="condForn"
+														id="condForn" readonly="readonly">
+													<span
+														class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+														name="zoomCondForn" id="zoomCondForn" style="top: 0; bottom: 0;"
+														:disabled="atividadeAtual > process.analiseComprador"></span>
+												</div>
+											</td>
+											<td class="">
+												<select class="form-control" name="formaForn" id="formaForn"
+													:disabled="atividadeAtual > process.analiseComprador">
+													<option value=""></option>
+													<option value="1-Boleto">Boleto</option>
+													<option value="2-Deposito Bancario">DepÃ³sito BancÃ¡rio</option>
+													<option value="3-Ordem de pagamento">Ordem de Pagamento</option>
+												</select>
+												<input type="hidden" name="formaFornHidden" id="formaFornHidden"
+													value="">
+											</td>
+											<td class="">
+												<select class="form-control" name="tipoFreteForn" id="tipoFreteForn"
+													:readonly="atividadeAtual != process.analiseComprador">
+													<option value=""></option>
+													<option value="C">CIF</option>
+													<option value="F">FOB</option>
+												</select>
+												<input type="hidden" class="form-control" name="freteFornHidden"
+													id="freteFornHidden">
+											</td>
+											<td class="">
+												<input type="text" class="form-control" name="valorFreForn"
+													id="valorFreForn"
+													:readonly="atividadeAtual != process.analiseComprador">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div id="contentCotacao" class="modal-style">
+						<div class="contentModalCotacao">
+							<div class="cabecarioModalCotacao">
+								<div class="col-md-12">
+									<span @click="closeCotacao()" class="close-style">&times;</span>
+									<h2></h2>
+									<h3></h3>
+								</div>
+							</div>
+							<div class="modal-content-style">
+								<div class="row">
+									<div class="table-responsive col-md-12 max-table-height">
+										<table tablename="tbCotacao" class="table table-striped" id="tbCotacao"
+											noaddbutton="true" nodeletebutton="true">
+											<thead>
+												<tr>
+													<th class="min-table-field tabVencedorCotacao"
+														style="display:none;">Vencedor</th>
+													<th class="big-table-field justificativaCotacao"
+														style="display:none;">Justificativa </th>
+													<th class="min-table-field tabProdCotacao">CÃ³digo</th>
+													<th class="big-table-field tabProdCotacao">Nome</th>
+													<th class="med-table-field tabFornCotacao">CNPJ</th>
+													<th class="med-table-field tabFornCotacao">Fornecedor</th>
+													<th class="min-table-field">Quantidade</th>
+													<th class="med-table-field">Valor</th>
+													<!--<th class="med-table-field">Total</th>-->
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="tabVencedorCotacao control-group" style="display:none;">
+														<label class="control control-checkbox">
+															<input type="checkbox" name="vencedorCotacao"
+																id="vencedorCotacao" value="">
+															<div class="control_indicator"></div>
+														</label>
+													</td>
+													<td class="justificativaCotacao" style="display:none;">
+														<input type="text" class="form-control"
+															name="justificativaCotacao" id="justificativaCotacao"
+															readonly="readonly">
+													</td>
+													<td class="tabProdCotacao">
+														<input type="text" class="form-control" name="codCotacao"
+															id="codCotacao" readonly="readonly">
+													</td>
+													<td class="tabProdCotacao">
+														<input type="text" class="form-control" name="nomeCotacao"
+															id="nomeCotacao" readonly="readonly">
+													</td>
+													<td class="tabFornCotacao">
+														<input type="text" class="form-control" name="cnpjFornCotacao"
+															id="cnpjFornCotacao" readonly="readonly">
+													</td>
+													<td class="tabFornCotacao">
+														<input type="hidden" id="codFornecedorCotacao"
+															name="codFornecedorCotacao">
+														<input type="text" class="form-control" name="fornecedorCotacao"
+															id="fornecedorCotacao" readonly="readonly">
+													</td>
+													<td class="">
+														<input type="text" class="form-control" name="qtdCotacao"
+															id="qtdCotacao" readonly="readonly">
+													</td>
+													<td class="">
+														<input type="text" class="form-control" name="valorCotacao"
+															id="valorCotacao">
+													</td>
+													<!--<td class="">
+														<input type="text" class="form-control" name="totalCotacao" id="totalCotacao" readonly="readonly">
+													</td>-->
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-md-offset-10">
+										<button class="btn btn-primary close-style"
+											@click="closeCotacao()">Salvar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<div class="row"
+					v-show="atividadeAtual == process.analiseComprador || atividadeAtual == process.inicio && form.motivoAnaliseComprador != ''"
+					style="margin-top: 30px;">
+					<div class="form-group col-md-3">
+						<button type="button" id="canelarSolicitacao"
+							:class="form.correcaoSolicitacao ? 'btn btn-danger active' : 'btn btn-danger'"
+							@click="form.correcaoSolicitacao = !form.correcaoSolicitacao"
+							:disabled="atividadeAtual != process.analiseComprador">Corrigir
+							Solicitação
+							<span class="fluigicon fluigicon-process-remove fluigicon-sm"></span>
+						</button>
+					</div>
+					<div class="form-group col-md-12"
+						v-show="form.correcaoSolicitacao == true || atividadeAtual == process.inicio">
+						<label for="motivoAnaliseComprador">Motivo para correção</label>
+						<textarea class="form-control" name="motivoAnaliseComprador" id="motivoAnaliseComprador"
+							v-model="form.motivoAnaliseComprador" style="height: 113px;"
+							:readonly="atividadeAtual != process.analiseComprador"></textarea>
+					</div>
+				</div>
+				<!--ALCADA DE APROVACAO -->
+				<fieldset id="fieldsetAlcadaAprovacao"
+					v-show="atividadeAtual == process.alcadaAprovacao || atividadeAtual == process.inicio && form.isAlcada == 'true'">
+					<legend>Alçada de Aprovação</legend>
+					<ul class="nav nav-tabs clearfix navTabsAlcada" role="tablist">
+						<li v-bind:style="[form.nomeAprovAlcada1 == '' ? {'display':'none'} : {'display':'blcock'}]"><a
+								href="#contentAlcada1" data-toggle="tab">1a Alçada</a></li>
+						<li v-bind:style="[form.nomeAprovAlcada2 == '' ? {'display':'none'} : {'display':'blcock'}]"><a
+								href="#contentAlcada2" role="tab" data-toggle="tab">2a Alçada</a></li>
+						<li v-bind:style="[form.nomeAprovAlcada3 == '' ? {'display':'none'} : {'display':'blcock'}]"><a
+								href="#contentAlcada3" role="tab" data-toggle="tab">3a Alçada</a></li>
+					</ul>
+					<div class="tab-content navTabsAlcada">
+						<div id="contentAlcada1" class="tab-pane">
+							<div class="row">
+								<div class="col-md-6">
+									<label for="nomeAprovAlcada1">Aprovador:</label>
+									<div class="form-group">
+										<input type="hidden" class="form-control" name="idAprovAlcada1"
+											id="idAprovAlcada1" v-model="form.idAprovAlcada1" readonly="readonly" />
+										<input type="text" class="form-control" name="nomeAprovAlcada1"
+											id="nomeAprovAlcada1" v-model="form.nomeAprovAlcada1" readonly="readonly" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<label for="dataAprovAlcada1">Data da Aprovação:</label>
+									<div class="form-group">
+										<input type="text" class="form-control" name="dataAprovAlcada1"
+											id="dataAprovAlcada1" v-model="form.dataAprovAlcada1" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2">
+									<label for="decisaoAlcada1">Decisão:</label>
+									<input type="hidden" class="form-control" name="decisaoAlcada1" id="decisaoAlcada1"
+										v-model="form.decisaoAlcada1" readonly="readonly" />
+
+									<div class="well btn-group" style="width: 100%;">
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada1BtnAprov"
+											:disabled="form.contadorAlcada != 1">Aprovar</button>
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada1BtnReprov"
+											:disabled="form.contadorAlcada != 1">Reprovar</button>
+									</div>
+								</div>
+
+								<div class="col-md-10">
+									<label for="motivoAprovAlcada1">Motivo:</label>
+									<div class="form-group">
+										<textarea class="form-control" name="motivoAprovAlcada1" id="motivoAprovAlcada1"
+											v-model="form.motivoAprovAlcada1" style="height: 113px;"
+											:readonly="form.contadorAlcada != 1"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="contentAlcada2" class="tab-pane">
+							<div class="row">
+								<div class="col-md-6">
+									<label for="nomeAprovAlcada2">Aprovador:</label>
+									<div class="form-group">
+										<input type="hidden" class="form-control" name="idAprovAlcada2"
+											id="idAprovAlcada2" v-model="form.idAprovAlcada2" readonly="readonly" />
+										<input type="text" class="form-control" name="nomeAprovAlcada2"
+											id="nomeAprovAlcada2" v-model="form.nomeAprovAlcada2" readonly="readonly" />
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<label for="dataAprovAlcada2">Data da Aprovação:</label>
+									<div class="form-group">
+										<input type="text" class="form-control" name="dataAprovAlcada2"
+											id="dataAprovAlcada2" v-model="form.dataAprovAlcada2" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2">
+									<label for="decisaoAlcada2">Decisão:</label>
+									<input type="hidden" class="form-control" name="decisaoAlcada2" id="decisaoAlcada2"
+										v-model="form.decisaoAlcada2" readonly="readonly" />
+
+									<div class="well btn-group" style="width: 100%;">
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada2BtnAprov"
+											:disabled="form.contadorAlcada != 2">Aprovar</button>
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada2BtnReprov"
+											:disabled="form.contadorAlcada != 2">Reprovar</button>
+									</div>
+								</div>
+
+								<div class="col-md-10">
+									<label for="motivoAprovAlcada2">Motivo:</label>
+									<div class="form-group">
+										<textarea class="form-control" name="motivoAprovAlcada2" id="motivoAprovAlcada2"
+											v-model="form.motivoAprovAlcada2" style="height: 113px;"
+											:readonly="form.contadorAlcada != 2"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="contentAlcada3" class="tab-pane">
+							<div class="row">
+								<div class="col-md-6">
+									<label for="nomeAprovAlcada3">Aprovador:</label>
+									<div class="form-group">
+										<input type="hidden" class="form-control" name="idAprovAlcada3"
+											id="idAprovAlcada3" v-model="form.idAprovAlcada3" readonly="readonly" />
+										<input type="text" class="form-control" name="nomeAprovAlcada3"
+											id="nomeAprovAlcada3" v-model="form.nomeAprovAlcada3" readonly="readonly" />
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<label for="dataAprovAlcada3">Data da Aprovação:</label>
+									<div class="form-group">
+										<input type="text" class="form-control" name="dataAprovAlcada3"
+											id="dataAprovAlcada3" v-model="form.dataAprovAlcada3" readonly="readonly" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-2">
+									<label for="decisaoAlcada3">Decisão:</label>
+									<input type="hidden" class="form-control" name="decisaoAlcada3" id="decisaoAlcada3"
+										v-model="form.decisaoAlcada3" readonly="readonly" />
+
+									<div class="well btn-group" style="width: 100%;">
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada3BtnAprov"
+											:disabled="form.contadorAlcada != 3">Aprovar</button>
+										<button type="button" class="btn btn-default btn-block btnAprov"
+											id="decisaoAlcada3BtnReprov"
+											:disabled="form.contadorAlcada != 3">Reprovar</button>
+									</div>
+								</div>
+
+								<div class="col-md-10">
+									<label for="motivoAprovAlcada3">Motivo:</label>
+									<div class="form-group">
+										<textarea class="form-control" name="motivoAprovAlcada3" id="motivoAprovAlcada3"
+											v-model="form.motivoAprovAlcada3" style="height: 113px;"
+											:readonly="form.contadorAlcada != 3"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset v-if="atividadeAtual == process.aprovSolicitante || atividadeAtual == process.inconsistencia">
+					<legend>Aprovação Solicitante</legend>
+					<div id="contentSolicitante">
+						<div class="row">
+							<div class="col-md-6">
+								<label for="nomeAprovSolicitante">Aprovador:</label>
+								<div class="form-group">
+									<input type="hidden" class="form-control" name="idAprovSolicitante"
+										id="idAprovSolicitante" v-model="form.idAprovSolicitante" readonly="readonly" />
+									<input type="text" class="form-control" name="nomeAprovSolicitante"
+										id="nomeAprovSolicitante" v-model="form.nomeAprovSolicitante"
+										readonly="readonly" />
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<label for="dataAprovSolicitante">Data da Aprovação:</label>
+								<div class="form-group">
+									<input type="text" class="form-control" name="dataAprovSolicitante"
+										id="dataAprovSolicitante" v-model="form.dataAprovSolicitante"
+										readonly="readonly" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-2">
+								<label for="decisaoSolicitante">Decisão:</label>
+								<input type="hidden" class="form-control" name="decisaoSolicitante"
+									id="decisaoSolicitante" v-model="form.decisaoSolicitante" readonly="readonly" />
+
+								<div class="well btn-group" style="width: 100%;">
+									<button type="button" class="btn btn-default btn-block btnAprov"
+										id="decisaoSolicitanteBtnAprov"
+										:disabled="atividadeAtual != process.aprovSolicitante">Aprovar</button>
+									<button type="button" class="btn btn-default btn-block btnAprov"
+										id="decisaoSolicitanteBtnReprov"
+										:disabled="atividadeAtual != process.aprovSolicitante">Reprovar</button>
+								</div>
+							</div>
+
+							<div class="col-md-10">
+								<label for="motivoAprovSolicitante">Motivo:</label>
+								<div class="form-group">
+									<textarea class="form-control" name="motivoAprovSolicitante"
+										id="motivoAprovSolicitante" v-model="form.motivoAprovSolicitante"
+										style="height: 113px;"
+										:readonly="atividadeAtual != process.aprovSolicitante"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" v-if="atividadeAtual == process.aprovSolicitante">
+						<div class="col-md-6">
+							<button type="button" name="iniciarPesquisa" id="iniciarPesquisa"
+								data-loading-text="Loading..." class="btn btn-primary"
+								:disabled="form.decisaoSolicitante == '' || form.decisaoSolicitante == 'nao'">
+								Responder Pesquisa de Satisfação
+							</button>
+						</div>
+					</div>
+				</fieldset>
+				<!--CAMPOS HIDDEN-->
+				<input type="hidden" name="codSolicitacao" id="codSolicitacao" v-model="form.codSolicitacao">
+				<input type="hidden" name="correcaoSolicitacao" id="correcaoSolicitacao" v-model="form.correcaoSolicitacao" value="false">
+				<input type="hidden" name="campoIdentificador" id="campoIdentificador" v-model="form.campoIdentificador">
+				<input type="hidden" name="isAlcada" id="isAlcada" v-model="form.isAlcada" value="none">
+				<input type="hidden" name="contadorAlcada" id="contadorAlcada" v-model="form.contadorAlcada" value="1">
+				<input type="hidden" name="aprovAlcadaAtual" id="aprovAlcadaAtual" v-model="form.aprovAlcadaAtual">
+				<input type="hidden" name="codSolicitacaoVinculada" id="codSolicitacaoVinculada" v-model="form.codSolicitacaoVinculada" value="">
+				<input type="hidden" name="codSolicitacaoDesvinculada" id="codSolicitacaoDesvinculada" v-model="form.codSolicitacaoDesvinculada">
+				<input type="hidden" name="refSolicitacaoDesvinculada" id="refSolicitacaoDesvinculada" v-model="form.refSolicitacaoDesvinculada">
+				<input type="hidden" name="listPedidoCompra" id="listPedidoCompra" value="{}">
+				<!-- Os campos para receber o SLA -->
+				<input type="hidden" name="COD_SOLICITACAO" id="COD_SOLICITACAO">
+				<input type="hidden" name="VERSAO">
+				<input type="hidden" name="ISDEFAULT">
+				<input type="hidden" name="SLA5" id="SLA5" />
+				<input type="hidden" name="SLA22" id="SLA22" />
+				<input type="hidden" name="SLA25" id="SLA25" />
+				<input type="hidden" name="SLA30" id="SLA30" />
+				<input type="hidden" name="SLA41" id="SLA41" />
+				<input type="hidden" name="SLA48" id="SLA48" />
+				<input type="hidden" name="SLA53" id="SLA53" />
+				<input type="hidden" name="SLA59" id="SLA59" />
+				<input type="hidden" name="SLA107" id="SLA107" />
+				<input type="hidden" name="SLA110" id="SLA110" />
+				<input type="hidden" name="SLA_TOTAL" />
+
+			</div>
+		</form>
+	</div>
+
+	<script src="lib/vue.js"></script>
+	<script src="lib/jquery.maskMoney.min.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/beforeSendValidate.js"></script>
+	<script src="js/xmlClass.js"></script>
+	<script src="js/app.js"></script>
+	<script src="lib/util_dataSet_1-5-0.js"></script>
+	<script src="js/custom.js"></script>
+
+</body>
+
+</html>

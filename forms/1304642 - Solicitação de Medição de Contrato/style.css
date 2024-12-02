@@ -1,0 +1,340 @@
+.logo{
+    width: 60;
+    margin-right: 5px;
+  }
+  
+  
+  .panel-onco {
+    background-color: #35b1a7 !important;
+    color: white !important;
+    font-size: 16px !important;
+  }
+  
+  .btn-onco-b {
+    background-color: #1D7195 !important;
+    color: white !important;
+  }
+  
+  .panel-onco-b {
+    background-color: #1D7195 !important;
+    color: white !important;
+    font-size: 16px !important;
+  }
+  
+  
+  .title-onco {    
+    background-color: #35b1a7 !important;
+    color: #eeeeee   !important;
+    font-size: 25px !important;
+  }
+  
+  h2.title-table{
+    text-align: center;
+    font-size: 20px !important;
+    margin-top: 10px;
+    font-weight: 600 !important;
+  }
+  
+  span.select2-dropdown.select2-dropdown {
+    left: 40px;
+    width: calc(100% - 79px) !important;
+    border: 1px solid rgb(0, 144, 255);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  }
+  
+  .custom-checkbox{
+    margin-left: -32px !important;
+  }
+  
+  /* .input-group {
+    display: block !important;
+  } */
+  
+  .select2-search__field {
+    width: 100% !important;
+  }
+  
+  .select2-search {
+    width: 100% !important;
+  }
+  
+  .select2-container--open {
+    left: 0px !important;
+  }
+  
+  .select2-selection__rendered {
+    display: flex !important;
+    max-width: max-content !important;    
+  }
+  
+  .select2 .select2-container .fluig-container .select2-container--default .select2-container--focus {
+    width: 400px !important;
+  }
+  
+  .select2-container .select2-selection--multiple .select2-selection__rendered {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0px!important;
+  }    
+  
+  .disable-click{
+    pointer-events: none;
+  }
+  
+  .fluig-style-guide .custom-checkbox.custom-checkbox-success input[type=checkbox]:checked+label:before, .fluig-style-guide .custom-checkbox.custom-checkbox-success input[type=checkbox]:indeterminate+label:before {
+    background-color: #35b1a7 !important;
+  }
+  
+  .fw-400{
+    font-weight: 400 !important;
+  }
+  
+  .fw-600{
+    font-weight: 600 !important;
+  }
+  
+  .ml-15{
+    margin-left: 15px !important;
+    margin-top: 5px !important;
+  }
+  
+  .fluig-style-guide .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success, .fluig-style-guide .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success {
+    background-color: #35b1a7!important;
+  }
+  
+  .zoomWarning{
+    border: 1px solid #c50e0e!important;
+  }
+  
+  .zoomSuccess{   
+    border: 1px solid #35b1a7!important;    
+  }
+  
+  .fluig-style-guide .has-success .form-control{
+    border-width: 1px!important;
+    border-color: #35b1a7!important;
+  }
+  
+  .fluig-style-guide .has-error .form-control{
+    border-width: 1px!important;
+    border-color: #c50e0e!important;
+  }
+  
+  .fluig-style-guide label {
+    font-weight: 700;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 1px!important;
+  }
+  
+  .fluig-style-guide .has-success .checkbox, .fluig-style-guide .has-success .checkbox-inline, .fluig-style-guide .has-success .control-label, .fluig-style-guide .has-success .help-block, .fluig-style-guide .has-success .radio, .fluig-style-guide .has-success .radio-inline, .fluig-style-guide .has-success.checkbox label, .fluig-style-guide .has-success.checkbox-inline label, .fluig-style-guide .has-success.radio label, .fluig-style-guide .has-success.radio-inline label{
+    color: #35b1a7!important;
+    margin-bottom: 1px!important;
+  }
+  
+  .fluig-style-guide .has-error .checkbox, .fluig-style-guide .has-error .checkbox-inline, .fluig-style-guide .has-error .control-label, .fluig-style-guide .has-error .help-block, .fluig-style-guide .has-error .radio, .fluig-style-guide .has-error .radio-inline, .fluig-style-guide .has-error.checkbox label, .fluig-style-guide .has-error.checkbox-inline label, .fluig-style-guide .has-error.radio label, .fluig-style-guide .has-error.radio-inline label {
+    color: #c50e0e!important;
+    margin-bottom: 1px!important;
+  }   
+  
+  .alert-red{
+    border: 1px solid #c50e0e!important;
+  }
+  .name-red{
+    color: #c50e0e!important;
+  }
+  
+  .help-block-zoom{
+    color: #c50e0e!important;
+    margin-top: -10px;
+  }
+  
+  .fluig-style-guide .has-success .input-group-addon {
+    color: #29817a!important;
+    border-color: #35b1a7!important;
+    background-color: #CFECEA!important;
+  
+  }    
+  
+  .btn-success{
+    background-color: #29817a!important;
+  }
+  
+  .codSolic {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    text-align: right;
+    background: rgba(0, 0, 0, 0);
+    font-weight: bolder!important;
+    font-size: 15px!important;
+  } 
+  
+  .codSolicTitle{
+    font-size: 15px!important;
+    width: auto!important;
+    margin-top: 5px!important;    
+    margin-right: -125px;
+    top: -4px;
+  }
+  
+  .codSolicRow{
+    float: right;
+    top: -22px;
+    position: relative;
+  }
+  
+  .w-auto{
+    width: auto!important;
+    margin-top: 5px!important;    
+    font-size: 14px!important;
+  }
+  
+  .page-header{
+    margin-top: 25px;
+    height: 25px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  
+  .fluig-style-guide .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 4px!important;
+    border-bottom-right-radius: 4px!important;
+  }
+  
+  .fluig-style-guide .btn-group>.btn:last-child:not(:first-child), .fluig-style-guide .btn-group>.dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 4px!important;
+    border-bottom-left-radius: 4px!important;
+  }
+  
+  
+  /* TABELA DE APROVACAO */
+  
+  
+  
+  
+  table tbody img{
+  width: 34px !important;
+  border-radius: 50% !important;
+  float: left !important;
+  margin-right: 3% !important
+  }
+  
+  .secAprovacao{
+  margin-top: 20px;
+  }
+  
+  .secAprovacao .row{
+  margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .page-header {
+    border-bottom: 1px solid #adadad !important;
+  }
+  
+  .flex-aprovadores{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  
+  .uF .fluig-style-guide .has-error label {
+    color: #a94442;
+  }
+  .uF .btn-group.opc_aprovacao .btn-default.sim.active {
+    color: #fff!important;
+    border-color: #000000!important;
+    background-color: #29817a!important;
+  }
+  .uF .btn-group.opc_aprovacao .btn-default.nao.active {
+    color: #fff;
+    background-color: #ac2925;
+    border-color: #c9302c;
+  }
+  
+  .tp6{
+    top: 6px!important;
+  }
+  
+  .calendar{
+    background-color: white!important;
+  }
+  
+  td.bpm-mobile-trash-column span.fluig-style-guide.fs-md-space {
+    margin: -17px!important;
+  }
+  
+  .alert{
+    padding-bottom: 17px!important;
+    margin-bottom: 0px!important;
+  }
+  
+  label.weight-bold{
+    font-weight: 700!important;
+    
+  }
+  
+  .text-center{text-align:center!important}
+  
+  .weight-bold{
+    font-weight: 700!important;        
+  }
+  
+  .tituloLancamento{
+    font-weight: 700!important;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 12px;      
+  }
+  
+  p.help-block{
+    margin-bottom: 0px!important;
+  }
+  
+  .zoomWarning .select2-fluigicon-zoom {
+    border-left: solid 1px #c50e0e!important;
+  }
+  
+  .fluig-style-guide .form-group {
+    margin-bottom: 10px!important;
+  }
+  
+  .redefineGrupo {
+    border: solid 3px;
+    border-radius: 6px;
+    margin: 5px!important;
+    padding: 6px;
+    color: #f0ad4e;
+  }
+  
+  .rating-text {
+    display: inline-block!important;
+    margin-left: 7px!important;
+    margin-bottom: -5px!important;
+  }
+  
+  .rating-disabled {
+    color: #ffd59a !important;
+  }
+  
+  .modal-header {
+    background-color: #29817a;
+    color: #eeeeee;   
+    
+    text-align: center;
+  }
+  
+  .modal-title {
+    font-size: 20px !important;  
+  }
+  
+  /* .modal-footer {
+    background-color: #29817a; 
+  } */

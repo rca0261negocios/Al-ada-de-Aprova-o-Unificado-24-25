@@ -1,0 +1,258 @@
+/*
+  ANALISTA RICARDO ANDRADE
+  *** NAO IDENTAR ESTE CODIGO ***
+      24.11.v05
+*/
+@media screen and (min-width: 768px) {
+	.mysticky {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 60px !important;
+		padding: 0px;
+		z-index: 1000;
+	}
+	.huge {
+		font-size: 2vw !important;
+	}
+}
+
+@media (min-width: 768px) {
+	#page-wrapper {
+		position: inherit;
+		margin: 0 0 0 250px;
+		padding: 0 30px;
+		border-left: 1px solid #e7e7e7;
+	}
+}
+
+@media screen and (min-width: 320px) {
+	html {
+		font-size: calc(16px + 6 * (( 100vw - 320px)/680));
+	}
+	.huge {
+		font-size: 5vw !important;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	html {
+		font-size: 22px;
+	}
+	.huge {
+		font-size: 2vw !important;
+	}
+}
+
+.thpanel {
+	padding:1px !important;
+	cursor:pointer;
+}
+#datatable-area {
+	padding: 00 !important;
+}
+td {
+	padding: 5px !important;
+	border: none !important;
+}
+.wcm-all-content {
+    padding: 0 !important;
+    margin: 50px 0 0 0 !important;
+}
+#wcm-content {
+ 	padding-top: 0px !important; 
+}
+.layout-clean {
+	margin-top: 5px !important;
+}
+.pointer {
+	cursor: pointer;
+}
+.menu-main {
+	display: none !important;
+}
+.scrooltable{
+	overflow: auto;
+	height: 400px;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  background-color: white;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.428571429;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  border-radius: 25px;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.show-grid [class^="col-"] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: #eee !important;
+}
+
+.show-grid {
+  margin: 15px 0;
+}
+
+.huge {
+  font-size: 30px !important;
+}
+
+.panel {
+  border: none !important;
+}
+
+.panel-green {
+  border-color: #5cb85c !important;
+}
+
+.panel-green > .panel-heading {
+  border-color: #5cb85c !important;
+  color: white !important;
+  background-image: linear-gradient(0deg, #65ff00a8, #5cb85c);
+  text-shadow: 2px 2px 2px #000000bf;
+}
+
+.panel-green > a {
+  color: #5cb85c !important;
+}
+
+.panel-green > a:hover {
+  color: #3d8b3d !important;
+}
+
+.panel-red {
+  border-color: #d9534f !important;
+}
+
+.panel-red > .panel-heading {
+  border-color: #d9534f !important;
+  color: white !important;
+  background-image: linear-gradient(45deg, #ff00004a, #ff0000c2);
+  text-shadow: 2px 2px 2px #000000bf;
+}
+
+.panel-red > a {
+  color: #d9534f !important;
+}
+
+.panel-red > a:hover {
+  color: #b52b27 !important;
+}
+
+.panel-yellow {
+  border-color: #f0ad4e !important;
+}
+
+.panel-yellow > .panel-heading {
+  border-color: #f0ad4e !important;
+  color: white !important;
+  /*background-color: #f0ad4e !important;*/
+  background-image: linear-gradient(45deg, #daff0052, #f0ad4e);
+  text-shadow: 2px 2px 2px #000000bf;
+}
+
+.panel-yellow > a {
+  color: #f0ad4e !important;
+}
+
+.panel-yellow > a:hover {
+  color: #df8a13 !important;
+}
+
+.panel-blue {
+  border-color: #7171ce !important;
+}
+
+.panel-blue > .panel-heading {
+  border-color: #527dd4 !important;
+  color: white !important;
+  background-image: linear-gradient(45deg, #0051ff52, #7171ce);
+  text-shadow: 2px 2px 2px #000000bf;
+}
+
+.panel-blue > a {
+  color: #7171ce !important;
+}
+
+.panel-blue > a:hover {
+  color: #3d8b3d !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+/*
+ TAMANHO ICONES
+*/
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.fa-2x {
+  font-size: 2em !important;
+}
+
+.fa-3x {
+  font-size: 3em !important;
+}
+
+.fa-4x {
+  font-size: 4em !important;
+}
+
+.fa-5x {
+  font-size: 5em !important;
+}
+
+.vwMobile {
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background: white;
+}

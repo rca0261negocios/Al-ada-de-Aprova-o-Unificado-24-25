@@ -1,0 +1,651 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<link type="text/css" rel="stylesheet" href="custom.css" />
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js"
+		charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="maskMoney.js"></script>
+	<script type="text/javascript" src="jquery.csv.min.js"></script>
+	<script type="text/javascript" src="tableHeadFixer.js"></script>
+	<script type="text/javascript" src="global.js"></script>
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript" src="pedidoCompra.js"></script>
+	<script type="text/javascript" src="AlcadaAprovacao.js"></script>
+	<script type="text/javascript" src="custom.js"></script>
+	<script type="text/javascript" src="solicitante.js"></script>
+	<script type="text/javascript" src="/widget_pesquisa_satisfacao/resources/js/initPesquisaDeSatisfacao.js"></script>
+	<script type="text/javascript" src="/util/resources/js/Utils.js"></script>
+	<script type="text/javascript" src="/SistemaChamados/resources/js/util/getParamsUrl.js"></script>
+	<script type="text/javascript" src="jquery.mask.min.js"></script>
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form class='col-md-12' name="form" role="form">
+			<fieldset>
+				<legend>Dados da solicitação</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeSolicitante">Nome Solicitante</label>
+						<input type="text" class="form-control disabled" id="nomeSolicitante" name='nomeSolicitante'
+							readonly>
+						<input type='hidden' id='idSolicitante' name='idSolicitante'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataSolicitacao">Data Solicitacao</label>
+						<input type="text" class="form-control disabled" id="dataSolicitacao" name='dataSolicitacao'
+							readonly>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset name='fieldsetInfo' id='fieldsetInfo'>
+				<legend>Informações</legend>
+
+				<div class='row'>
+					<div class="form-group col-md-4">
+						<label for="filial">Filial</label>
+						<div class="input-group">
+							<input type="hidden" class="form-control" name="codFilialFluig" id="codFilialFluig" value=""
+								readonly="readonly" />
+							<input type="hidden" class="form-control" name="codFilial" id="codFilial" value=""
+								readonly="readonly" />
+							<input type="hidden" class="form-control" name="ufFilial" id="ufFilial" value=""
+								readonly="readonly" />
+							<input type="text" class="form-control" name="filial" id="filial" value=""
+								readonly="readonly" />
+							<span
+								class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+								id="zoomFilial" name='zoomFilial' style="top: 0; bottom: 0;" disabled="disabled"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="centroDeCusto">Centro de custo</label>
+						<div class="input-group">
+							<input type="hidden" class="form-control" name="codCentroCusto" id="codCentroCusto"
+								readonly="readonly" value="11130216" />
+							<input type="text" class="form-control" name="centroDeCusto" id="centroDeCusto"
+								readonly="readonly" value="DISPENSACAO DE MEDICAMENTOS" />
+							<span
+								class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+								id="zoomCentroCusto" name="zoomCentroCusto" style="top: 0; bottom: 0;"
+								disabled="disabled"></span>
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="fornecedor">Fornecedor</label>
+						<div class="input-group">
+							<input type="hidden" class="form-control" name="codFornecedor" id="codFornecedor"
+								readonly="readonly" value="000489" />
+							<input type="hidden" class="form-control" name="lojFornecedor" id="lojFornecedor"
+								readonly="readonly" value="01" />
+							<input type="text" class="form-control" name="fornecedor" id="fornecedor"
+								readonly="readonly" value="ONCO PROD DISTRIBUIDORA" />
+							<span
+								class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+								id="zoomFornecedor" name="zoomFornecedor" style="top: 0; bottom: 0;"
+								disabled="disabled"></span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="col-md-12 form-group">
+						<label for="zoomEmail">E-mails a serem notificados</label>
+						<input type="zoom" class="form-control" id="zoomEmail" name="zoomEmail" data-zoom="{
+						'displayKey':'DESCRICAO',
+						'datasetId':'ds_emailConfigDelife',
+						'maximumSelectionLength':'3',
+						'placeholder':'Escolha o(s) notificados',
+						'filterValues': 'metadata_active,true',
+						'fields':[
+							{'field':'DESCRICAO','label':'Descrição','standard':'true'},
+							{'field':'EMAIL','label':'E-mail'}
+						]}" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label for="infoAdicionais" class="required">Informações Adicionais</label>
+						<textarea class="form-control" id="infoAdicionais" name='infoAdicionais' rows='4'
+							readonly="readonly"></textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-3">
+						<label for="tabelaPreco">Tabela de preço</label>
+						<input type="text" class="form-control" name="tabelaPreco" id="tabelaPreco"
+							readonly="readonly" />
+						<input type="hidden" name="numICMS" id="numICMS">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="localEntrega">Prazo pagamento </label>
+						<input type="text" class="form-control" name="prazoPagamento" id="prazoPagamento"
+							readonly="readonly" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="localEntrega" class="required">Prazo entrega </label>
+						<input type="text" class="form-control" name="prazoEntrega" id="prazoEntrega"
+							readonly="readonly" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-3">
+						<label for="tabelaPreco">Valor Total Produtos</label>
+						<input type="text" class="form-control" name="valorTotal" id="valorTotal" readonly="readonly" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="localEntrega" class="required">Local da Entrega</label>
+						<input type="text" class="form-control" name="localEntrega" id="localEntrega"
+							readonly="readonly" />
+					</div>
+					<div class="form-group col-md-3" style="display: none;">
+						<label for="tabelaPreco" class="required">Pedido de Compras </label>
+						<input type="text" class="form-control" name="numPedido" id="numPedido" readonly="readonly" />
+					</div>
+					<div class="col-md-3 containerBtnImportCsv" style="margin-top: 25px; display: none;">
+						<div class="input-group">
+							<input type="file" class="btn btn-primary btn-sm" id="btnImportCsv" name="btnImportCsv"
+								title="Importar CSV" accept=".csv" />
+						</div>
+					</div>
+					<div class="col-md-3 atenderPedido" style="margin-top: 25px; display:none;">
+						<div class="input-group">
+							<input type="file" class="btn btn-primary btn-sm" id="importAtendidos"
+								name="importAtendidos" title="Importar CSV Atendidos" accept=".csv" />
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldsetProd' style="margin-bottom: 30px;">
+				<legend>Produtos</legend>
+				<div class="row">
+					<div class="form-group col-md-2 hidden" style="margin-top: 21px;">
+						<button type="button" class="btn btn-primary" id="addProd">
+							Adicionar Produto
+							<span class="fluigicon fluigicon-plus fluigicon-xs"></span>
+						</button>
+					</div>
+					<div class="form-group col-md-2 hidden" style="margin-top: 21px;">
+						<button type="button" class="btn btn-danger" id="btnApagaItens">
+							Remover Produtos
+							<span class="fluigicon fluigicon-remove fluigicon-xs"></span>
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="" id="parentProd" style="margin-top: 30px;">
+						<table tablename="tbProd" class="table table-striped" id="tbProd" name="tbProd"
+							noaddbutton="true" customFnDelete="deleteRateio(this)">
+							<thead>
+								<tr>
+									<th class="fixedHeader" style="z-index:3;" data-itemProd>Item</th>
+									<th class="required" data-dataInclusaoPedido>Data Inclusão</th>
+									<th class="required" data-matriculaPaciente>Matrícula</th>
+									<th class="required" data-nomePaciente>
+										Nome
+									</th>
+									<th class="required " style="min-width: 145px;" data-cpfPaciente>CPF</th>
+									<th>
+										<span class="btn btn-default fluigicon fluigicon-user-search fluigicon-xs"
+											id="infoPaciente" style="top: 0; bottom: 0;"></span>
+									</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-dataNascPaciente>Data de
+										Nascimento</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-telPaciente>Telefones</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-emailPaciente>E-mail</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-enderPaciente>Endereço</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-cidadeUFPaciente>Cidade/UF</th>
+									<th class="tdProdHidden tdInfoPacienteStyle" data-cepPaciente>CEP</th>
+									<th class="required" style="z-index:3" data-codProd>Código Medicamento</th>
+									<th class="required" data-desProd>Medicamento</th>
+									<th class="required" data-unidProd>Unidade</th>
+									<th class="" data-qtdDelife>Qtd. Delife</th>
+									<th class="required" data-qtdProd>Qtd. Protheus</th>
+									<th class="required" data-valProd>Valor Produto </th>
+									<th class="required" data-valTotalProd>Valor Total</th>
+									<th class="" data-qtdEntregProd>Entregas (Qtd)</th>
+									<th class="required" data-crmMedico>Médico - CRM</th>
+									<th class="" data-prevEntrega>Previsão da Entrega</th>
+									<th class="" data-dataEntrega>Data de Entrega</th>
+									<th class="" data-obsEntrega>Observação</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="" style="min-width:60px;z-index:3;">
+										<input type="text" id="itemProd" name="itemProd" class="form-control" value=""
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 115px;z-index:3;">
+										<input type="text" id="dataInclusaoPedido" name="dataInclusaoPedido"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 115px;">
+										<input type="text" id="matriculaPaciente" name="matriculaPaciente"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 275px;">
+										<input type="text" id="nomePaciente" name="nomePaciente" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 145px;" colspan="2">
+										<input type="text" id="cpfPaciente" name="cpfPaciente" class="form-control"
+											readonly="readonly" mask="000.000.000-009" />
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 115px;">
+										<input type="text" id="dataNascPaciente" name="dataNascPaciente"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 185px;">
+										<input type="text" id="telPaciente" name="telPaciente" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 235px;">
+										<input type="text" id="emailPaciente" name="emailPaciente" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 235px;">
+										<textarea style="height: 34px; min-height: 34px;" id="enderPaciente"
+											name="enderPaciente" class="form-control" readonly="readonly"></textarea>
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 185px;">
+										<input type="text" id="cidadeUFPaciente" name="cidadeUFPaciente"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td class="tdProdHidden tdInfoPacienteStyle" style="min-width: 145px;">
+										<input type="text" id="cepPaciente" name="cepPaciente" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width:155px;">
+										<div class="input-group">
+											<input type="text" id="codProd" name="codProd" class="form-control"
+												readonly="readonly" />
+											<span
+												class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon"
+												name="zoomProd" id="zoomProd"
+												style="top: 0; bottom: 0; display: none;"></span>
+										</div>
+										<input type="hidden" id="fabricanteProd" name="fabricanteProd"
+											class="form-control" readonly="readonly" />
+										<input type="hidden" id="contaContabilProd" name="contaContabilProd"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 270px;">
+										<input type="text" id="desProd" name="desProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 75px;">
+										<input type="text" id="unidProd" name="unidProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 110px;">
+										<input type="text" id="qtdDelife" name="qtdDelife" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 110px;">
+										<input type="text" id="qtdProd" name="qtdProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 160px;">
+										<input type="text" id="valProd" name="valProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 160px;">
+										<input type="text" id="valTotalProd" name="valTotalProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 115px;">
+										<input type="text" id="qtdEntregProd" name="qtdEntregProd" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="nowrap" style="min-width: 300px;">
+										<input type="text" id="crmMedico" name="crmMedico" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 115px;">
+										<input type="text" id="prevEntrega" name="prevEntrega" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 115px;">
+										<input type="text" id="dataEntrega" name="dataEntrega" class="form-control"
+											readonly="readonly" />
+									</td>
+									<td class="" style="min-width: 275px;">
+										<textarea style="height: 34px; min-height: 34px;" id="obsEntrega"
+											name="obsEntrega" class="form-control"></textarea>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr style="background-color:#eee!important">
+									<td /><!-- Icone -->
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td class="tdProdHidden" />
+									<td class="tdProdHidden" />
+									<td class="tdProdHidden" />
+									<td class="tdProdHidden" />
+									<td class="tdProdHidden" />
+									<td class="tdProdHidden" />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td class="col-md-1">
+										<input type="text" id="totalValorProd" name="totalValorProd"
+											class="form-control" readonly="readonly" />
+									</td>
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+									<td />
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldsetOncoprod'>
+				<legend>Aprovação da Oncoprod</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorOncoprod">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorOncoprod"
+							name='nomeAprovadorOncoprod' readonly>
+						<input type='hidden' id='idAprovadorOncoprod' name='idAprovadorOncoprod'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoOncoprod">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoOncoprod"
+							name='dataAprovacaoOncoprod' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoOncoprod" id="aprovacaoOncoprod" value="sim" />
+								Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoOncoprod" id="aprovacaoOncoprod" value="nao" />
+								Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoOncoprod" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoOncoprod" name='motivoRepovacaoOncoprod'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldset1Alcada'>
+				<legend>1° Alçada de Aprovação</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorAlcada1">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorAlcada1"
+							name='nomeAprovadorAlcada1' readonly>
+						<input type='hidden' id='idAprovadorAlcada1' name='idAprovadorAlcada1'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoAlcada1">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoAlcada1"
+							name='dataAprovacaoAlcada1' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada1" value="sim" /> Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada1" value="nao" /> Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoAlcada1" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoAlcada1" name='motivoRepovacaoAlcada1'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldset2Alcada'>
+				<legend>2° Alçada de Aprovação</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorAlcada2">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorAlcada2"
+							name='nomeAprovadorAlcada2' readonly>
+						<input type='hidden' id='idAprovadorAlcada2' name='idAprovadorAlcada2'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoAlcada2">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoAlcada2"
+							name='dataAprovacaoAlcada2' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada2" id="aprovacaoAlcada2" value="sim" /> Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada2" id="aprovacaoAlcada2" value="nao" />
+								Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoAlcada2" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoAlcada2" name='motivoRepovacaoAlcada2'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldset3Alcada'>
+				<legend>3° Alçada de Aprovação</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorAlcada3">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorAlcada3"
+							name='nomeAprovadorAlcada3' readonly>
+						<input type='hidden' id='idAprovadorAlcada3' name='idAprovadorAlcada3'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoAlcada3">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoAlcada3"
+							name='dataAprovacaoAlcada3' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada3" id="aprovacaoAlcada3" value="sim" /> Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada3" id="aprovacaoAlcada3" value="nao" />
+								Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoAlcada3" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoAlcada3" name='motivoRepovacaoAlcada3'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldset4Alcada'>
+				<legend>4° Alçada de Aprovação</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorAlcada4">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorAlcada4"
+							name='nomeAprovadorAlcada4' readonly>
+						<input type='hidden' id='idAprovadorAlcada4' name='idAprovadorAlcada4'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoAlcada4">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoAlcada4"
+							name='dataAprovacaoAlcada4' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada4" id="aprovacaoAlcada4" value="sim" /> Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoAlcada4" id="aprovacaoAlcada4" value="nao" />
+								Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoAlcada4" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoAlcada4" name='motivoRepovacaoAlcada4'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset id='fieldsetEntrega'>
+				<legend>Aprovação da Entrega</legend>
+				<div class='row'>
+					<div class="form-group col-md-6">
+						<label for="nomeAprovadorEntrega">Nome Aprovador</label>
+						<input type="text" class="form-control disabled" id="nomeAprovadorEntrega"
+							name='nomeAprovadorEntrega' readonly>
+						<input type='hidden' id='idAprovadorEntrega' name='idAprovadorEntrega'>
+					</div>
+					<div class="form-group  col-md-6">
+						<label for="dataAprovacaoEntrega">Data Aprovação</label>
+						<input type="text" class="form-control disabled" id="dataAprovacaoEntrega"
+							name='dataAprovacaoEntrega' readonly>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class='form-group col-md-12'>
+						<label class="required">Decisão</label>
+						<div>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoEntrega" id="aprovacaoEntrega" value="sim" />Aprovar
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="aprovacaoEntrega" id="aprovacaoEntrega" value="nao" />Reprovar
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class='row'>
+					<div class="form-group col-md-12" style="display:none">
+						<label for="motivoRepovacaoEntrega" class="required">Motivo</label>
+						<textarea class="form-control" id="motivoRepovacaoEntrega" name='motivoRepovacaoEntrega'
+							rows='4'></textarea>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- Pesquisa de satisfação -->
+			<div class="row" id="content-pesquisa" style="display:none;">
+				<div class="col-md-6">
+					<button type="button" name="iniciarPesquisa" id="iniciarPesquisa" data-loading-text="Loading..."
+						class="btn btn-primary">
+						Responder Pesquisa de Satisfação
+					</button>
+				</div>
+			</div>
+
+			<div style="display:none">
+				<input type="hidden" name='codSolicitacao' id='codSolicitacao' />
+				<input type="hidden" name='codPrazoPagamento' id='codPrazoPagamento' />
+				<input type="hidden" name='qtdAnexos' id='qtdAnexos' value="0" />
+				<input type='hidden' id='contadorAlcada' name='contadorAlcada' value="1" />
+				<input type="hidden" name='aprovadorAlcada1' id='aprovadorAlcada1' />
+				<input type="hidden" name='aprovadorAlcada2' id='aprovadorAlcada2' />
+				<input type="hidden" name='aprovadorAlcada3' id='aprovadorAlcada3' />
+				<input type="hidden" name='aprovadorAlcada4' id='aprovadorAlcada4' />
+				<input type="hidden" name='existeAlcada' id='existeAlcada' />
+				<input type="hidden" name='aprovadorAlcadaAtual' id='aprovadorAlcadaAtual' />
+				<input type="hidden" name='grupoFilial' id='grupoFilial' />
+				<input type="hidden" name='xmlPedido' id='xmlPedido' />
+				<input type="hidden" name='idFluxo' id='idFluxo' />
+				<input type="hidden" name='codTabelaPreco' id='codTabelaPreco' />
+				<input type="hidden" name="startWebservice" id="startWebservice" value="false" />
+				<input type="hidden" name="ambiente" id="ambiente" />
+				<input type="hidden" name="campoIdentificador" id="campoIdentificador" readonly="readonly" />
+				<input type="hidden" name="emails" id="emails">
+			</div>
+			<!-- SLA -->
+			<input type="hidden" name="COD_SOLICITACAO" id="COD_SOLICITACAO">
+			<input type="hidden" name="emailSolicitante" id="emailSolicitante">
+			<input type="hidden" name="VERSAO">
+			<input type="hidden" name="ISDEFAULT">
+			<input type="hidden" name="SLA7" />
+			<input type="hidden" name="SLA8" />
+			<input type="hidden" name="SLA5" />
+			<input type="hidden" name="SLA29" />
+			<input type="hidden" name="SLA34" />
+			<input type="hidden" name="SLA25" />
+			<input type="hidden" name="SLA_TOTAL" />
+		</form>
+	</div>
+</body>
+
+</html>

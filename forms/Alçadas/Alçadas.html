@@ -1,0 +1,324 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Al&ccedil;adas de Aprova&ccedil;&atilde;o</title>
+
+		<!-- INSERTS PADRAO FLUIG -->
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+		<!-- CSS E CUSTOM -->
+		<link type="text/css" rel="stylesheet" href="css/custom.css" />	
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="custom/custom.js"></script>
+
+		<!-- EXCEL -->
+		<script type="text/javascript" src="excel/excel.js"></script>
+		<script type="text/javascript" src="excel/excelexportjs.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+		
+		<!-- DATASET 
+			ds_Alcadas
+		-->
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<!-- DADOS DA SOLICITACAO E WF DE ORIGEM -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV(this)" id="spDADOS_WF"> </i>AL&Ccedil;ADAS DE APROVA&Ccedil;&Ccedil;O
+					</div>
+					<!-- CONTROLE -->
+					<input type="hidden" name="codSolicitante"     id="codSolicitante" />
+					<input type="hidden" name="campoIdentificador" id="campoIdentificador" />
+
+					<!-- DADOS -->
+					<div class="card-body" id="divDADOS_WF" style="display:block;">
+						<div class="form-group">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Responsável Cria&ccedil;&ccedil;o/Edi&ccedil;&ccedil;o</label>
+								<input type="text" class="form-control" id="nomeSolicitante" name="nomeSolicitante" readonly="readonly" />
+							</div>
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>e-mail</label>
+								<input type="text" class="form-control" id="emailSolicitante" name="emailSolicitante" readonly="readonly" />
+							</div>
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+								<label>Data Atualizacao</label>
+								<input type="text" class="form-control" id="dtAtualizacaoForm" name="dtAtualizacaoForm" readonly="readonly" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- CLASSIFICAR ALCADAS -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoORG')"> CLASSIFICAR AL&Ccedil;ADA - VALORES
+					</div>
+					<div class="card-body" id="div_secaoORG" style="display:block;">
+						<div class="form-group">
+							<!-- 
+								TABELA ALORES PADRONIZADOS CONFORME NIVEL		
+								Nivel	Partida Sem Carta de Excessão	Partida COM Carta de Excessão
+								1	 R$ -   	 R$ -   
+								2	 R$ 20.000,00 	 R$ 10.000,00 
+								3	 R$ 50.000,00 	 R$ 30.000,00 
+								4	 R$ 80.000,00 	 R$ 50.000,00 
+								5	 R$ 150.000,00 	 R$ 80.000,00 
+								6	 R$ 150.000,00 	 R$ 80.000,00 
+								7	 R$ 300.000,00 	 R$ 150.000,00 
+							-->
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<div class="table-responsive">
+									<table tablename="tbValores" id="tbValores" deleteicon="delete.png" noaddbutton="true" class="table table-bordered table-striped table-hover table-condensed">
+										<thead>
+											<tr>
+												<th style="width: 70px !important;">Seq<br></th>
+												<th style="width:150px !important;">Sem Carta de Excessão<br></th>
+												<th style="width:150px !important;">Com Carta de Excessão</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr id="lnVLR">
+												<!-- INFORME O NIVEL - SEMPRE INICIAR EM 1 - CAMPO NUMERICO INTEIRO -->
+												<td><input type="number" class="form-control" id="vlrNivel" name="vlrNivel" required style="width: 70px !important;" /></td>
+												<!-- VALOR SEM CARTA DE EXCESSAO -->
+												<td><input type="text" class="form-control" id="vlrSemCarta" name="vlrSemCarta" required style="width:150px !important;text-align:right;" mask="#00.000.000.000,00" /></td>
+												<!-- VALOR COM CARTA DE EXCESSAO -->
+												<td><input type="text" class="form-control" id="vlrComCarta" name="vlrComCarta" required style="width:150px !important;text-align:right;" mask="#00.000.000.000,00" /></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- COMPLEMENTO BOTAO INSERIR NOVA LINHA DE APROVACAO -->
+								<div class="form-group">
+									<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+										<button type="button" class="btn btn-primary" id="btnInserirValor">Novo Valor</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- LANCAR ALCADAS -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoORG')"> LAN&Ccedil;AR AL&Ccedil;ADA
+					</div>
+					<div class="card-body" id="div_secaoORG" style="display:block;">
+						<div class="form-group">
+							<!-- TABELA PAI-FILHO DO FLUIG PARA INORMAR: CENTRO DE CUSTO, APROVADOR NIVEIS, C/C OPERACIONAIS, C/C NAO OPERACIONAIS E HOLDING-->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="table-responsive">
+									<table tablename="tbAlcadas" id="tbAlcadas" deleteicon="delete.png" noaddbutton="true" class="table table-bordered table-striped table-hover table-condensed">
+										<thead>
+											<tr>
+												<th style="width: 70px !important;"						>Seq<br></th>
+												<th style="width:150px !important;"						>N&iacute;vel<br></th>
+												<th style="width:300px !important;" class="centroCusto"	>Centro de Custo</th>
+												<th style="width:300px !important;" class="filial"		>Filial</th>
+												<th style="width:130px !important;"						>C/C<br>Operacional</th>
+												<th style="width:300px !important;"						>Aprovador</th>
+												<th style="display:none;width:100px !important;"		>centroCusto_Id</th>  
+												<th style="display:none;width:100px !important;"		>filial_Id</th>            
+												<th style="display:none;width:100px !important;"		>holding_Id</th>            
+										</tr>
+										</thead>
+										<tbody>
+											<tr class="remove" id="lnAPV">
+												<!-- INFORME O NIVEL - SEMPRE INICIAR EM 1 - CAMPO NUMERICO INTEIRO -->
+												<td> 
+													<input type="number" class="form-control" id="aprovadorNivel" name="aprovadorNivel" required style="width: 70px !important;"/>
+												</td>
+												<!-- INFORME O NIVEL TIPO DE VALIDACAO -->
+												<td><select class="form-control" id="tipoAprovacao" name="tipoAprovacao" required style="width:150px !important;" onchange="verTipoAprovacao(this)">
+														<option value="nao_informado">Selecione...</option>
+														<option value="CC"           >Centro de Custo</option>
+														<option value="SP"           >Suprimentos</option>
+														<option value="FL"           >Filial</option>
+													</select>
+												</td>
+												<!-- SELECIONAR CENTRO DE CUSTO -->
+												<td><input type="zoom"   id="zoomCentroCusto" name="zoomCentroCusto" class="form-control centroCusto" style="width:300px !important;" 
+														data-zoom="{
+															'displayKey': 'FILTRO',
+															'maximumSelectionLength':'1',
+															'datasetId':'ds_centrosCusto',
+															'placeholder':'Escolha um Centro de Custo',
+															'fields':[
+															{
+																'field':'CODIGO',
+																'label':'Cod.'
+															},{
+																'field':'DESCRICAO',
+																'label':'Descrição',
+																'standard':'true'
+															}]
+														}" />
+												</td>
+												<!-- SELECIONAR FILIAL -->
+												<td><input type="zoom" id="zoomFilial" name="zoomFilial" class="form-control filial" style="width:300px !important;" 
+													data-zoom="{'displayKey':'FILTRO',
+																'datasetId':'ds_filiais',
+																'maximumSelectionLength':'1',
+																'placeholder':'Escolha a Filial',
+																'fields':[
+																	{'field':'CODIGO','label':'Codigo'},
+																	{'field':'DESCRICAO','label':'Filial','standard':'true'},
+																	{'field':'CGC','label':'CGC'},
+																	{'field':'ID_GESTOR','label':'ID_GESTOR','visible': 'false'},										
+																	{'field':'CODIGO_FLUIG','label':'CODIGO_FLUIG','visible': 'false'},
+																	{'field':'RAZAO_SOCIAL','label':'RAZAO_SOCIAL','visible': 'false'},
+																	{'field':'ENDERECO','label':'ENDERECO','visible': 'false'},
+																	{'field':'COMPLEMENTO','label':'COMPLEMENTO','visible': 'false'},
+																	{'field':'CEP','label':'CEP','visible': 'false'},
+																	{'field':'BAIRRO','label':'BAIRRO','visible': 'false'},
+																	{'field':'CIDADE','label':'CIDADE','visible': 'false'},
+																	{'field':'ESTADO','label':'ESTADO','visible': 'false'},
+																	{'field':'CLASSIFICAÇÃO','label':'CLASSIFICAÇÃO','visible': 'false'},
+																	{'field':'TASY','label':'TASY.'},
+																	{'field':'USABILIDADE'  ,'label':'FLUIG'   , 'visible':false }
+																]
+																}" />
+												</td>				
+												
+												<!-- SE CC OPERACIONAL OU NAO -->
+												<td><select class="form-control" id="tipoCCOperacional" name="tipoCCOperacional" required style="width:130px !important;">
+														<option value="nao_informado">Selecione...</option>
+														<option value="S"            >Sim</option>
+														<option value="N"            >N&atilde;o</option>
+													</select>
+												</td>
+
+												<!-- APROVADOR ccOperacionais -->
+												<td><input type="zoom"   id="apv_Usuario" name="apv_Usuario" class="form-control" 
+														data-zoom="{'displayKey':'colleagueName',
+																	'datasetId':'colleague',
+																	'maximumSelectionLength':'1',
+																	'placeholder':'Aprovador...',
+																	'fields':[	{'field':'colleaguePK.colleagueId','label':'Codigo','visible':'false'},
+																				{'field':'colleagueName'          ,'label':'Nome','standard':'true' }
+																			]
+																	}" />
+												</td>
+												<td style="display: none;width:100px !important;"><input type="hidden" id="centroCusto_Id"      	name="centroCusto_Id"    	/></td>
+												<td style="display: none;width:100px !important;"><input type="hidden" id="filial_Id"  				name="filial_Id" 			/></td>
+												<td style="display: none;width:100px !important;"><input type="hidden" id="holding_Id"             	name="holding_Id"           /></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- COMPLEMENTO BOTAO INSERIR NOVA LINHA DE APROVACAO -->
+								<div class="form-group">
+									<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+										<button type="button" class="btn btn-primary" id="btnInserirAprovador">Novo Aprovador</button>
+									</div>
+									<!-- EXPORTACAO PARA EXCEL -->
+									<div class="col-md-2 btnExport">
+										<label>Exportar</label>
+										<button type="button" id="btnEXCEL_Exportar" class="btn btnExport" data-toggle="button"
+											onclick="Download()" title="Inserir dados conforme planilha Excel">
+											<i class="fluigicon fluigicon-download icon-sm"></i>
+										</button>
+									</div>
+									<!-- IMPORTACAO DO EXCEL -->
+									<div class="col-md-4">
+										<input type="file" id="fileUpload" name="fileUpload" class="form-control" />
+									</div>
+									<div class="col-md-1">
+										<button type="button" id="btnEXCEL_Importar" class="btn" data-toggle="button"
+											onclick="Upload('tbAlcadas')" title="Inserir dados conforme planilha Excel">
+											<i class="fluigicon fluigicon-upload icon-sm"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- LANCAR EXCESSOES -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoORG')"> LAN&Ccedil;AR EXCESS&Otilde;ES
+					</div>
+					<div class="card-body" id="div_secaoORG" style="display:block;">
+						<div class="form-group">
+							<!-- TABELA PAI-FILHO DO FLUIG PARA INORMAR: CENTRO DE CUSTO, APROVADOR NIVEIS, C/C OPERACIONAIS, C/C NAO OPERACIONAIS E HOLDING-->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="table-responsive">
+									<table tablename="tbExcessoes" id="tbExcessoes" deleteicon="delete.png" noaddbutton="true" class="table table-bordered table-striped table-hover table-condensed">
+										<thead>
+											<tr>
+												<th style="width: 70px !important;">Seq.<br></th>
+												<th style="width:150px !important;">N&iacute;vel<br></th>
+												<th style="width:370px !important;">C/Custos</th>
+												<th style="width:350px !important;">Justificativa</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td> <!-- INFORME O NIVEL - SEMPRE INICIAR EM 1 - CAMPO NUMERICO INTEIRO -->
+													<input type="number" class="form-control" id="excessaoNivel" name="excessaoNivel" required />
+												</td>
+												<td> <!-- INFORME O NIVEL TIPO DE VALIDACAO -->
+													<select class="form-control" id="tipoExcessao" name="tipoExcessao" required >
+														<option value="nao_informado">Selecione...</option>
+														<option value="CC"           >Centro de Custo</option>
+														<option value="SP"           >Suprimentos</option>
+														<option value="FL"           >Filial</option>
+													</select>
+												</td>
+												<td><!-- PAPEL APROVADOR ccNaoOperacionais -->
+													<input type="zoom"   id="ccExcessao" name="ccExcessao" class="form-control"
+													data-zoom="{'displayKey': 'FILTRO',
+													'maximumSelectionLength':'1',
+													'datasetId':'ds_centrosCusto',
+													'placeholder':'Escolha um Centro de Custo',
+													'fields':[
+													{
+														'field':'CODIGO',
+														'label':'Cod.'
+													},{
+														'field':'DESCRICAO',
+														'label':'Descrição',
+														'standard':'true'
+													}]
+												}" />
+											</td>
+											<td>
+												<textarea rows="2" class="form-control" required="required" style="overflow:auto;resize:vertical;height:auto !important;text-align:center;font-weight:bold;" 
+												placeholder="Digite aqui a justificativa desta excessão..." 
+												id="justificaExcessao" name="justificaExcessao"></textarea>
+											</td>
+											<td style="display: none;">
+												<input type="hidden" id="ccExcessao_Id"  name="ccExcessao_Id" />
+											</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- COMPLEMENTO BOTAO INSERIR NOVA LINHA DE EXCESSAO -->
+								<div class="form-group">
+									<div class="col-xs-12 col-sm-1 col-md-11 col-lg-1"> 
+										<button type="button" class="btn btn-primary" id="btnInserirExcessao">Inserir Excess&atilde;o</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- FIM DO FORMULARIO -->
+				<div class="row form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<hr style="margin-bottom:0px;">
+					<span>Fim do formul&aacute;rio - SM2CE - Al&ccedil;adas Unificadas</SPAN>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

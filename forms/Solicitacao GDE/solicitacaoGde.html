@@ -1,0 +1,1407 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" href="css/custom.css">
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 
+</head>
+
+<body>
+	<div class="container-fluid">
+		<form name="form" role="form">
+			<!-- campos BI -->
+			<input type="hidden" name="area">
+			<input type="hidden" name="categoria">
+			<input type="hidden" name="solicitacao">
+			<input type="hidden" name="aprovador1" id="aprovador1">
+			<input type="hidden" name="aprovador2" id="aprovador2">
+			<input type="hidden" name="aprovador3" id="aprovador3">
+			<input type="hidden" name="aprovador4" id="aprovador4">
+			<input type="hidden" name="aprovador5" id="aprovador5">
+			<input type="hidden" name="aprovador6" id="aprovador6">
+			<input type="hidden" name="aprovador7" id="aprovador7">
+			<input type="hidden" name="dataAprov1" id="dataAprov1">
+			<input type="hidden" name="dataAprov2" id="dataAprov2">
+			<input type="hidden" name="dataAprov3" id="dataAprov3">
+			<input type="hidden" name="dataAprov4" id="dataAprov4">
+			<input type="hidden" name="dataAprov5" id="dataAprov5">
+			<input type="hidden" name="dataAprov6" id="dataAprov6">
+			<input type="hidden" name="dataAprov7" id="dataAprov7">
+			<input type="hidden" name="decisaoAprov1" id="decisaoAprov1">
+			<input type="hidden" name="decisaoAprov2" id="decisaoAprov2">
+			<input type="hidden" name="decisaoAprov3" id="decisaoAprov3">
+			<input type="hidden" name="decisaoAprov4" id="decisaoAprov4">
+			<input type="hidden" name="decisaoAprov5" id="decisaoAprov5">
+			<input type="hidden" name="decisaoAprov6" id="decisaoAprov6">
+			<input type="hidden" name="decisaoAprov7" id="decisaoAprov7">
+			<input type="hidden" name="cpDataLimite" id="cpDataLimite">
+			<input type="hidden" name="cpCodSolicitacao" id="cpCodSolicitacao">
+			<input type="hidden" name="cpAprovadorRegularizadora" id="cpAprovadorRegularizadora">
+			<input type="hidden" name="cpAprovador" id="cpAprovador">
+			<input type="hidden" name="cpAprovadores" id="cpAprovadores">
+			<input type="hidden" name="cpNivelAprovacao" id="cpNivelAprovacao">
+			<input type="hidden" name="quantAprovadores" id="quantAprovadores">
+			<input type="hidden" name="cpIdentificador" id="cpIdentificador">
+			<input type="hidden" name="indiceGds" id="indiceGds">
+			<input type="hidden" name="indiceReg" id="indiceReg">
+			<input type="hidden" name="recarregarTable" id="recarregartable">
+			<input type="hidden" name="cpTetoAutonomia" id="cpTetoAutonomia">
+			<input type="hidden" name="cpNotaAtrasada" id="cpNotaAtrasada">
+			<input type="hidden" name="cpNotaValida" id="cpNotaValida">
+			<input type="hidden" name="cpAlcada" id="cpAlcada" value="false">
+			<input type="hidden" name="cpMatriz" id="cpMatriz" value="false">
+			<input type="hidden" name="cpLogMatriz" id="cpLogMatriz">
+			<input type="hidden" name="cpXML" id="cpXML">
+			<input type="hidden" name="cnaeFornecedor" id="cnaeFornecedor">
+			<input type="hidden" name="ddaVencido" id="ddaVencido">
+			<input type="hidden" name="ddaCGCForn" id="ddaCGCForn">
+			<input type="hidden" name="travaDDA" id="travaDDA" value="false">
+			<input type="hidden" name="prazoMenor2dias" id="prazoMenor2dias" value="false">
+			<input type="hidden" name="listPedidoCompra" id="listPedidoCompra">
+			<input type="hidden" name="cpCodCondPagamento_aux" id="cpCodCondPagamento_aux">
+			<input type="hidden" name="matrCordCompras" id="matrCordCompras">
+
+			
+			
+
+			<!-- campos BI -->
+
+			<!-- painel de Informçõe sdo solicitante do chamado -->
+			<fieldset class="card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Informações Solicitante
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="form-group col-6">
+							<label for="cpSolicitante">Solicitante</label>
+							<input type="text" class="form-control text-center" id="cpSolicitante" name='cpSolicitante'
+								readonly>
+						</div>
+						<div class="form-group col-6">
+							<label for="dtSolicitacao">Data Solicitação</label>
+							<input type="date" class="form-control text-center" id="dtSolicitacao" name='dtSolicitacao'
+								readonly>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel de informções da nota fiscal -->
+			<fieldset class="fieldsNF card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Informações Nota Fiscal
+				</div>
+				<div class="card-body">
+					<div class="row" style="padding-bottom: 10px">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<label for="cpTipoSolicitacao">Tipo Solicitação</label>
+							<select class="form-control text-center" name="cpTipoSolicitacao" id="cpTipoSolicitacao">
+								<option value="gds">GDS</option>
+								<option value="reg">Autonomia / Regularizadora</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-4">
+							<label for="zoomFornecedor" class="required">Fornecedor</label>
+							<input type="hidden" name="cpCodFornecedor" id="cpCodFornecedor">
+							<input type="hidden" name="cpLojaFornecedor" id="cpLojaFornecedor">
+							<input type="hidden" name="cpBancoFornecedor" id="cpBancoFornecedor">
+							<input type="hidden" id="municipioFornecedor" name="municipioFornecedor">
+							<input type="hidden" name="cpAgFornecedor" id="cpAgFornecedor">
+							<input type="hidden" name="cpCCFornecedor" id="cpCCFornecedor">
+							<input type="hidden" name="cpCodIss" id="cpCodIss">
+							<input type="zoom" id="zoomFornecedor" name="zoomFornecedor" class="form-control" data-zoom="{
+							'displayKey':'FILTRO',
+							'datasetId':'ds_fornecedor',
+							'maximumSelectionLength':'1',
+							'placeholder':'Escolha o Forncedor',
+							'filterValues': 'metadata_active,true',
+							'fields':[
+								{'field':'CODIGO','label':'Codigo','standard':'true'},
+								{'field':'DESCRICAO','label':'Razão Social'},
+								{'field':'CGC','label':'CGC'}
+							]}" />
+						</div>
+						<div class="form-group col-4">
+							<label for="cpMunicipio">CNPJ Fornecedor</label>
+							<input type="text" class="form-control text-center" id="cpCnpjForncedor"
+								name='cpCnpjForncedor' readonly>
+						</div>
+						<div class="form-group col-1">
+							<label for="cpEstado">Estado</label>
+							<input type="text" class="form-control text-center" id="cpEstado" name='cpEstado' readonly>
+						</div>
+						<div class="form-group col-3">
+							<label for="cpMunicipio">Municipio</label>
+							<input type="text" class="form-control text-center" id="cpMunicipio" name='cpMunicipio'
+								readonly>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-4">
+							<label for="zoomFilial" class="required">Filial do Solicitante</label>
+							<input type="hidden" name="cpCodFilial" id="cpCodFilial">
+							<input type="hidden" name="cpCodCadFilial" id="cpCodCadFilial">
+							<input type="zoom" id="zoomFilial" name="zoomFilial" class="form-control" data-zoom="{
+										'displayKey':'FILTRO',
+										'datasetId':'ds_filiais',
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha a Filial',
+										'fields':[
+										{'field':'CODIGO','label':'Codigo'},
+										{'field':'DESCRICAO','label':'Filial','standard':'true'},
+										{'field':'CGC','label':'CGC'},
+										{'field':'ID_GESTOR','label':'ID_GESTOR','visible': 'false'},										
+										{'field':'CODIGO_FLUIG','label':'CODIGO_FLUIG','visible': 'false'},
+										{'field':'RAZAO_SOCIAL','label':'RAZAO_SOCIAL','visible': 'false'},
+										{'field':'ENDERECO','label':'ENDERECO','visible': 'false'},
+										{'field':'COMPLEMENTO','label':'COMPLEMENTO','visible': 'false'},
+										{'field':'CEP','label':'CEP','visible': 'false'},
+										{'field':'BAIRRO','label':'BAIRRO','visible': 'false'},
+										{'field':'CIDADE','label':'CIDADE','visible': 'false'},
+										{'field':'ESTADO','label':'ESTADO','visible': 'false'},
+										{'field':'CLASSIFICAÇÃO','label':'CLASSIFICAÇÃO','visible': 'false'}
+										]}" 
+										/>
+						</div>
+						<div class="form-group col-4">
+							<label for="cpMunicipio">CNPJ Filial</label>
+							<input type="text" class="form-control text-center" id="cpCnpjFilial" name='cpCnpjFilial'
+								readonly>
+						</div>
+						<div class="form-group col-4 gds" id="pedidoCompras">
+							<label for="zoomPedidoComp" class="required">Pedido Compra</label>
+							<input type="hidden" name="cpCodPedidoComp" id="cpCodPedidoComp">
+							<input type="hidden" name="cpCodFilialPedido" id="cpCodFilialPedido">
+							<input type="zoom" id="zoomPedidoComp" name="zoomPedidoComp" class="form-control" data-zoom="{
+							'displayKey':'FILTRO',
+							'datasetId':'ds_pedidoCompra',
+							'maximumSelectionLength':'1',
+							'placeholder':'Escolha o Pedido de Compra',
+							'filterValues': 'STATUS,PENDENTE',
+							'fields':[
+								{'field':'PEDIDO','label':'pedido','standard':'true'},
+								{'field':'VLR_TOTAL','label':'Valor Total'}
+							]}" />
+						</div>
+						<div class="col-4">
+							<label for="cpTipoSolicitacao">Forma de Pagamento</label>
+							<select class="form-control text-center" name="cpTipoPagamento" id="cpTipoPagamento">
+								<option value=""></option>
+								<option value="1">Boleto</option>
+								<option value="2">Depósito</option>
+							</select>
+							<input type="hidden" id="hiddenTipoPagamento" name="hiddenTipoPagamento">
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="form-group col-4">
+							<label for="zoomEspecieNf" class="required">Especie Nota Fiscal</label>
+							<input type="hidden" name="cpCodEspecieNf" id="cpCodEspecieNf">
+							<input type="zoom" id="zoomEspecieNf" name="zoomEspecieNf" class="form-control" data-zoom="{
+									'displayKey':'FILTRO',
+									'datasetId':'ds_ConfigGDE',
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha a Especie da NF',
+									'filterValues': 'metadata_active,true',
+									'fields':[
+										{'field':'CODIGO','label':'ID'},
+										{'field':'ESPECIE','label':'Nome','standard':'true'}
+									]}" />
+						</div>
+						<div class="col-3 reg">
+							<label for="cpValorNota">Total Bruto</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbValorNota">R$<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbValorNota"
+									id="cpValorNota" name="cpValorNota" mask="#00.000.000.000.000,00">
+							</div>
+						</div>
+						<div class="form-group col-2 gds">
+							<label for="cpLocalPres" class="required ">Prioridade</label>
+							<input type="text" class="form-control text-center" id="cpPrioridade" name='cpPrioridade'
+								readonly>
+						</div>
+						<div class="col-2 dda" style="display: none;">
+							<label></label>
+							<div class="alert alert-primary" role="alert">
+								DDA não localizado.
+							</div>
+						</div>
+
+						<div class="col-2 boletoVencido" style="display: none;">
+							<label></label>
+							<div class="alert alert-warning" role="alert">Boleto vencido</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-3 dtEmissao">
+							<label for="dtEmissao" class="required">Data Emissão</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbDataEmissao">
+										<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-calendar-date"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+											<path fill-rule="evenodd"
+												d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+											<path fill-rule="evenodd"
+												d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+										</svg>
+										<span>
+								</div>
+								<input type="date" class="form-control text-center" aria-describedby="lbDataEmissao" id="dtEmissao" name="dtEmissao">
+							</div>
+						</div>
+						<div class="col-3 dtPagamento">
+							<label class="required dtVenvBoleto">Data Vencimento Boleto</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="labelDtInicio">
+										<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-calendar-date"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+											<path fill-rule="evenodd"
+												d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+											<path fill-rule="evenodd"
+												d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+										</svg>
+										<span>
+								</div>
+								<input type="date" class="form-control text-center" aria-describedby="lbDataVencimento"
+									id="dtPagamento" name="dtPagamento">
+							</div>
+						</div>
+						<div class="col-3">
+							<label for="cpValorLiquido">Valor Líquido/Valor Boleto</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbValorNota">R$<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbValorNota"
+									id="cpValorLiquido" name="cpValorLiquido" mask="#00.000.000.000.000,00">
+							</div>
+						</div>
+						<div class="col-3" id="divVencimento">
+							<label>Data Prevista
+								Pagamento </label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbDataVencimento">
+										<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-calendar-date"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+											<path fill-rule="evenodd"
+												d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+											<path fill-rule="evenodd"
+												d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+										</svg>
+									</span>
+								</div>
+								<input type="date" class="form-control text-center" aria-describedby="labelDataPrevista"
+									id="dtVencimento" name="dtVencimento" readonly>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row boletoVencido divRenegociacao">
+						<div class="col-md-3" style="margin-top: 50px;">
+							<div class="form-check">
+								<input type="checkbox" class="form-check-input" name="renegociacaoMultaJur"
+									id="renegociacaoMultaJur" value="">
+								<label class="form-check-label" name="renegoci" for="renegoci">Multas e Juros</label>
+								<input type="hidden" name="flagVencimento" id="flagVencimento" value="">
+							</div>
+
+							<div class="form-check">
+								<input type="checkbox" class="form-check-input" name="renegociacaoM" id="renegociacaoM"
+									value="">
+								<label class="form-check-label" name="renegoci" for="renegoci">Renegociação</label>
+								<input type="hidden" name="renegociacaoMHi" id="renegociacaoMHi" value="">
+							</div>
+						</div>
+
+						<div class="col-md-9">
+
+							<label class="labelField required">Motivo do atraso</label>
+							<textarea class="form-control" name="justNegociacao" id="justNegociacao"
+								rows="3"></textarea>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-3">
+							<label for="cpTipoLancamento">Lançamento</label>
+							<input type="text" class="form-control text-center" id="cpTipoLancamento"
+								name='cpTipoLancamento' readonly>
+						</div>
+						<div class="form-group col-4">
+							<label for="cpLocalPres" class="required">Local Prestação Serviço</label>
+							<input type="text" class="form-control text-center" id="cpLocalPres" name='cpLocalPres'>
+						</div>
+						<div class="form-group col-3">
+							<label for="cpNumNota" class="required">Nº Doc</label>
+							<input type="number" class="form-control text-center p-1" id="cpNumNota" name='cpNumNota'>
+						</div>
+						<div class="form-group col-2">
+							<label for="cpSerieNota" class="required">Série</label>
+							<input type="text" class="form-control text-center" id="cpSerieNota" name='cpSerieNota'>
+						</div>
+					</div>
+					<div class="row cpNotaAtrasada gds">
+						<div class="form-group form-group col-11 mr-5 ml-5">
+							<label for="taMotivo" class="required">Motivo Atraso</label>
+							<textarea class="form-control" name="taMotivo" id="taMotivo" rows="3"></textarea>
+						</div>
+					</div>
+					<div class="reg tbRateio">
+						<button class="btn btn-outline-secondary" style="margin-right: 1rem;" id="btnAddCC"
+							name="btnAddCC">
+							<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-plus-circle-fill"
+								fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd"
+									d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z" />
+							</svg>
+							Adicionar
+						</button>
+						<input type="file"
+							class="form-control btn btn-primary import-csv  fluigicon fluigicon-download icon-thumbnail-lg"
+							id="cpCSVRateio" name="cpCSVRateio" title=" Importar CSV" accept=".csv"
+							style="display: none;" />
+						<button class="btn btn-outline-secondary" id="btnImportCSV" name="btnImportCSV"
+							onclick="$('#cpCSVRateio').click()">
+							<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-file-earmark-plus"
+								fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z" />
+								<path fill-rule="evenodd"
+									d="M13.5 10a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z" />
+								<path fill-rule="evenodd"
+									d="M13 12.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z" />
+							</svg>
+							Importar CSV
+						</button>
+					</div>
+					<div class="row reg">
+						<input type="hidden" name="indexRateio" id="indexRateio">
+						<table class="col table table-striped tbRateio" tablename="tbRateio" id="tbRateio"
+							noaddbutton="true" nodeletebutton="true">
+							<thead>
+								<tr>
+									<th scope="col" class="text-center">#</th>
+									<th scope="col" class="text-center">Centro de Custos</th>
+									<th scope="col" class="text-center">Valor</th>
+									<th scope="col" class="text-center">Percentual</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th class="form-group align-middle" style="width: 2rem;">
+										<button class="btn btn-outline-secondary" id="btnRemoveRateio"
+											name="btnRemoveRateio">
+											<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash"
+												fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+												<path fill-rule="evenodd"
+													d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+											</svg>
+										</button>
+									</th>
+									<td class="form-group align-middle" style="width: 50rem">
+										<input type="hidden" name="cpCodCentroCustos" id="cpCodCentroCustos">
+										<input type="zoom" name="zmCentroCustos" id="zmCentroCustos" data-zoom="{
+												'displayKey': 'FILTRO',
+												'maximumSelectionLength':'1',
+												'datasetId':'ds_centrosCusto',
+												'placeholder':'Escolha um Centro de Custo',
+												'fields':[
+												{
+													'field':'CODIGO',
+													'label':'Cod.'
+												},{
+													'field':'DESCRICAO',
+													'label':'Descrição',
+													'standard':'true'
+												}]
+											}" />
+									</td>
+									<td class="col align-middle" style="width: 30rem;">
+										<input type="text" class="form-control text-center" name="cpValorRateio"
+											id="cpValorRateio" mask="#00.000.000.000.000,00" />
+									</td>
+									<td class="align-middle">
+										<input type="text" class="form-control text-center" name="cpPercentualRateio"
+											id="cpPercentualRateio" readonly mask="999.99" />
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>
+									</td>
+									<td>
+										<p class="text-right">TOTAIS:</p>
+									</td>
+									<td>
+										<input type="text" name="cpValorTotalRateio" id="cpValorTotalRateio"
+											mask="#00.000.000.000.000,00" class="form-control text-center" readonly>
+									</td>
+									<td>
+										<input type="text" name="cpPercentualTotalRateio" id="cpPercentualTotalRateio"
+											mask="999.99" class="form-control text-center" readonly>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<div class="row">
+						<div class="form-group form-group col-11 mr-5 ml-5">
+							<label for="taDescPagamento" class="required">Descrição da Solicitação</label>
+							<textarea class="form-control" name="taDescPagamento" id="taDescPagamento"
+								rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel produtos GDS -->
+			<fieldset class="fieldTableGDS gds card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Itens Pedido Compra
+				</div>
+				<div class="card-body">
+					<table class="table table-striped " tablename="tbItensGds" id="tbItensGds" noaddbutton="true"
+						nodeletebutton="true" name="tbItensNota">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Produto</th>
+								<th class="novoProduto" style="display:none">Novo Produto</th>								
+								<th>Qtd Pedido</th>
+								<th class="required">Qtd. Produto</th>
+								<th>Vlr. Unitario</th>
+								<th>Desconto</th>
+								<th>Vlr. Total</th>
+								<th class="required">Centro Custo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="form-group ">
+									<input type="text" id="cpItem" name="cpItem" class="form-control p-1 text-center"
+										size="4" readonly>
+								</td>
+								<td class="form-group" style="width: 20rem;">
+									<input type="hidden" name="cpCodProduto" id="cpCodProduto">									
+									<input type="text" name="cpProduto" id="cpProduto" class="form-control text-center"	readonly>		
+									
+								</td>	
+								<!-- DATASET ADICIONADO SEM ESTAR TOTALMENTE PRONTO  -->							
+				                <!-- <td class="form-group novoProduto" style="width: 20rem;display:none">
+				                  <input type="hidden" name="cpNovoCodProduto" id="cpNovoCodProduto">
+				                  <input type="zoom" name="novoProduto" id="novoProduto" data-zoom="{
+														'displayKey': 'DESCRICAO',
+														'maximumSelectionLength':'1',
+														'datasetId':'ds_produtos',
+														'placeholder':'Produto',
+														'fields':[
+															{'field':'CODIGO','label':'Cod.'},
+															{'field':'DESCRICAO','label':'Descrição','search':'true'
+														}]
+													}" />
+				                </td> -->
+								<td class="form-group novoProduto" style="width: 20rem;display:none">
+									<input type="hidden" name="cpNovoCodProduto" id="cpNovoCodProduto">
+									<input type="zoom" name="novoProduto" id="novoProduto" data-zoom="{
+														  'displayKey': 'DESCRICAO',
+														  'maximumSelectionLength':'1',
+														  'datasetId':'ds_produto',
+														  'placeholder':'Produto',
+														  'filterValues': 'metadata_active, true',
+														  'fields':[
+															  {'field':'CODIGO','label':'Cod.'},
+															  {'field':'DESCRICAO','label':'Descrição','search':'true'
+														  }]
+													  }" />
+								  </td>
+								<td class="form-group">
+									<input type="text" class="form-control text-center" id="cpQuantPedido"
+										name="cpQuantPedido" size="4" maxlength="21" readonly>
+								</td>
+								<td class="form-group" style="width: 5rem;">
+									<input type="number" class="form-control quant text-center" id="cpQuantEntrada"
+										name="cpQuantEntrada" size="3" maxlength="21">
+								</td>
+								<td class="form-group">
+									<input type="text" class="form-control text-right" id="cpVlrUnit" name="cpVlrUnit"
+										size="12" maxlength="21">
+								</td>
+								<td class="form-group">
+									<input type="hidden" name="cpIpi" id="cpIpi">
+									<input type="text" class="form-control text-right" id="cpVlrDesc" name="cpVlrDesc"
+										size="10" maxlength="21" readonly>
+								</td>
+								<td class="form-group">
+									<input type="text" class="form-control text-right" id="cpVlrTotal" name="cpVlrTotal"
+										size="12" maxlength="21" readonly>
+								</td>
+								<td class="form-group">
+									<input type="hidden" name="cpCodCentroCusto" id="cpCodCentroCusto">
+									<input type="text" class="form-control text-center" name="cpCentroCusto"
+										id="cpCentroCusto" readonly>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul class="nav nav-tabs clearfix" role="tablist" data-tabs="tabs">
+						<li class=" nav-item  nav-link active">
+							<a href="#totaisNF" role="tab" data-toggle="tab">Totais Nota Fiscal</a>
+						</li>
+						<li class="nav-item nav-link ">
+							<a href="#fornecedores" role="tab" data-toggle="tab">Fornecedor / Cliente</a>
+						</li>
+						<li class="nav-item nav-link">
+							<a href="#descontos" role="tab" data-toggle="tab">Descontos / Fretes / Despesas</a>
+						</li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="totaisNF" class="tab-pane active">
+							<div class="row">
+								<div class="col">
+									<label for="cpVlrMercadoria">Valor Mercadoria</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrMercadoria">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrMercadoria" id="cpVlrMercadoria" value="R$ 0,00"
+											name="cpVlrMercadoria" mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class="col">
+									<label for="cpDescontoTotais">Descontos</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrDesconto">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrDesconto" id="cpDescontoTotais" value="R$ 0,00"
+											name="cpDescontoTotais" mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class="col">
+									<label for="cpVlrBruto">Total Bruto</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrBruto">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrBruto" id="cpVlrBruto" value="R$ 0,00"
+											name="cpVlrBruto" mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="fornecedores" class="tab-pane">
+							<div class="row">
+								<div class="form-group col-6">
+									<label for="cpRazaoSocial">Razão Social</label>
+									<input type="text" class="form-control text-center" id="cpRazaoSocial"
+										name='cpRazaoSocial' readonly>
+								</div>
+								<div class="form-group col-1">
+									<label for="cpEstadoFornecedor">Estado</label>
+									<input type="text" class="form-control text-center" id="cpEstadoFornecedor"
+										name='cpEstadoFornecedor' readonly>
+								</div>
+								<div class="form-group col-3">
+									<label for="cpCidadeFornecedor">Cidade</label>
+									<input type="text" class="form-control text-center" id="cpCidadeFornecedor"
+										name='cpCidadeFornecedor' readonly>
+								</div>
+								<div class="form-group col-2">
+									<label for="cpTelefone">Telefone</label>
+									<input type="text" class="form-control text-center" id="cpTelefone"
+										name='cpTelefone' readonly>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="form-group col-3">
+									<label for="cpCnpj">Cnpj</label>
+									<input type="text" class="form-control text-center" id="cpCnpj" name='cpCnpj'
+										readonly>
+								</div>
+								<div class="form-group col-3">
+									<label for="cpInsEstadual">Inscrição Estadual</label>
+									<input type="text" class="form-control text-center" id="cpInsEstadual"
+										name='cpInsEstadual' readonly>
+								</div>
+								<div class="form-group col-6">
+									<label for="cpEndereco">Endreço</label>
+									<input type="text" class="form-control text-center" id="cpEndereco"
+										name='cpEndereco' readonly>
+								</div>
+
+							</div>
+						</div>
+
+						<div id="descontos" class="tab-pane card-body">
+							<div class="row">
+								<div class=" col">
+									<label for="cpTotal">Total Pedido</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrTotalPedido">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrTotalPedido" id="cpTotalPedido" name="cpTotalPedido"
+											mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class="col">
+									<label for="cpVlrDespesas">Valor Despesas</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrDespesas">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrDespesas" id="cpVlrDespesas" name="cpVlrDespesas"
+											mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class="col">
+									<label for="cpVlwFrete">Valor Frete</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrFrete">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrFrete" id="cpVlrFrete" name="cpVlrFrete"
+											mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class="col">
+									<label for="vlrSeguro">Valor IPI</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrIpi">R$<span>
+										</div>
+										<input type="text" class="form-control text-center" aria-describedby="lbVlrIpi"
+											id="cpVlrIpi" name="cpVlrIpi" mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+								<div class=" col">
+									<label for="cpTotal">Total (Despesas + Frete)</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text form-control" id="lbVlrTotal">R$<span>
+										</div>
+										<input type="text" class="form-control text-center"
+											aria-describedby="lbVlrTotal" id="cpTotal" name="cpTotal"
+											mask="#00.000.000.000.000,00" readonly>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			
+			<!-- painel produtos GDS produtos alterados no pedido -->						
+				<div id="itensAlterados" style="display:none">
+					<table class="table table-striped" tablename="aux_tbItensAlterados" id="aux_tbItensAlterados" noaddbutton="true" nodeletebutton="true">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Produto</th>
+								<th>Centro Custo</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input type="text" id="aux_cpItem" name="aux_cpItem" class="form-control" readonly>
+								</td>
+								<td>
+									<input type="hidden" name="aux_cpCodProduto" id="aux_cpCodProduto">									
+									<input type="text" name="aux_cpProduto" id="aux_cpProduto" class="form-control"	readonly>
+								</td>																
+								<td>
+									<input type="hidden" name="aux_cpCodCentroCusto" id="aux_cpCodCentroCusto">									
+								</td>
+								<td>
+									<input type="hidden" name="aux_obs" id="aux_obs">	
+									<input type="hidden" name="aux_adicionais" id="aux_adicionais">								
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			
+
+			<!-- Painel produtos Autonomia/regularizadora -->
+			<fieldset class="fieldTableReg reg card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Lista Produtos
+				</div>
+				<div class="card-body">
+					<button class="btn btn-outline-secondary" id="btnAddItem" name="btnAddItem">
+						<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-plus-circle-fill"
+							fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd"
+								d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z" />
+						</svg>
+					</button>
+					<table class="table table-striped reg" tablename="tbItensReg" id="tbItensReg" name="tbItensReg"
+						noaddbutton="true" nodeletebutton="true">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Codigo Produto</th>
+								<th class="required">Produto</th>
+								<th class="required">Qtd. Produto</th>
+								<th class="required">Vlr. Unitario</th>
+								<th>IPI</th>
+								<th>Desconto</th>
+								<th>Vlr. Total</th>
+								<th>Cnae</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<button class="btn btn-outline-secondary " id="btnRemoveIten" name="btnRemoveIten"
+										onclick="fnWdkRemoveChild(this)">
+										<svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash"
+											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+											<path fill-rule="evenodd"
+												d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+										</svg>
+									</button>
+								</td>
+								<td class="form-group">
+									<input type="text" id="cpCodProd" name="cpCodProd"
+										class="form-control text-center p-1" size="4" readonly>
+								</td>
+								<!-- DATASET ADICIONADO SEM ESTAR TOTALMENTE PRONTO  -->
+								<!-- <td class="form-group" style="width: 35%;">
+									<input type="hidden" id="cpCodIssForn" name="cpCodIssForn">
+									<input type="zoom" id="zoomProduto" class="form-control " name="zoomProduto"
+										data-zoom="{
+										'displayKey':'FILTRO',
+										'datasetId':'ds_produtos',
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha o Produto',
+										'fields':[
+											{'field':'CODIGO','label':'Codigo'},
+											{'field':'DESCRICAO','label':'Nome','standard':'true'},
+											{'field':'DESC_TIPO','label':'TIPO'},
+											{'field':'CNAE','label':'Cnae'},
+											{'field':'COD_ISS','label':'Cod.Serv'}
+										]}" />
+								</td> -->
+
+								<td class="form-group" style="width: 35%;">
+									<input type="hidden" id="cpCodIssForn" name="cpCodIssForn">
+									<input type="zoom" id="zoomProduto" class="form-control " name="zoomProduto"
+										data-zoom="{
+										'displayKey':'FILTRO',
+										'datasetId':'ds_produto',
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha o Produto',
+										'fields':[
+											{'field':'CODIGO','label':'Codigo'},
+											{'field':'DESCRICAO','label':'Nome','standard':'true'},
+											{'field':'DESC_TIPO','label':'TIPO'},
+											{'field':'CNAE','label':'Cnae'},
+											{'field':'COD_ISS','label':'Cod.Serv'}
+										]}" />
+								</td>
+								<td class="form-group" style="width: 5%">
+									<input type="number" class="form-control quant" id="cpQuant" name="cpQuant" size="3"
+										value="1">
+								</td>
+								<td class="form-group ">
+									<input type="text" class="form-control text-right" id="cpValorUnit"
+										name="cpValorUnit" size="18" mask="#00.000.000.000.000,00" placeholder="0,00">
+								</td>
+								<td class="form-group ">
+									<input type="text" class="form-control text-right" id="cpValorIpi" name="cpValorIpi"
+										size="15" mask="#00.000.000.000.000,00" value="0" placeholder="0,00">
+								</td>
+								<td class="form-group">
+									<input type="text" class="form-control text-right" id="cpValorDesconto"
+										name="cpValorDesconto" size="15" mask="#00.000.000.000.000,00" value="0"
+										placeholder="0,00">
+								</td>
+								<td class="form-group">
+									<input type="text" class="form-control text-right" id="cpValorTotal"
+										name="cpValorTotal" size="25" mask="#00.000.000.000.000,00" placeholder="0,00"
+										readonly>
+								</td>
+								<td class="form-group" style="display: none;">
+									<input type="text" class="form-control text-right" id="cnaeProduto"
+										name="cnaeProduto" size="25" readonly>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row reg">
+						<div class="col">
+							<label for="cpTotalIpi">Total IPI</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbTotalIpi">R$<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbTotalIpi"
+									id="cpTotalIpi" name="cpTotalIpi" mask="#00.000.000.000.000,00" readonly>
+							</div>
+						</div>
+						<div class="col">
+							<label for="cpTotalIpi">Total Descontos</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbTotalDescontos">R$<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbTotalDescontos"
+									id="cpTotalDescontos" name="cpTotalDescontos" mask="#00.000.000.000.000,00"
+									readonly>
+							</div>
+						</div>
+						<div class="form-group col">
+							<label for="cpValorTotalNota">Total</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbTotalNota">R$<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbTotalNota"
+									id="cpValorTotalNota" name="cpValorTotalNota" mask="#00.000.000.000.000,00"
+									readonly>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel aprovador soluçoes Inconsistência -->
+			<fieldset id='fdAprovacaoRegularizadora' class="fdAprovacaoRegularizadora card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Aprovação Regularizadora
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovFinanceiro">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpAprovRegularizadora"
+								name='cpAprovRegularizadora' readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtAprovRegularizadora"
+								name='dtAprovRegularizadora' readonly>
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="aprovacao" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovRegularizadora">
+								<i class="material-icons btnAprovRegularizadora">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovRegularizadora">
+								<i class="material-icons btnReprovRegularizadora">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaRegularizadora" id="cpDecisaRegularizadora">
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivoFinanceiro">Motivo</label>
+							<textarea class="form-control" id="taMotivoRegularizadora" name='taMotivoRegularizadora'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel alçada de aprovação -->
+			<fieldset id='fdGestoresAlcada' class="fdGestoresAlcada card text-center m-1 ">
+				<div class="card-header panel-estilizado">
+					<span class="fluigicon fluigicon-exclamation-sign-on icon-xl"></span>
+					Aprovação Gestores
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovFinanceiro">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpAprovGestor" name='cpAprovGestor'
+								readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtAprovGestor"
+								name='dtAprovGestor' readonly>
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="aprovacao" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovGestor">
+								<i class="material-icons btnAprovGestor">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovGestor">
+								<i class="material-icons btnReprovGestor">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaoGestor" id="cpDecisaoGestor">
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivoFinanceiro">Motivo</label>
+							<textarea class="form-control" id="taMotivoGestor" name='taMotivoGestor'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel aprovação financeiro -->
+			<fieldset id='fdAprovacaoFinanceiro' class="fdAprovacaoFinanceiro card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Aprovação Gestor Ciclo Financeiro
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovFinanceiro">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpAprovFinanceiro"
+								name='cpAprovFinanceiro' readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtAprovFinanceiro"
+								name='dtAprovFinanceiro' readonly>
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="aprovacao" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovFinanceiro">
+								<i class="material-icons btnAprovFinanceiro">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovFinanceiro">
+								<i class="material-icons btnReprovFinanceiro">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaoFinanceiro" id="cpDecisaoFinanceiro">
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivoFinanceiro">Motivo</label>
+							<textarea class="form-control" id="taMotivoFinanceiro" name='taMotivoFinanceiro'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel de aprovaçao da classificação fiscal -->
+			<fieldset id='fdFiscal' class="fdFiscal card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Verificação Fiscal
+				</div>
+				<div class="card-body">
+					<!-- <div class="row">
+						<div class="alert alert-success col" role="alert">
+							<span id="msgMatriz">Nota Apta a ser Classificada Automaticamente</span>
+						</div>
+					</div> -->
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovFinanceiro">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpAprovFiscal" name='cpAprovFiscal'
+								readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtAprovFiscal"
+								name='dtAprovFiscal' readonly>
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="btnAprovFiscal" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovFiscal">
+								<i class="material-icons btnAprovFiscal">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovFiscal">
+								<i class="material-icons btnReprovFiscal">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaoFiscal" id="cpDecisaoFiscal">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col">
+							<label for="cpSimplesNacional">Simples Nacional</label>
+							<input type="text" class="form-control text-center" id="cpSimplesNacional"
+								name='cpSimplesNacional' readonly>
+						</div>
+						<div class="form-group col">
+							<label for="cpAliqISS">Alíquota ISS</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbINSS">%<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbINSS"
+									id="cpAliqISS" name="cpAliqISS" mask="#00.00">
+							</div>
+						</div>
+						<div class=" form-group col cpom">
+							<label for="slCepom">CEPOM</label>
+							<select name="slCepom" id="slCepom" class="form-control text-center">
+								<option value="S">Sim</option>
+								<option value="N">Não</option>
+							</select>
+						</div>
+						<div class=" col">
+							<label for="cpINSS">Alíquota INSS</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text form-control" id="lbINSS">%<span>
+								</div>
+								<input type="text" class="form-control text-center" aria-describedby="lbINSS"
+									id="cpINSS" name="cpINSS" mask="00.00">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class=" form-group col">
+							<label for="slCepom">Código Barras</label>
+							<input type="text" name="cpCodigoBarras" id="cpCodigoBarras" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-4 ">
+							<label for="cpCondicaoPagamento">Condição Pagamento</label>
+							<input type="hidden" name="cpCodCondPagamento" id="cpCodCondPagamento">							
+							<input type="text" class="form-control gds text-center" name="cpCondicaoPagamento"
+								id="cpCondicaoPagamento" readonly>
+							<div class="reg">
+								<input class="required" type="zoom" class="form-control text-center "
+									id="zoomCondicaoPagamento" name='zoomCondicaoPagamento' data-zoom="{
+										'displayKey':'FILTRO',
+										'datasetId':'ds_condicaoPagamento',
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha a Condição de Pagamento',
+										'filterValues': 'metadata_active,true',
+										'fields':[
+											{'field':'CODIGO','label':'Codigo'},
+											{'field':'DESCRICAO','label':'Nome','standard':'true'}
+										]}" />
+							</div>
+						</div>
+						<div class="form-group col-3 ">
+							<label for="cpCondicaoPagamento">Base Calculo Reduzida</label>
+							<input type="text" name="cpBaseCalculo" id="cpBaseCalculo" mask="#00.000.000.000.000,00"
+								class="form-control text-center ">
+						</div>
+						<div class="form-group col-2 ">
+							<label for="cpCondicaoPagamento">TES</label>
+							<input type="text" name="cpTes" id="cpTes" class="form-control text-center ">
+						</div>
+						<div class="form-group col-2 ">
+							<label for="cpTipoNota">Tipo Nota</label>
+							<select name="cpTipoNota" id="cpTipoNota" class="form-control text-center">
+								<option value="1">PRE-NOTA</option>
+								<option value="2">NOTA_FISCAL</option>
+							</select>
+						</div>
+					</div>
+					<div class="row destinoVerificacao" style="display: none">
+						<div class="form-group col destinoVerificacao">
+							<label for="slMotivoRejeicao">Destino da Solicitação</label>
+							<select class="form-control" id="slMotivoRejeicao" name="slMotivoRejeicao">
+								<option value="1">1 - Data Emissão</option>
+								<option value="2">2 - Espécie de documento</option>
+								<option value="3">3 - Quantidade de produto</option>
+								<option value="4">4 - Valor unit / Total dos produtos / valor de desconto / Valor
+									frete
+								</option>
+								<option value="5">5 - Produto/serviço incorreto</option>
+								<option value="7">7 - Pedido divergente da nota fiscal</option>
+								<option value="8">8 - Retenções incorretas no documento fiscal ISSQN</option>
+								<option value="9">9 - Dados de solicitações de lançamento</option>
+							</select>
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivoFiscal">Motivo</label>
+							<textarea class="form-control" id="taMotivoFiscal" name='taMotivoFiscal'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel de aprovaçao da classificação fiscal -->
+			<fieldset id='fdClassificacao' class="fdFiscal card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Verificação Fiscal
+				</div>
+				<div class="card-body">
+					<div class="row destinoClassificacao">
+						<div class=" form-group col">
+							<label for="slDestino">Destino da Solicitação</label>
+							<select class="form-control" id="slDestino" name="slDestino">
+								<option value="1">1 - Classificação Automatica - Matriz Regularizada</option>
+								<option value="2">2 - Solicitante - Classificação Manual</option>
+								<option value="3">3 - Compras - Nota Bloqueada</option>
+							</select>
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivoFiscal">Motivo</label>
+							<textarea class="form-control" id="taMotivoClassificao" name='taMotivoClassificao'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel para consideraçoes do setor de compras -->
+			<fieldset id='fdCompras' class="fdCompras card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Considerações compras
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovcpSolicitante">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpCompras" name='cpCompras'
+								readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtCompras" name='dtCompras'
+								readonly>
+						</div>
+						
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="btnAprovCompras" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovCompras">
+								<i class="material-icons btnAprovCompras">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovCompras">
+								<i class="material-icons btnReprovCompras">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaoCompras" id="cpDecisaoCompras">
+						</div>
+						
+						
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivocpSolicitante">Considerações</label>
+							<textarea class="form-control" id="taConsideracaoCompras" name='taConsideracaoCompras'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel para considerações do coordenador de compras diversas -->
+			<fieldset id='fdCoordenadorCompras' class="fdCoordenadorCompras card text-center m-1">
+				<div class="card-header panel-estilizado">
+					Considerações Coordenador Compras Diversas
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovcpSolicitante">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpCoordenadorCompras"
+								name='cpCoordenadorCompras' readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtCoordenadorCompras"
+								name='dtCoordenadorCompras' readonly>
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivocpSolicitante">Considerações</label>
+							<textarea class="form-control" id="taConsideracaoCooCompras" name='taConsideracaoCooCompras'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel de aprovacao do cpSolicitante -->
+			<fieldset id='fdSolicitante' class="fdSolicitante card text-center m-1">
+				<div class="card-header panel-estilizado">
+					<span class="fluigicon fluigicon-exclamation-sign-on icon-xl"></span>
+					Aprovação Solicitante
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-6">
+							<label for="cpAprovcpSolicitante">Nome Aprovador</label>
+							<input type="text" class="form-control text-center" id="cpAprovSolicitante"
+								name='cpAprovSolicitante' readonly>
+						</div>
+						<div class="form-group  col-2">
+							<label for="dtAprovFinanceiro">Data Aprovação</label>
+							<input type="date" class="form-control text-center p-1" id="dtAprovSolicitante"
+								name='dtAprovSolicitante' readonly>
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<label for="btnAprovcpSolicitante" class="required">Aprovação</label>
+							<button type="button" class="btn btn-outline-success" id="btnAprovSolicitante">
+								<i class="material-icons btnAprovSolicitante">thumb_up_alt</i>
+								Aprovar
+							</button>
+							<button type="button" class="btn btn-outline-danger" id="btnReprovSolicitante">
+								<i class="material-icons btnReprovSolicitante">thumb_down_alt</i>
+								Reprovar
+							</button>
+							<input type="hidden" name="cpDecisaoSolicitante" id="cpDecisaoSolicitante">
+						</div>
+						<div class="form-group col-4" style="padding-top: 1em">
+							<button type="button" name="iniciarPesquisa" id="iniciarPesquisa"
+								data-loading-text="Loading..." class="btn btn-primary">
+								Responder Pesquisa de Satisfação
+							</button>
+						</div>
+					</div>
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivocpSolicitante">Motivo</label>
+							<textarea class="form-control" id="taMotivoSolicitante" name='taMotivoSolicitante'
+								rows='4'></textarea>
+						</div>
+					</div>
+
+					<div id='panelPesquisaFornecedor' class="fdSolicitante card text-center m-1">
+						<div class="card-header panel-estilizado">
+							Pesquisa Satisfação Fornecedor
+						</div>
+						<div class="card-body">
+							<table class="table table-condensed " tablename="tbSatisfacaoFornecedor"
+								id="tbSatisfacaoFornecedor" noaddbutton="true" nodeletebutton="true"
+								name="tbSatisfacaoFornecedor">
+								<thead>
+									<tr>
+										<th>Pergunta</th>
+										<th>Resposta</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="form-group col-10">
+											<input type="text" class="form-control" id="cpPergunta" name="cpPergunta"
+												readonly>
+										</td>
+										<td class="form-group col-2">
+											<select class="form-control" name="slResposta" id="slResposta">
+												<option value="sim">Sim</option>
+												<option value="nao">Não</option>
+											</select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- painel de Solução da inconsistencia -->
+			<fieldset id='fdInconsistencia' class="fdInconsistencia card text-center m-1">
+				<div class="card-header panel-estilizado">
+					<span class="fluigicon fluigicon-exclamation-sign-on icon-xl"></span>
+					Solução Inconsistência
+				</div>
+				<div class="card-body">
+					<div class='row'>
+						<div class="form-group col-11 mr-5 ml-5">
+							<label for="taslMotivocpSolicitante">Motivo</label>
+							<textarea class="form-control" id="taSolucaoInconsistencia" name='taSolucaoInconsistencia'
+								rows='4'></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- campos utilizados para o SLA -->
+			<input type='hidden' id='idSolicitante' name='idSolicitante'>
+			<input type="hidden" name="COD_SOLICITACAO" id="COD_SOLICITACAO">
+			<input type="hidden" name="emailSolicitante" id="emailSolicitante">
+			<input type="hidden" name="VERSAO" id="VERSAO">
+			<input type="hidden" name="ISDEFAULT" id="ISDEFAULT">
+			<input type="hidden" name="SLA12" id="SLA12" />
+			<input type="hidden" name="SLA16" id="SLA16" />
+			<input type="hidden" name="SLA21" id="SLA21" />
+			<input type="hidden" name="SLA29" id="SLA29" />
+			<input type="hidden" name="SLA33" id="SLA33" />
+			<input type="hidden" name="SLA41" id="SLA41" />
+			<input type="hidden" name="SLA51" id="SLA51" />
+			<input type="hidden" name="SLA59" id="SLA59" />
+			<input type="hidden" name="SLA62" id="SLA62" />
+			<input type="hidden" name="SLA68" id="SLA68" />
+			<input type="hidden" name="SLA76" id="SLA76" />
+			<input type="hidden" name="SLA130" id="SLA130" />
+			<input type="hidden" name="SLA158" id="SLA158" />
+			<input type="hidden" name="SLA_TOTAL" id="SLA_TOTAL" />
+
+		</form>
+	</div><!-- ultima div -->
+</body>
+<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+	integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="/SistemaChamados/resources/js/util/getParamsUrl.js"></script>
+<script type="text/javascript" src="/widget_pesquisa_satisfacao/resources/js/initPesquisaDeSatisfacao.js"></script>
+<script type="text/javascript" src="/util/resources/js/Utils.js"></script>
+<script src="js/jquery.csv.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/customGDE.class.js"></script>
+
+</html>

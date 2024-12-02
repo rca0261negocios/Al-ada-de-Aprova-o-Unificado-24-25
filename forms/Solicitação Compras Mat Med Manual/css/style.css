@@ -1,0 +1,159 @@
+.min-table-field{
+    min-width: 75px;
+}
+.med-table-field {
+    min-width: 153px;
+    width: 153px;
+}
+.big-table-field {
+    min-width: 306px;
+}
+.table{
+    margin-bottom:20px!important; 
+}
+.max-table-height{
+    max-height:400px;
+}
+
+
+.modal-style {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+td.tabVencedorCotacao{
+    text-align:center;
+}
+.contentModalCotacao {
+    width: 80%;
+    margin: auto;
+    border: 1px solid #888;
+    border-radius: 7px;
+}
+.cabecarioModalCotacao {
+    background-color: #0084ac;
+    color: #fff;
+    min-height: 90px;
+    font-family: roboto;
+    text-align: center;
+}
+
+/* Modal Content */
+.modal-content-style {
+    background-color: #fefefe;
+    padding: 20px;
+}
+
+/* The Close Button */
+.close-style {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-style:hover,
+.close-style:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*CHECKBOX LIB*/
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 1px solid #bdbdbd;
+}
+
+.control-radio .control_indicator {
+    border-radius: undefined;
+}
+
+.control:hover input~.control_indicator,
+.control input:focus~.control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked~.control_indicator {
+    background: #2aa1c0;
+}
+
+.control:hover input:not([disabled]):checked~.control_indicator,
+.control input:checked:focus~.control_indicator {
+    background: #0e647d;
+}
+
+.control input:disabled~.control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.control input:checked~.control_indicator:after {
+    display: block;
+}
+
+.control-checkbox .control_indicator:after {
+    left: 5px;
+    top: 2px;
+    width: 7px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled~.control_indicator:after {
+    border-color: #7b7b7b;
+}
+
+.disable-click{
+    pointer-events: none;
+}

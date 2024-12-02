@@ -1,0 +1,3683 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+    </processDefinitionPK>
+    <processDescription>Medição de Contratos</processDescription>
+    <instruction>Anexar os documentos a seguir no chamado. Na ausência de um dos documentos abaixo o chamado será devolvido para correção:&#xd;
+- Contrato Social da empresa e seus aditivos&#xd;
+- Proposta Técnica / Orçamento&#xd;
+- E-mail de contato e telefone do fornecedor</instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Contratos</categoryId>
+    <managerEngineAllocationId>Associado</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssociatedController ConditionAssociated=&quot;OR&quot;&gt;&lt;ControlXML TypeAssociated=&quot;Grupo&quot;&gt;&lt;AssignmentController&gt;&lt;Group&gt;Central_Atendimento&lt;/Group&gt;&lt;/AssignmentController&gt;&lt;/ControlXML&gt;&lt;ControlXML TypeAssociated=&quot;Grupo&quot;&gt;&lt;AssignmentController&gt;&lt;Group&gt;GSC_ACOMPANHAMENTO&lt;/Group&gt;&lt;/AssignmentController&gt;&lt;/ControlXML&gt;&lt;ControlXML TypeAssociated=&quot;Grupo&quot;&gt;&lt;AssignmentController&gt;&lt;Group&gt;COORD_FIS&lt;/Group&gt;&lt;/AssignmentController&gt;&lt;/ControlXML&gt;&lt;/AssociatedController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>0</complementsLevel>
+    <notifyRequisitionerComplements>false</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>false</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Medição de Contratos</processId>
+      <version>110</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>1304642</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>80</positionX>
+      <positionY>73</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>10</sequence>
+      </processStatePK>
+      <stateName>Corrigir Inconsistências</stateName>
+      <stateDescription>Corrigir Inconsistências</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA10</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;3&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>290</positionX>
+      <positionY>49</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>27</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Solicitante</stateName>
+      <stateDescription>Aprovação do Solicitante</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA27</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;3&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>920</positionX>
+      <positionY>56</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>true</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>29</sequence>
+      </processStatePK>
+      <stateName>Solução da Inconsistência</stateName>
+      <stateDescription>Solução da Inconsistência</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA29</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;INC_solMedicaoContratos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1100</positionX>
+      <positionY>170</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>true</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>36</sequence>
+      </processStatePK>
+      <stateName>Avaliação do Gestor</stateName>
+      <stateDescription>Avaliação do Gestor</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA36</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;proximoAprovador&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>130</positionX>
+      <positionY>590</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>true</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>58</sequence>
+      </processStatePK>
+      <stateName>Inserir Medição Protheus</stateName>
+      <stateDescription>Inserir Medição Protheus</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>130</positionX>
+      <positionY>405</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>64</sequence>
+      </processStatePK>
+      <stateName>Tratativa Medição</stateName>
+      <stateDescription>Tratativa Medição</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA64</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;CSO_NOTASABAX&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>260</positionX>
+      <positionY>769</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>71</sequence>
+      </processStatePK>
+      <stateName>Estornar Medição Protheus</stateName>
+      <stateDescription>Estornar Medição Protheus</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>560</positionX>
+      <positionY>380</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>159</sequence>
+      </processStatePK>
+      <stateName>Tratativa Erro Medição</stateName>
+      <stateDescription>Tratativa Erro Medição</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;CSO_NOTASABAX&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>290</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>162</sequence>
+      </processStatePK>
+      <stateName>Tratativa Erro Estorno</stateName>
+      <stateDescription>Tratativa Erro Estorno</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;CSO_NOTASABAX&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>680</positionX>
+      <positionY>460</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>165</sequence>
+      </processStatePK>
+      <stateName>Integração Pre Nota</stateName>
+      <stateDescription>Integração Pre Nota</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>500</positionX>
+      <positionY>769</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>168</sequence>
+      </processStatePK>
+      <stateName>Tratativa Erro Integração Nota</stateName>
+      <stateDescription>Tratativa Erro Integração Nota</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;CSO_NOTASABAX&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>630</positionX>
+      <positionY>820</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>171</sequence>
+      </processStatePK>
+      <stateName>Classificação Fiscal</stateName>
+      <stateDescription>Classificação Fiscal</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>830</positionX>
+      <positionY>769</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>174</sequence>
+      </processStatePK>
+      <stateName>Classificação Manual</stateName>
+      <stateDescription>Classificação Manual</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA174</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;CSO_NOTASABAX&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1010</positionX>
+      <positionY>769</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>183</sequence>
+      </processStatePK>
+      <stateName>Analisar vinculação produto Fornecedor</stateName>
+      <stateDescription>Analisar vinculação produto Fornecedor</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA183</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;FIS&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>640</positionX>
+      <positionY>220</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>198</sequence>
+      </processStatePK>
+      <stateName>Pesquisa de Satisfação</stateName>
+      <stateDescription>Pesquisa de Satisfação</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1270</positionX>
+      <positionY>56</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>202</sequence>
+      </processStatePK>
+      <stateName>Inconsistência</stateName>
+      <stateDescription>Inconsistência</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;INC_solMedicaoContratos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1360</positionX>
+      <positionY>150</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>207</sequence>
+      </processStatePK>
+      <stateName>Pré integração guiando</stateName>
+      <stateDescription>Pré integração guiando</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;INTEGRADOR_GUIANDO&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>60</positionX>
+      <positionY>180</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>83</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>210</positionX>
+      <positionY>461</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>58</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>85</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>640</positionX>
+      <positionY>430</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>71</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>167</sequence>
+      </processStatePK>
+      <stateName>Intermediate</stateName>
+      <stateDescription>Intermediate</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>577</positionX>
+      <positionY>820</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>165</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>175</sequence>
+      </processStatePK>
+      <stateName>Intermediate</stateName>
+      <stateDescription>Intermediate</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>906</positionX>
+      <positionY>812</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>171</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>201</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1350</positionX>
+      <positionY>100</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>198</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>28</sequence>
+      </processStatePK>
+      <stateName>Aprov?</stateName>
+      <stateDescription>Aprov?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>1120</positionX>
+      <positionY>47</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>37</sequence>
+      </processStatePK>
+      <stateName>Aprov?</stateName>
+      <stateDescription>Aprov?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>280</positionX>
+      <positionY>581</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>52</sequence>
+      </processStatePK>
+      <stateName>Aprov?</stateName>
+      <stateDescription>Aprov?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>400</positionX>
+      <positionY>753</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>179</sequence>
+      </processStatePK>
+      <stateName>Exclusivo</stateName>
+      <stateDescription>Exclusivo</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>150</positionX>
+      <positionY>40</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>205</sequence>
+      </processStatePK>
+      <stateName>Exclusivo</stateName>
+      <stateDescription>Exclusivo</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>200</positionX>
+      <positionY>180</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>13</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1500</positionX>
+      <positionY>73</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>110</version>
+        <sequence>28</sequence>
+      </conditionProcessStatePK>
+      <condition>aprovadoPeloSolicitante() == 1</condition>
+      <destinationSequenceId>198</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>110</version>
+        <sequence>28</sequence>
+      </conditionProcessStatePK>
+      <condition>aprovadoPeloSolicitante() == 2</condition>
+      <destinationSequenceId>29</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>110</version>
+        <sequence>37</sequence>
+      </conditionProcessStatePK>
+      <condition>exclusivo37() == 0</condition>
+      <destinationSequenceId>71</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>110</version>
+        <sequence>37</sequence>
+      </conditionProcessStatePK>
+      <condition>exclusivo37() == 1</condition>
+      <destinationSequenceId>36</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>110</version>
+        <sequence>37</sequence>
+      </conditionProcessStatePK>
+      <condition>exclusivo37() == 2</condition>
+      <destinationSequenceId>64</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>110</version>
+        <sequence>52</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;decisaoTratativaMedicao&quot;) == &quot;Nao&quot;</condition>
+      <destinationSequenceId>71</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>110</version>
+        <sequence>52</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;decisaoTratativaMedicao&quot;) == &quot;Sim&quot;</condition>
+      <destinationSequenceId>165</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>110</version>
+        <sequence>179</sequence>
+      </conditionProcessStatePK>
+      <condition>analise()==1</condition>
+      <destinationSequenceId>183</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>110</version>
+        <sequence>179</sequence>
+      </conditionProcessStatePK>
+      <condition>analise()==2</condition>
+      <destinationSequenceId>205</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>110</version>
+        <sequence>205</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;guiandoSelect&quot;) == &quot;&quot;</condition>
+      <destinationSequenceId>58</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>110</version>
+        <sequence>205</sequence>
+      </conditionProcessStatePK>
+      <condition>true </condition>
+      <destinationSequenceId>207</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>32</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>27</initialStateSequence>
+      <finalStateSequence>28</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>33</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>28</initialStateSequence>
+      <finalStateSequence>29</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Não</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>34</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>29</initialStateSequence>
+      <finalStateSequence>27</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>38</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>36</initialStateSequence>
+      <finalStateSequence>37</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>71</initialStateSequence>
+      <finalStateSequence>10</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>114</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>64</initialStateSequence>
+      <finalStateSequence>52</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>115</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>52</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Não</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>147</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>36</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Proxima Alçada</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>160</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>83</initialStateSequence>
+      <finalStateSequence>159</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>161</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>159</initialStateSequence>
+      <finalStateSequence>58</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>163</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>85</initialStateSequence>
+      <finalStateSequence>162</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>164</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>162</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>166</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>52</initialStateSequence>
+      <finalStateSequence>165</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>169</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>167</initialStateSequence>
+      <finalStateSequence>168</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>170</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>168</initialStateSequence>
+      <finalStateSequence>165</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>172</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>165</initialStateSequence>
+      <finalStateSequence>171</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>173</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>171</initialStateSequence>
+      <finalStateSequence>27</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>176</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>175</initialStateSequence>
+      <finalStateSequence>174</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>177</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>174</initialStateSequence>
+      <finalStateSequence>27</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>178</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>168</initialStateSequence>
+      <finalStateSequence>64</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>180</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>3</initialStateSequence>
+      <finalStateSequence>179</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>184</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>179</initialStateSequence>
+      <finalStateSequence>183</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>185</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>183</initialStateSequence>
+      <finalStateSequence>10</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>188</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>58</initialStateSequence>
+      <finalStateSequence>36</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>189</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>190</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>64</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>191</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>10</initialStateSequence>
+      <finalStateSequence>58</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>197</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>159</initialStateSequence>
+      <finalStateSequence>10</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>199</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>28</initialStateSequence>
+      <finalStateSequence>198</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>200</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>198</initialStateSequence>
+      <finalStateSequence>13</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>203</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>201</initialStateSequence>
+      <finalStateSequence>202</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>204</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>202</initialStateSequence>
+      <finalStateSequence>198</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>206</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>179</initialStateSequence>
+      <finalStateSequence>205</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>208</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>205</initialStateSequence>
+      <finalStateSequence>207</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>209</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>205</initialStateSequence>
+      <finalStateSequence>58</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <linkSequence>210</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>207</initialStateSequence>
+      <finalStateSequence>58</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeCancelProcess</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeCancelProcess(colleagueId,processId){  &#xd;
+    var ATIVIDADE_ATUAL = getValue(&quot;WKNumState&quot;);&#xd;
+    if (ATIVIDADE_ATUAL == 27  || &#xd;
+        ATIVIDADE_ATUAL == 29  ||&#xd;
+        ATIVIDADE_ATUAL == 151 ||&#xd;
+        ATIVIDADE_ATUAL == 156 &#xd;
+        ) { &#xd;
+        throw &apos;Voce não pode finalizar a solicitação nesta atividade, favor solicitar o cancelamento da medição para o setor responsável: contratos e fiscal, anexar as evidencias e finalizar o processo corretamente.&apos;;&#xd;
+    }else{&#xd;
+        cancelaRateio();&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function cancelaRateio() {&#xd;
+&#xd;
+    var periodicService = ServiceManager.getService(&quot;ws_medicaoContratos&quot;);&#xd;
+    var serviceHelper = periodicService.getBean();&#xd;
+    var serviceLocator = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120_apw.WSCNTA120&quot;);&#xd;
+    var service = serviceLocator.getWSCNTA120SOAP();&#xd;
+&#xd;
+    log.info(getValue(&quot;WKNumProces&quot;) + &apos;parametros indo para wsestmedicao&apos;)&#xd;
+    log.info(&apos;COD_FILIAL: &apos; + hAPI.getCardValue(&quot;codFilial&quot;) + &apos;MEDICAO: &apos; + hAPI.getCardValue(&quot;medicao&quot;));&#xd;
+&#xd;
+    var resultObj = service.wsestmedicao(hAPI.getCardValue(&quot;codFilial&quot;), hAPI.getCardValue(&quot;medicao&quot;));&#xd;
+&#xd;
+    var result = resultObj.getWSRETCNTA120().get(0);&#xd;
+    var sucesso = result.getSUCESSO();&#xd;
+    var mensagem = result.getMENSAGEM();&#xd;
+&#xd;
+    hAPI.setCardValue(&quot;obsMedicao&quot;, mensagem);&#xd;
+&#xd;
+    if (sucesso == &quot;false&quot;) {&#xd;
+        throw &quot;Erro ao realizar a integração com o Protheus. \n&quot; + mensagem&#xd;
+    }&#xd;
+};</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask165</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask165(attempt, message) {&#xd;
+    try {&#xd;
+        var periodicService = ServiceManager.getService(&quot;OncoclinicasCriacaoTitulos&quot;);&#xd;
+        var serviceHelper = periodicService.getBean();&#xd;
+        var serviceLocator = serviceHelper.instantiate(&quot;br.com.oncoclinicas.FSWSP001Locator&quot;);&#xd;
+        var service = serviceLocator.getFSWSP001SOAP();&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;indexProd&quot;) &gt; 0) {&#xd;
+            var prenota = gerarXML()&#xd;
+            hAPI.setCardValue(&apos;cpXmlPre&apos;, prenota)&#xd;
+&#xd;
+            var webService = service.WSINTPNF(prenota);&#xd;
+            var mensagem = webService.getMENSAGEM();&#xd;
+            var retorno = webService.getRETORNO();&#xd;
+&#xd;
+            if (retorno == 1 || retorno == 2) {&#xd;
+                hAPI.setCardValue(&quot;cpXmlPre&quot;, prenota);&#xd;
+            } else {&#xd;
+                hAPI.setCardValue(&quot;cpXmlPre&quot;, prenota);&#xd;
+                throw mensagem + &apos; || &apos; + prenota&#xd;
+            }&#xd;
+        } else {&#xd;
+&#xd;
+&#xd;
+        }&#xd;
+&#xd;
+    } catch (error) {&#xd;
+&#xd;
+        var prenota = gerarXML()&#xd;
+        log.info(&apos;XML INTEGRACAO PRE NOTA FLUIG &apos; + getValue(&quot;WKNumProces&quot;) + prenota)&#xd;
+        throw error + &apos;||&apos; + prenota;&#xd;
+    }&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function gerarXML() {&#xd;
+    var xml = &quot;&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&quot;&#xd;
+    xml += &apos;&lt;PreNota&gt;&apos;&#xd;
+    xml += &apos;&lt;Operacao&gt;&apos;&#xd;
+    xml += &apos;&lt;Id&gt;1&lt;/Id&gt;&apos;&#xd;
+    xml += &apos;&lt;/Operacao&gt;&apos;&#xd;
+    xml += &apos;&lt;Cabecalho&gt;&apos;&#xd;
+    xml += &apos;&lt;F1_FILIAL&gt;&apos; + hAPI.getCardValue(&quot;codFilial&quot;) + &apos;&lt;/F1_FILIAL&gt;&apos; // codigo filial&#xd;
+    xml += &apos;&lt;F1_DOC&gt;&apos; + hAPI.getCardValue(&apos;notaFiscal&apos;) + &apos;&lt;/F1_DOC&gt;&apos; // numero da nota fiscal&#xd;
+    xml += &apos;&lt;F1_SERIE&gt;&apos; + normalizeString(hAPI.getCardValue(&apos;serieNF&apos;)) + &apos;&lt;/F1_SERIE&gt;&apos; // serie da nota fiscal&#xd;
+    xml += &apos;&lt;F1_FORNECE&gt;&apos; + hAPI.getCardValue(&quot;codFornecedor&quot;) + &apos;&lt;/F1_FORNECE&gt;&apos; // codigo do fornecedor&#xd;
+    xml += &apos;&lt;F1_LOJA&gt;&apos; + hAPI.getCardValue(&quot;lojFornecedor&quot;) + &apos;&lt;/F1_LOJA&gt;&apos; // loja do fornecedor&#xd;
+    xml += &apos;&lt;F1_TIPO&gt;Normal&lt;/F1_TIPO&gt;&apos; // tipo de nota&#xd;
+    xml += &apos;&lt;F1_EMISSAO&gt;&apos; + refactorDate(hAPI.getCardValue(&quot;emissaoNota&quot;)) + &apos;&lt;/F1_EMISSAO&gt;&apos; // data emissoa&#xd;
+    xml += &apos;&lt;F1_ESPECIE&gt;&apos; + hAPI.getCardValue(&apos;cpCodEspecieNf&apos;) + &apos;&lt;/F1_ESPECIE&gt;&apos; // especie da nota fiscal&#xd;
+    xml += &apos;&lt;F1_CHVNFE&gt;&apos; + hAPI.getCardValue(&apos;cpCodigoBarras&apos;) + &apos;&lt;/F1_CHVNFE&gt;&apos;    &#xd;
+    /* xml += &apos;&lt;F1_ZVENCTO&gt;&apos; + hAPI.getCardValue(&apos;filtroDataVencimento&apos;) + &apos;&lt;/F1_ZVENCTO&gt;&apos; */&#xd;
+    xml += &apos;&lt;F1_ZVENCTO&gt;&apos; + refactorDate(hAPI.getCardValue(&quot;DataVencimentoHide&quot;)) + &apos;&lt;/F1_ZVENCTO&gt;&apos;&#xd;
+    xml += &apos;&lt;/Cabecalho&gt;&apos;&#xd;
+    xml += &apos;&lt;Itens&gt;&apos;&#xd;
+&#xd;
+    var linhas = hAPI.getCardValue(&quot;indexProd&quot;)&#xd;
+    for (var i = 1; i &lt;= linhas; i++) {&#xd;
+        xml += &apos;&lt;Iten&gt;&apos;&#xd;
+        xml += &apos;&lt;D1_FILIAL&gt;&apos; + hAPI.getCardValue(&quot;codFilial&quot;) + &apos;&lt;/D1_FILIAL&gt;&apos;; // codigo da filial&#xd;
+        xml += &apos;&lt;D1_PEDIDO&gt;&apos; + hAPI.getCardValue(&quot;pedidoMedicao&quot;).split(&quot;: &quot;)[1] + &apos;&lt;/D1_PEDIDO&gt;&apos;; // numero do pedido de compras&#xd;
+        xml += &apos;&lt;D1_ITEMPC&gt;&apos; + addZero(4, i) + &apos;&lt;/D1_ITEMPC&gt;&apos;; // numero do &#xd;
+        xml += &apos;&lt;D1_ITEM&gt;&apos; + addZero(4, i) + &apos;&lt;/D1_ITEM&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_COD&gt;&apos; + hAPI.getCardValue(&quot;codProduto___&quot; + i) + &apos;&lt;/D1_COD&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_UM&gt;UN&lt;/D1_UM&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_QUANT&gt;&apos; + hAPI.getCardValue(&quot;quantProduto___&quot; + i) + &apos;&lt;/D1_QUANT&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_VUNIT&gt;&apos; + removeMask(hAPI.getCardValue(&quot;vlrUnitProduto___&quot; + i)) + &apos;&lt;/D1_VUNIT&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_TOTAL&gt;&apos; + removeMask(hAPI.getCardValue(&quot;vlrTotalProduto___&quot; + i)) + &apos;&lt;/D1_TOTAL&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_VALDESC&gt;0&lt;/D1_VALDESC&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_DESCPRO&gt;&apos; + normalizeString(hAPI.getCardValue(&quot;descProduto___&quot; + i)) + &apos;&lt;/D1_DESCPRO&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_VALIPI&gt;0&lt;/D1_VALIPI&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_VALFRE&gt;0&lt;/D1_VALFRE&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_MODNF&gt;&apos; + hAPI.getCardValue(&quot;cpDesBh&quot;) + &apos;&lt;/D1_MODNF&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_SERIENF&gt;&apos; + hAPI.getCardValue(&quot;cpSerieDesBh&quot;) + &apos;&lt;/D1_SERIENF&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_SEGURO&gt;0&lt;/D1_SEGURO&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_DESPESA&gt;0&lt;/D1_DESPESA&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_CC&gt;&apos; + hAPI.getCardValue(&quot;cpCodCentroCustos___1&quot;) + &apos;&lt;/D1_CC&gt;&apos;&#xd;
+        xml += &apos;&lt;D1_ZIDFLG&gt;&apos; + getValue(&quot;WKNumProces&quot;) + &apos;&lt;/D1_ZIDFLG&gt;&apos;;&#xd;
+        xml += &apos;&lt;D1_ZTESPRE&gt;141&lt;/D1_ZTESPRE&gt;&apos;&#xd;
+        if (hAPI.getCardValue(&apos;cpSimplesNacional&apos;) != &apos;Não&apos;) {&#xd;
+            xml += &apos;&lt;D1_ALIQISS&gt;&apos; + hAPI.getCardValue(&apos;cpAliqISS&apos;) + &apos;&lt;/D1_ALIQISS&gt;&apos;&#xd;
+            xml += &apos;&lt;D1_XISSRGE&gt;&apos; + hAPI.getCardValue(&apos;cpAliqISS&apos;) + &apos;&lt;/D1_XISSRGE&gt;&apos;&#xd;
+        } else {&#xd;
+            xml += &apos;&lt;D1_ALIQISS&gt;&apos; + hAPI.getCardValue(&apos;cpAliqISS&apos;) + &apos;&lt;/D1_ALIQISS&gt;&apos;&#xd;
+        }&#xd;
+        // xml += &apos;&lt;D1_XISSRGE&gt;&apos; + hAPI.getCardValue(&apos;cpAliqISS&apos;) + &apos;&lt;/D1_XISSRGE&gt;&apos; // Aliquota ISS&#xd;
+        xml += &apos;&lt;D1_ZCEPOM&gt;&apos; + hAPI.getCardValue(&apos;slCepom&apos;) + &apos;&lt;/D1_ZCEPOM&gt;&apos; // Cepom&#xd;
+        xml += &apos;&lt;D1_XBASINS&gt;&apos; + removeMask(hAPI.getCardValue(&apos;cpBaseCalculo&apos;)) + &apos;&lt;/D1_XBASINS&gt;&apos; // Base Calculo Reduzida&#xd;
+        xml += &apos;&lt;D1_TES&gt;&apos; + hAPI.getCardValue(&apos;cpTes&apos;) + &apos;&lt;/D1_TES&gt;&apos;&#xd;
+        xml += &apos;&lt;D1_ALIQINS&gt;&apos; + hAPI.getCardValue(&apos;cpINSS&apos;) + &apos;&lt;/D1_ALIQINS&gt;&apos; // aliquota INSS&#xd;
+        xml += &apos;&lt;D1_XALQINS&gt;&apos; + hAPI.getCardValue(&apos;cpINSS&apos;) + &apos;&lt;/D1_XALQINS&gt;&apos;&#xd;
+        xml += &apos;&lt;/Iten&gt;&apos;&#xd;
+    }&#xd;
+    xml += &apos;&lt;/Itens&gt;&apos;&#xd;
+    xml += &apos;&lt;/PreNota&gt;&apos;&#xd;
+    log.info(&apos;XML &apos; + xml);&#xd;
+    return xml;&#xd;
+}&#xd;
+&#xd;
+// remove a mascara monetaria da string de entrada e a retorna&#xd;
+function removeMask(valor) {&#xd;
+    if (valor != undefined &amp;&amp; valor != &quot;&quot; &amp;&amp; valor != null) {&#xd;
+        valor = valor.replace(&quot;R$&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot; &quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;.&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;.&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;.&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;.&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;.&quot;, &quot;&quot;);&#xd;
+        valor = valor.replace(&quot;,&quot;, &quot;.&quot;);&#xd;
+        valor = parseFloat(valor);&#xd;
+        return valor.toFixed(4);&#xd;
+    } else {&#xd;
+        return 0.0000;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+// remove os caracteres especias da string de entra e a retorna&#xd;
+function normalizeString(string) {&#xd;
+    //string = new java.lang.String(string);&#xd;
+    string = string.toUpperCase();&#xd;
+    string = string.replaceAll(&quot;Á|À|Â|Ã|Ä&quot;, &quot;A&quot;);&#xd;
+    string = string.replaceAll(&quot;É|È|Ê|Ë&quot;, &quot;E&quot;);&#xd;
+    string = string.replaceAll(&quot;Í|Ì|Î|Ï&quot;, &quot;I&quot;);&#xd;
+    string = string.replaceAll(&quot;Ó|Ò|Ô|Õ|Ö&quot;, &quot;O&quot;);&#xd;
+    string = string.replaceAll(&quot;Ú|Ù|Û|Ü&quot;, &quot;U&quot;);&#xd;
+    string = string.replaceAll(&quot;Ç&quot;, &quot;C&quot;);&#xd;
+    string = string.replaceAll(&quot;-&quot;, &quot; &quot;);&#xd;
+    return string&#xd;
+}&#xd;
+&#xd;
+// adcicioa os 0 necessarios para alguns padroes do protheus e retorna o valor que foi inserido no formato&#xd;
+function addZero(quantidade, numero) {&#xd;
+    numero = numero.toString()&#xd;
+    for (var i = numero.length; i &lt; quantidade; i++) {&#xd;
+        numero = &quot;0&quot; + numero&#xd;
+    }&#xd;
+    return numero;&#xd;
+}&#xd;
+&#xd;
+function refactorDate(date) {&#xd;
+    var dia = date.split(&quot;/&quot;)[0];&#xd;
+    var mes = date.split(&quot;/&quot;)[1];&#xd;
+    var ano = date.split(&quot;/&quot;)[2];&#xd;
+    return ano + &apos;&apos; + mes + &apos;&apos; + dia&#xd;
+    &#xd;
+}&#xd;
+&#xd;
+function refactorDate1(date) {&#xd;
+    novaData = date.replaceAll(&quot;-&quot;, &quot;&quot;)&#xd;
+    return novaData;    &#xd;
+}&#xd;
+&#xd;
+function removePercentual(string) {&#xd;
+    if (string != undefined &amp;&amp; string != &quot;&quot; &amp;&amp; string != null) {&#xd;
+        string = string.replace(&quot;%&quot;, &quot;&quot;);&#xd;
+        string = string.replace(&quot;,&quot;, &quot;.&quot;);&#xd;
+        return parseFloat(string);&#xd;
+    } else {&#xd;
+        return 0.00;&#xd;
+    }&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask198</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask198(attempt, message) {&#xd;
+&#xd;
+    var properties = {};&#xd;
+    properties[&quot;log.soap.messages&quot;] = &quot;true&quot;;&#xd;
+    properties[&quot;receive.timeout&quot;] = &quot;300000&quot;;&#xd;
+&#xd;
+    var arrayCampos = [];&#xd;
+    var workflowEngineServiceProvider = ServiceManager.getServiceInstance(&quot;ECMWorkflowEngineService&quot;);&#xd;
+    var processAttachmentDtoArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessAttachmentDtoArray&apos;);&#xd;
+    var processTaskAppointmentDtoArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessTaskAppointmentDtoArray&apos;);&#xd;
+    var stringArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArray&apos;);&#xd;
+    var workflowEngineServiceLocator = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ECMWorkflowEngineServiceService&apos;);&#xd;
+    var workflowEngineService = workflowEngineServiceLocator.getWorkflowEngineServicePort();&#xd;
+    var cardData = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArrayArray&apos;); &#xd;
+    stringArray.getItem().add(&quot;imwn2dyhbuywfa0f1522083830483&quot;); &#xd;
+&#xd;
+    arrayCampos.push([&quot;nomeSolic&quot;, hAPI.getCardValue(&quot;solicitante&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;codSolic&quot;, hAPI.getCardValue(&quot;idSolicitante&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;emailSolic&quot;, hAPI.getCardValue(&quot;emailSolicitante&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;dataSolicitacao&quot;, dataHoraFluig()]);&#xd;
+    arrayCampos.push([&quot;solicOrigem&quot;, hAPI.getCardValue(&quot;codSolicitacao&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;nomeFilial&quot;, hAPI.getCardValue(&quot;nomeFilial&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;cnpjFilial&quot;, hAPI.getCardValue(&quot;cnpjFilial&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;codFilial&quot;, hAPI.getCardValue(&quot;codFilial&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;nomeFornecedor&quot;, hAPI.getCardValue(&quot;nomeFornecedor&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;cnpjFornecedor&quot;, hAPI.getCardValue(&quot;cnpjFornecedor&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;codFornecedor&quot;, hAPI.getCardValue(&quot;codFornecedor&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;lojFornecedor&quot;, hAPI.getCardValue(&quot;lojFornecedor&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;dataEmissao&quot;, hAPI.getCardValue(&quot;emissaoNota&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;valTotalBruto&quot;, hAPI.getCardValue(&quot;valorTotalMedicao&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;numDocumento&quot;, hAPI.getCardValue(&quot;notaFiscal&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;serie&quot;, hAPI.getCardValue(&quot;serieNF&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;numContrato&quot;, hAPI.getCardValue(&quot;numContrato&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;zoomCompetencia&quot;, hAPI.getCardValue(&quot;zoomCompetencia&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;zoomCentroCusto&quot;, hAPI.getCardValue(&quot;zmCentroCustosAprov&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;codCentroCusto&quot;, hAPI.getCardValue(&quot;cpCodCentroCustosAprov&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;descricaoSolic&quot;, hAPI.getCardValue(&quot;justCentral&quot;) + &quot;&quot;]);&#xd;
+    arrayCampos.push([&quot;valorTotalItem&quot;, hAPI.getCardValue(&quot;valorTotalMedicao&quot;) + &quot;&quot;]);&#xd;
+&#xd;
+    var campos = hAPI.getCardData(getValue(&quot;WKNumProces&quot;)).keySet().toArray();&#xd;
+    var id;&#xd;
+&#xd;
+    for (var x in campos) {&#xd;
+        var field = campos[x];&#xd;
+        if (field.indexOf(&quot;quantProduto___&quot;) &gt; -1) {&#xd;
+            id = field.split(&quot;___&quot;)[1];&#xd;
+            arrayCampos.push([&quot;zoomProduto___&quot; + id, hAPI.getCardValue(&quot;descProduto___&quot; + id) + &quot;&quot;]);&#xd;
+            arrayCampos.push([&quot;codItemProtheus___&quot; + id, hAPI.getCardValue(&quot;codProduto___&quot; + id) + &quot;&quot;]);&#xd;
+            arrayCampos.push([&quot;qtdItem___&quot; + id, hAPI.getCardValue(&quot;quantProduto___&quot; + id) + &quot;&quot;]);&#xd;
+            arrayCampos.push([&quot;vlrUniItem___&quot; + id, hAPI.getCardValue(&quot;vlrUnitProduto___&quot; + id) + &quot;&quot;]);&#xd;
+            arrayCampos.push([&quot;vlrTotalItem___&quot; + id, hAPI.getCardValue(&quot;vlrTotalProduto___&quot; + id) + &quot;&quot;]);&#xd;
+        }&#xd;
+    } &#xd;
+ &#xd;
+    for (var index = 0; index &lt; arrayCampos.length; index++) {&#xd;
+        var campoValor = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArrayArray&apos;);&#xd;
+        var campoX = arrayCampos[index][0]&#xd;
+        var valorX = arrayCampos[index][1]&#xd;
+ &#xd;
+        campoValor.getItem().add(campoX);&#xd;
+        campoValor.getItem().add(valorX);&#xd;
+        cardData.getItem().add(campoValor);&#xd;
+    }&#xd;
+    log.info(&quot;--- arrayCampos V360 AVALIACAO FORNECEDOR ---&quot;)&#xd;
+    log.dir(arrayCampos)&#xd;
+ &#xd;
+    var rest = workflowEngineService.startProcess(&#xd;
+        &quot;integrador.fluig@oncoclinicas.com&quot;,&#xd;
+        &quot;hUbust*7&quot;,&#xd;
+        1,&#xd;
+        &quot;avaliacaoDeFornecedor&quot;,&#xd;
+        4,&#xd;
+        stringArray,&#xd;
+        &quot;Iniciado automaticamente pelo fluxo Medição de Contratos, &quot; + getValue(&quot;WKNumProces&quot;),&#xd;
+        hAPI.getCardValue(&quot;codGestAvalia&quot;),&#xd;
+        false,&#xd;
+        processAttachmentDtoArray,&#xd;
+        cardData,&#xd;
+        processTaskAppointmentDtoArray,&#xd;
+        true);&#xd;
+ &#xd;
+    var iProcess = &quot;&quot;;&#xd;
+    var error = &quot;&quot;;&#xd;
+    for (var j = 0; j &lt; rest.getItem().size(); j++) {&#xd;
+        var item = rest.getItem().get(j).getItem();&#xd;
+        var key = item.get(0);&#xd;
+        var value = item.get(1);&#xd;
+        if (key == &quot;iProcess&quot;) {&#xd;
+            iProcess = value;&#xd;
+        }&#xd;
+        if (key == &quot;ERROR&quot;) {&#xd;
+            error = value;&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    if(error != &quot;&quot;){&#xd;
+        throw &quot;Erro na abertura da solicitacao: &quot; + error;&#xd;
+    }else{&#xd;
+        hAPI.setCardValue(&apos;codAvaliaForn&apos;, iProcess)    &#xd;
+        hAPI.setTaskComments(&quot;imwn2dyhbuywfa0f1522083830483&quot;, getValue(&quot;WKNumProces&quot;), 0, &apos;Iniciado processo: &apos; + iProcess);  &#xd;
+    }  &#xd;
+       &#xd;
+}&#xd;
+&#xd;
+function dataHoraFluig(){&#xd;
+    dataHoje = java.util.Calendar.getInstance().getTime(); &#xd;
+    var dateFormat = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);&#xd;
+    var formatdata = dateFormat.format(dataHoje);&#xd;
+    var array = formatdata.split(&quot; &quot;);&#xd;
+    var arrayData = array[0].split(&quot;-&quot;);&#xd;
+    var ano = arrayData[0]; &#xd;
+    var mes = arrayData[1];&#xd;
+    var dia = arrayData[2];&#xd;
+&#xd;
+    dataFluig = dia + &quot;/&quot; + mes + &quot;/&quot; + ano + &quot; &quot; + array[1];&#xd;
+&#xd;
+    return dataFluig;&#xd;
+&#xd;
+}&#xd;
+&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask58</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask58(attempt, message) {&#xd;
+&#xd;
+    var periodicService = ServiceManager.getService(&quot;ws_medicaoContratos&quot;);&#xd;
+    var serviceHelper = periodicService.getBean();&#xd;
+    var serviceLocator = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120_apw.WSCNTA120&quot;);&#xd;
+    var service = serviceLocator.getWSCNTA120SOAP();&#xd;
+&#xd;
+    var listaProduto = serviceHelper.instantiate(&apos;br.com.oncoclinicas.webservices.wscnta120.WSPRODSCNTA120&apos;);&#xd;
+    var arrayProduto = serviceHelper.instantiate(&apos;br.com.oncoclinicas.webservices.wscnta120.ARRAYOFWSPRODCNTA120&apos;);&#xd;
+    var listaRateios = serviceHelper.instantiate(&apos;br.com.oncoclinicas.webservices.wscnta120.WSRATEIOSCNTA120&apos;);&#xd;
+    var arrayRateio = serviceHelper.instantiate(&apos;br.com.oncoclinicas.webservices.wscnta120.ARRAYOFWSRATEIOCNTA120&apos;);&#xd;
+&#xd;
+    var campos = hAPI.getCardData(getValue(&quot;WKNumProces&quot;)).keySet().toArray();&#xd;
+    var id;&#xd;
+    var produto;&#xd;
+&#xd;
+    var properties = {};&#xd;
+    properties[&quot;log.soap.messages&quot;] = &quot;true&quot;;&#xd;
+    properties[&quot;receive.timeout&quot;] = &quot;300000&quot;;&#xd;
+&#xd;
+    for (var x in campos) {&#xd;
+        var field = campos[x];&#xd;
+        if (field.indexOf(&quot;codProduto___&quot;) &gt; -1) {&#xd;
+&#xd;
+            id = field.split(&quot;___&quot;)[1];&#xd;
+&#xd;
+            produto = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120.WSPRODCNTA120&quot;);&#xd;
+            produto.setCODIGO(hAPI.getCardValue(&quot;codProduto___&quot; + id));&#xd;
+            produto.setQUANTIDADE(removeMascaraMonetaria(hAPI.getCardValue(&quot;quantProduto___&quot; + id)));&#xd;
+            produto.setVALOR(removeMascaraMonetaria(hAPI.getCardValue(&quot;vlrUnitProduto___&quot; + id)));&#xd;
+            arrayProduto.getWSPRODCNTA120().add(produto);&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    var linhas = hAPI.getCardValue(&quot;indexRateio&quot;);&#xd;
+    log.info(&apos;&lt;&lt;&lt;LINHAS indexRateio &gt;&gt;&gt;&apos; + linhas);&#xd;
+&#xd;
+    var vlrRateio = 0&#xd;
+    for (var i = 1; i &lt;= linhas; i++) {&#xd;
+        rateio = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120.WSRATEIOCNTA120&quot;);&#xd;
+        rateio.setCCUSTO(hAPI.getCardValue(&apos;cpCodCentroCustos___&apos; + i))&#xd;
+        rateio.setPERC(hAPI.getCardValue(&apos;cpPercentualRateio___&apos; + i))&#xd;
+        rateio.setITEM(addZero(4, i))&#xd;
+        rateio.setVALOR(removeMascaraMonetaria(hAPI.getCardValue(&apos;cpValorRateio___&apos; + i)))&#xd;
+        vlrRateio += parseInt(&apos;&apos; + hAPI.getCardValue(&apos;cpPercentualRateio___&apos; + i))&#xd;
+        arrayRateio.getWSRATEIOCNTA120().add(rateio)&#xd;
+    }&#xd;
+&#xd;
+    if (linhas == 0 || linhas == undefined || linhas == &apos;undefined&apos;) {&#xd;
+        rateio = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120.WSRATEIOCNTA120&quot;);&#xd;
+        rateio.setCCUSTO(&apos;&apos;)&#xd;
+        rateio.setPERC(&apos;&apos;)&#xd;
+        rateio.setITEM(&apos;&apos;)&#xd;
+        rateio.setVALOR(&apos;&apos;)&#xd;
+        arrayRateio.getWSRATEIOCNTA120().add(rateio)&#xd;
+    }&#xd;
+&#xd;
+    listaProduto.setPRODUTOS(arrayProduto);&#xd;
+    listaRateios.setRATEIOS(arrayRateio)&#xd;
+&#xd;
+        var paraincmedicao = {&#xd;
+            &apos;FILIAL&apos;: hAPI.getCardValue(&quot;codFilial&quot;),&#xd;
+            &apos;CONTRATO&apos;: hAPI.getCardValue(&quot;numContrato&quot;),&#xd;
+            &apos;REVISAO&apos;: hAPI.getCardValue(&quot;revContrato&quot;),&#xd;
+            &apos;COMPETENCIA&apos;: hAPI.getCardValue(&quot;competencia&quot;),&#xd;
+            &apos;CENTROCUSTO&apos;: hAPI.getCardValue(&quot;codCentroCusto&quot;),&#xd;
+            &apos;FORNECEDOR&apos;: hAPI.getCardValue(&quot;codFornecedor&quot;),&#xd;
+            &apos;LOJA&apos;: hAPI.getCardValue(&quot;lojFornecedor&quot;),&#xd;
+            &apos;listaProduto&apos;: listaProduto,&#xd;
+            &apos;listaRateios&apos;: listaRateios,&#xd;
+            &apos;FLUIG&apos;: getValue(&quot;WKNumProces&quot;) + &quot;&quot;&#xd;
+        }&#xd;
+&#xd;
+        log.info(getValue(&quot;WKNumProces&quot;) + &apos;parametros indo para wsincmedicao&apos;)&#xd;
+        log.dir(paraincmedicao);&#xd;
+&#xd;
+        var resultObj = service.wsincmedicao(&#xd;
+            hAPI.getCardValue(&quot;codFilial&quot;),&#xd;
+            hAPI.getCardValue(&quot;numContrato&quot;),&#xd;
+            hAPI.getCardValue(&quot;revContrato&quot;),&#xd;
+            hAPI.getCardValue(&quot;competencia&quot;),&#xd;
+            hAPI.getCardValue(&quot;cpCodCentroCustosAprov&quot;),&#xd;
+            hAPI.getCardValue(&quot;codFornecedor&quot;),&#xd;
+            hAPI.getCardValue(&quot;lojFornecedor&quot;),&#xd;
+            listaProduto,&#xd;
+            listaRateios,&#xd;
+            getValue(&quot;WKNumProces&quot;) + &quot;&quot;&#xd;
+        );&#xd;
+&#xd;
+    var result = resultObj.getWSRETCNTA120().get(0);&#xd;
+    var sucesso = result.getSUCESSO();&#xd;
+    var mensagem = result.getMENSAGEM();&#xd;
+    var pedido = result.getPEDIDO();&#xd;
+    var medicao = result.getMEDICAO();&#xd;
+&#xd;
+    hAPI.setCardValue(&quot;obsMedicao&quot;, mensagem);&#xd;
+&#xd;
+    if (sucesso == &quot;false&quot;) {&#xd;
+        throw &quot;Erro ao realizar a integração com o Protheus. \n&quot; + mensagem&#xd;
+    } else {&#xd;
+        hAPI.setCardValue(&quot;medicao&quot;, medicao);&#xd;
+        hAPI.setCardValue(&quot;pedidoMedicao&quot;, pedido);&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function removeMascaraMonetaria(mask) {&#xd;
+    if (mask != undefined) {&#xd;
+        mask = mask.replace(&apos;R$&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos; &apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;,&apos;, &apos;.&apos;);&#xd;
+        return parseFloat(mask);&#xd;
+    } else {&#xd;
+        return 0.00;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function addZero(quantidade, numero) {&#xd;
+    numero = numero.toString()&#xd;
+    for (var i = numero.length; i &lt; quantidade; i++) {&#xd;
+        numero = &quot;0&quot; + numero&#xd;
+    }&#xd;
+    return numero;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+	GETSLA()&#xd;
+	var ATIVIDADE = getValue(&quot;WKNumState&quot;);&#xd;
+&#xd;
+	//log.info(&quot;Valor da nota: &quot; + hAPI.getCardValue(&quot;pergunta1_documentos&quot;));&#xd;
+&#xd;
+	if (ATIVIDADE == INICIO || ATIVIDADE == INICIO1 || ATIVIDADE == CORRIGIR_INCONSISTENCIA) {&#xd;
+&#xd;
+		var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, &quot;true&quot;, &quot;true&quot;, ConstraintType.MUST);&#xd;
+		var constraints = new Array(c1);&#xd;
+		var dataset = DatasetFactory.getDataset(&quot;ds_configMedicaoContratos&quot;, null, constraints, null);&#xd;
+		var bloqueio = &quot;&quot;;&#xd;
+&#xd;
+		if (dataset != null &amp;&amp; dataset.rowsCount != 0) {&#xd;
+			bloqueio = dataset.getValue(0, &quot;bloqueio&quot;);&#xd;
+		}&#xd;
+&#xd;
+		if (bloqueio != &quot;Sim&quot;) {&#xd;
+&#xd;
+			var anexos = hAPI.listAttachments();&#xd;
+			var qtdAnexos = anexos.size();&#xd;
+&#xd;
+			if (qtdAnexos == 0) {&#xd;
+				throw &quot;É preciso anexar ao menos um documento para continuar o processo&quot;;&#xd;
+			}&#xd;
+&#xd;
+		}&#xd;
+&#xd;
+	}&#xd;
+&#xd;
+	if (ATIVIDADE == CORRIGIR_INCONSISTENCIA) {&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovGestor1&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovGestor1&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoGestor1&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovGestor1&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovGestor2&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovGestor2&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoGestor2&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovGestor2&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovGestor3&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovGestor3&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoGestor3&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovGestor3&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovGestor4&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovGestor4&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoGestor4&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovGestor4&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovGestor5&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovGestor5&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoGestor5&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovGestor5&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovTratativaMedicao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovTratativaMedicao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoTratativaMedicao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovTratativaMedicao&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovFiscal&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovTitulo&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;solucaoInconsistencia&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;medicao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;pedidoMedicao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;obsMedicao&quot;, &quot;&quot;);&#xd;
+&#xd;
+	}&#xd;
+&#xd;
+	if (ATIVIDADE == AVALIACAO_GESTOR) {&#xd;
+		hAPI.setCardValue(&quot;nivelAtualAprovacao&quot;, parseInt(&apos;&apos; + hAPI.getCardValue(&quot;nivelAtualAprovacao&quot;)) + 1);&#xd;
+	}&#xd;
+&#xd;
+	if (ATIVIDADE == TRATATIVA_MEDICAO) {&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoFiscal&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovFiscal&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovTitulo&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;solucaoInconsistencia&quot;, &quot;&quot;);&#xd;
+&#xd;
+	}&#xd;
+&#xd;
+	if (ATIVIDADE == VALIDACAO_FISCAL) {&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoTitulo&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovTitulo&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;decisaoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;motivoAprovSolicitacao&quot;, &quot;&quot;);&#xd;
+&#xd;
+		hAPI.setCardValue(&quot;nomeInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;dataInconsistencia&quot;, &quot;&quot;);&#xd;
+		hAPI.setCardValue(&quot;solucaoInconsistencia&quot;, &quot;&quot;);&#xd;
+&#xd;
+	}&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask171</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask171(attempt, message) {&#xd;
+&#xd;
+    var periodicService = ServiceManager.getService(&quot;OncoclinicasMatrizFiscal&quot;);&#xd;
+    var serviceHelper = periodicService.getBean();&#xd;
+    var serviceLocator = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wsmatrizfiscal_apw.WSMATRIZFISCAL&quot;);&#xd;
+    var service = serviceLocator.getWSMATRIZFISCALSOAP();&#xd;
+&#xd;
+    var prenota = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wsmatrizfiscal.WSDADOSPRENOTA&quot;);&#xd;
+&#xd;
+    prenota.setFORNECEDOR(hAPI.getCardValue(&quot;codFornecedor&quot;));&#xd;
+    prenota.setFILIAL(hAPI.getCardValue(&quot;codFilial&quot;));&#xd;
+    prenota.setLOJA(hAPI.getCardValue(&quot;lojFornecedor&quot;));&#xd;
+    prenota.setNUMERO(hAPI.getCardValue(&apos;notaFiscal&apos;));&#xd;
+    prenota.setSERIE(normalizeString(hAPI.getCardValue(&apos;serieNF&apos;)));&#xd;
+&#xd;
+    log.info(&apos;Processo &apos; + getValue(&quot;WKNumProces&quot;));&#xd;
+    log.info(&apos;Objeto para wsclassificamatrizfiscal&apos;);&#xd;
+    log.dir(prenota);&#xd;
+&#xd;
+    var integracao = service.wsclassificamatrizfiscal(prenota);&#xd;
+&#xd;
+    var retorno = integracao.getWSRETMATRIZFISCAL().get(0)&#xd;
+&#xd;
+&#xd;
+    if (retorno.getSUCESSO() != true &amp;&amp;&#xd;
+        retorno.getSUCESSO() != &apos;true&apos;) {&#xd;
+&#xd;
+        throw &apos;Não Foi possivel classificar automaticamente essa nota, favor verificar a Matriz fiscal!!!\n&apos; + retorno.getMENSAGEM()&#xd;
+&#xd;
+    }&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>activities</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var INICIO = 0;&#xd;
+var INICIO1 = 3;&#xd;
+var AVALIACAO_GESTOR = 36;&#xd;
+var CORRIGIR_INCONSISTENCIA = 10;&#xd;
+var TRATATIVA_MEDICAO = 64;&#xd;
+var VALIDACAO_FISCAL = 50;&#xd;
+var PROGRAMACAO_TITULO = 20;&#xd;
+var CORRECAO_SOLICITANTE = 27;&#xd;
+var SOLUCAO_INCONSISTENCIA = 29;&#xd;
+var INCONSISTENCIA_COMPRAS = 151;&#xd;
+var APROV_SOLICITANTE = 156;&#xd;
+var VALIDACAO_FISCAL_PRODUTO = 183;&#xd;
+var FIM = 13;</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+&#xd;
+    var ATIVIDADE = getValue(&quot;WKNumState&quot;);&#xd;
+&#xd;
+    if (ATIVIDADE == INICIO || ATIVIDADE == INICIO1) {&#xd;
+&#xd;
+        var constraintDs_filial1 = DatasetFactory.createConstraint(&apos;CODIGO&apos;, hAPI.getCardValue(&apos;codFilial&apos;), hAPI.getCardValue(&apos;codFilial&apos;), ConstraintType.MUST);&#xd;
+        var datasetDs_filial = DatasetFactory.getDataset(&apos;ds_filial&apos;, null, new Array(constraintDs_filial1), null);&#xd;
+&#xd;
+        var constraintDs_fornecedor1 = DatasetFactory.createConstraint(&apos;CODIGO&apos;, hAPI.getCardValue(&apos;codFornecedor&apos;), hAPI.getCardValue(&apos;codFornecedor&apos;), ConstraintType.MUST);&#xd;
+        var datasetDs_fornecedor = DatasetFactory.getDataset(&apos;ds_fornecedor&apos;, null, new Array(constraintDs_fornecedor1), null);&#xd;
+&#xd;
+        hAPI.setCardValue(&quot;codSolicitacao&quot;, getValue(&quot;WKNumProces&quot;));&#xd;
+        hAPI.setCardValue(&quot;nomeFilial&quot;, datasetDs_filial.getValue(0, &quot;FILTRO&quot;));&#xd;
+        hAPI.setCardValue(&quot;nomeFornecedor&quot;, datasetDs_fornecedor.getValue(0, &quot;FILTRO&quot;));&#xd;
+&#xd;
+    }&#xd;
+&#xd;
+    if (ATIVIDADE == INCONSISTENCIA_COMPRAS) {&#xd;
+        hAPI.setCardValue(&quot;passouAtvInsatifacao&quot;, &quot;sim&quot;);&#xd;
+    }&#xd;
+&#xd;
+    if ((nextSequenceId == APROV_SOLICITANTE || nextSequenceId == &apos;13&apos;) &amp;&amp; hAPI.getCardValue(&quot;decisaoAprovSol&quot;) != &quot;Sim&quot;) {&#xd;
+        notificacaoEncerramento(hAPI.getCardValue(&apos;emailSolicitante&apos;), hAPI.getCardValue(&apos;solicitante&apos;))&#xd;
+    }&#xd;
+&#xd;
+    var unidade = hAPI.getCardValue(&quot;nomeFilial&quot;);&#xd;
+&#xd;
+    var dataVencimento = hAPI.getCardValue(&quot;dataVencimento&quot;);&#xd;
+&#xd;
+    var dataVencimentoSemTrava = hAPI.getCardValue(&quot;dataVencimentoSemTrava&quot;);&#xd;
+&#xd;
+    var dataFormatada = &apos;&apos;;&#xd;
+&#xd;
+    var dataFormatadatrava = &apos;&apos;;&#xd;
+&#xd;
+&#xd;
+&#xd;
+    if (unidade == undefined) {&#xd;
+&#xd;
+        unidade = &quot;&quot;&#xd;
+&#xd;
+    }&#xd;
+&#xd;
+&#xd;
+&#xd;
+     if (dataVencimento != &apos;&apos;) {&#xd;
+&#xd;
+&#xd;
+&#xd;
+         hAPI.setCardValue(&quot;campoIdentificador&quot;, &apos;N -&apos; + unidade);&#xd;
+&#xd;
+         var dataFormatada = dataVencimento.split(&apos;/&apos;)[2];&#xd;
+&#xd;
+         dataFormatada += &apos;/&apos; + dataVencimento.split(&apos;/&apos;)[1];&#xd;
+&#xd;
+         dataFormatada += &apos;/&apos; + dataVencimento.split(&apos;/&apos;)[0];&#xd;
+&#xd;
+&#xd;
+&#xd;
+         hAPI.setCardValue(&quot;campoIdentificador&quot;, dataFormatada + &apos; - N - &apos; + unidade);&#xd;
+&#xd;
+&#xd;
+&#xd;
+     } else if(dataVencimentoSemTrava != &apos;&apos;){&#xd;
+&#xd;
+        var dataFormatadatrava = dataVencimentoSemTrava.replace(&quot;-&quot;, &quot;/&quot;);&#xd;
+&#xd;
+&#xd;
+&#xd;
+        hAPI.setCardValue(&quot;campoIdentificador&quot;, dataFormatadatrava + &apos; - N - &apos; + unidade);&#xd;
+&#xd;
+&#xd;
+&#xd;
+         &#xd;
+&#xd;
+     } else{&#xd;
+&#xd;
+        hAPI.setCardValue(&quot;campoIdentificador&quot;, &apos;N -&apos; + unidade);  &#xd;
+&#xd;
+&#xd;
+&#xd;
+     }&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function notificacaoEncerramento(emailSolicitante, solicitante) {&#xd;
+    var filter = new Array()&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;SOLICITACAO&apos;, getValue(&quot;WKNumProces&quot;), &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;SOLICITANTE&apos;, solicitante, &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;EMAIL_SOLICITANTE&apos;, emailSolicitante, &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;PROCESSO&apos;, getValue(&quot;WKDef&quot;), &apos;&apos;, ConstraintType.MUST))&#xd;
+    var ds_envioEmailEncerramento = DatasetFactory.getDataset(&apos;ds_envioEmailEncerramento&apos;, null, filter, null);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>SLA</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function GETSLA() {&#xd;
+    var active = getValue(&apos;WKNumState&apos;)&#xd;
+&#xd;
+    if (active == 0 || active == getStartActive().getValue(0, &quot;processStatePK.sequence&quot;)) {&#xd;
+&#xd;
+        var codigo = hAPI.getCardValue(&apos;COD_SOLICITACAO&apos;);&#xd;
+        var dataSLA;&#xd;
+        // verifica se o processo foi iniciado com o campo COD_SOLICITACAO para consultar o sla&#xd;
+        // do contrario consulta o sla do processo default&#xd;
+        if (codigo != &apos;&apos; &amp;&amp; codigo != undefined) {&#xd;
+            dataSLA = getSlaById(codigo)&#xd;
+            if (dataSLA.rowsCount &lt;= 0) {&#xd;
+                dataSLA = getSlaDefault()&#xd;
+                hAPI.setCardValue(&apos;ISDEFAULT&apos;, &apos;&apos; + true)&#xd;
+            }&#xd;
+        } else {&#xd;
+            dataSLA = getSlaDefault();&#xd;
+            hAPI.setCardValue(&apos;ISDEFAULT&apos;, &apos;&apos; + true)&#xd;
+        }&#xd;
+        // valida se o chamado possui SLA&#xd;
+        if (dataSLA.rowsCount &gt; 0) {&#xd;
+&#xd;
+            // seta o valor id do documento e a versao&#xd;
+            hAPI.setCardValue(&apos;COD_SOLICITACAO&apos;, &apos;&apos; + dataSLA.getValue(0, &apos;documentid&apos;))&#xd;
+            hAPI.setCardValue(&apos;VERSAO&apos;, &apos;&apos; + dataSLA.getValue(0, &apos;version&apos;))&#xd;
+            // converte a string JsonSla em objeto e popula os campos&#xd;
+            dataSLA = dataSLA.getValue(0, &apos;jsonSLA&apos;)&#xd;
+            dataSLA = JSON.parse(dataSLA)&#xd;
+            hAPI.setCardValue(&apos;SLA_TOTAL&apos;, &apos;&apos; + dataSLA.slaTotal)&#xd;
+&#xd;
+&#xd;
+            for (var key in dataSLA.SLA) {&#xd;
+                var sla = dataSLA.SLA[key]&#xd;
+                hAPI.setCardValue(&apos;SLA&apos; + sla.codAtividade, sla.sla)&#xd;
+            }&#xd;
+&#xd;
+        } else {&#xd;
+&#xd;
+            throw &quot;Não foi encontrado um registro de SLA para essa solicitacao,&quot; +&#xd;
+                &quot; portanto ela nao pode ser iniciada!!! Contate a equipe de melhorias Continuas&quot;&#xd;
+&#xd;
+        }&#xd;
+&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+// consulta o sla pelo codigo da solicitaçã&#xd;
+function getSlaById(id) {&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;metadata#active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isActive&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;documentid&apos;, id, id, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;ds_ficharioSLA&apos;, null, cons, null);&#xd;
+}&#xd;
+// consulta o SLA pelo codigo do processo&#xd;
+function getSlaDefault() {&#xd;
+    var codProcess = getValue(&quot;WKDef&quot;);&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;metadata#active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;idProcesso&apos;, codProcess, codProcess, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isActive&apos;, true, true, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isDefault&apos;, true, true, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;ds_ficharioSLA&apos;, null, cons, null);&#xd;
+&#xd;
+}&#xd;
+// consulta qual o Id da atividade inicial do fluxo()&#xd;
+function getStartActive() {&#xd;
+    var idProcess = getValue(&quot;WKDef&quot;)&#xd;
+    var versionProcess = getValue(&quot;WKVersDef&quot;)&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;initialState&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;processStatePK.processId&apos;, idProcess, idProcess, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;processStatePK.version&apos;, versionProcess, versionProcess, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;processState&apos;, null, cons, null);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask71</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask71(attempt, message) {&#xd;
+	try {&#xd;
+		// SM2CE 02.07.24 - GLPI 591107&#xd;
+		var periodicService = ServiceManager.getService(&quot;ws_medicaoContratos&quot;);&#xd;
+		var serviceHelper = periodicService.getBean();&#xd;
+		var serviceLocator = serviceHelper.instantiate(&quot;br.com.oncoclinicas.webservices.wscnta120_apw.WSCNTA120&quot;);&#xd;
+		var service = serviceLocator.getWSCNTA120SOAP();&#xd;
+		&#xd;
+		log.info(getValue(&quot;WKNumProces&quot;) + &apos;parametros indo para wsestmedicao&apos;)&#xd;
+		log.info(&apos;COD_FILIAL: &apos; + hAPI.getCardValue(&quot;codFilial&quot;) + &apos;MEDICAO: &apos; + hAPI.getCardValue(&quot;medicao&quot;));&#xd;
+		&#xd;
+		var resultObj = service.wsestmedicao(hAPI.getCardValue(&quot;codFilial&quot;), hAPI.getCardValue(&quot;medicao&quot;));&#xd;
+		&#xd;
+		var result = resultObj.getWSRETCNTA120().get(0);&#xd;
+		var sucesso = result.getSUCESSO();&#xd;
+		var mensagem = result.getMENSAGEM();&#xd;
+		&#xd;
+		hAPI.setCardValue(&quot;obsMedicao&quot;, mensagem);&#xd;
+		&#xd;
+		if (sucesso == &quot;false&quot;) &#xd;
+			throw &quot;Não foi possível executar o estorno da medição de contrato com o Protheus. \n&quot; + mensagem;&#xd;
+&#xd;
+	} catch (e) {&#xd;
+		// FALHA DE COMUNICACAO COM O SERVICO ws_medicaoContratos&#xd;
+		throw &quot;Falha de integração com o Protheus. \n&quot; + e.message;&#xd;
+	}&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeStateEntry(sequenceId) {&#xd;
+&#xd;
+	if (sequenceId == AVALIACAO_GESTOR) {&#xd;
+&#xd;
+		var nivelAtualAprovacao = hAPI.getCardValue(&quot;nivelAtualAprovacao&quot;);&#xd;
+		var nivelMaximoAprovacao = hAPI.getCardValue(&quot;nivelMaximoAprovacao&quot;);&#xd;
+&#xd;
+		if (nivelAtualAprovacao &lt; nivelMaximoAprovacao) {&#xd;
+&#xd;
+			nivelAtualAprovacao = parseInt(nivelAtualAprovacao) + 1;&#xd;
+			hAPI.setCardValue(&quot;proximoAprovador&quot;, hAPI.getCardValue(&quot;idAprovGestor&quot; + nivelAtualAprovacao));&#xd;
+&#xd;
+		} else {&#xd;
+			hAPI.setCardValue(&quot;proximoAprovador&quot;, &quot;&quot;);&#xd;
+		}&#xd;
+	}&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>funcoesAprovacao</eventId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function fornecedorAprovado() {&#xd;
+&#xd;
+&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function aprovadoPeloSolicitante() {&#xd;
+&#xd;
+    var aprovado = hAPI.getCardValue(&quot;decisaoAprovSol&quot;);&#xd;
+&#xd;
+    if (aprovado == &quot;Sim&quot;) {&#xd;
+        return 1;     &#xd;
+    } else {&#xd;
+        return 2; //Solucao da Inconsistencia&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+function exclusivo37() {&#xd;
+    var nivel = hAPI.getCardValue(&quot;nivelAtualAprovacao&quot;)&#xd;
+    var nivelAtualAprovacao = hAPI.getCardValue(&quot;nivelAtualAprovacao&quot;);&#xd;
+    var nivelMaximoAprovacao = hAPI.getCardValue(&quot;nivelMaximoAprovacao&quot;);&#xd;
+&#xd;
+    if (hAPI.getCardValue(&quot;decisaoGestor&quot; + nivel) == &quot;Nao&quot;) {&#xd;
+        return 0&#xd;
+    } else if (hAPI.getCardValue(&quot;proximoAprovador&quot;) == &quot;&quot;) {&#xd;
+        return 2&#xd;
+    } else if (nivelAtualAprovacao &lt; nivelMaximoAprovacao) {&#xd;
+        return 1&#xd;
+    } else {&#xd;
+        return 2&#xd;
+    }&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function analise() {&#xd;
+&#xd;
+    var aprovAnaliseServ = hAPI.getCardValue(&quot;exampleForn&quot;);&#xd;
+&#xd;
+    if (aprovAnaliseServ == &quot;checked&quot;) {&#xd;
+        return 1;&#xd;
+    } else {&#xd;
+        if (aprovAnaliseServ == &quot;notchecked&quot; || aprovAnaliseServ == &quot;&quot;) {&#xd;
+&#xd;
+            return 2;&#xd;
+        }&#xd;
+&#xd;
+    }&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>FF8040</color>
+      <height>891</height>
+      <width>1591</width>
+      <positionX>10</positionX>
+      <positionY>0</positionY>
+      <stateName>Medição Contratos</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>178</height>
+      <width>1561</width>
+      <positionX>40</positionX>
+      <positionY>0</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>adc9ac</color>
+      <height>178</height>
+      <width>1561</width>
+      <positionX>40</positionX>
+      <positionY>534</positionY>
+      <stateName>Fiscal</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d0daae</color>
+      <height>178</height>
+      <width>1561</width>
+      <positionX>40</positionX>
+      <positionY>178</positionY>
+      <stateName>Integração Protheus</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d6e0d0</color>
+      <height>178</height>
+      <width>1561</width>
+      <positionX>40</positionX>
+      <positionY>356</positionY>
+      <stateName>Gestor</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>c9c3ac</color>
+      <height>179</height>
+      <width>1561</width>
+      <positionX>40</positionX>
+      <positionY>712</positionY>
+      <stateName>Central de notas</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <sequence>6</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>1610</positionX>
+      <positionY>10</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>1</version>
+        <componGrafSequence>211</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Revisado em 02.07.24</stateName>
+    </ProcessComponGraf>
+  </list>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>34</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>973</positionX>
+      <positionY>205</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>73</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>612</positionX>
+      <positionY>257</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>73</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>343</positionX>
+      <positionY>257</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>115</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>430</positionX>
+      <positionY>614</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>115</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>612</positionX>
+      <positionY>614</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>147</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>310</positionX>
+      <positionY>553</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>147</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>234</positionX>
+      <positionY>553</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>147</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>182</positionX>
+      <positionY>553</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>160</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>225</positionX>
+      <positionY>498</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>161</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>311</positionX>
+      <positionY>445</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>161</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>239</positionX>
+      <positionY>445</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>163</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>741</positionX>
+      <positionY>444</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>164</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>614</positionX>
+      <positionY>495</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>169</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>594</positionX>
+      <positionY>860</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>173</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>974</positionX>
+      <positionY>804</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>176</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>920</positionX>
+      <positionY>861</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>176</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1063</positionX>
+      <positionY>861</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>177</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>973</positionX>
+      <positionY>803</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>178</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>589</positionX>
+      <positionY>870</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>178</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>313</positionX>
+      <positionY>870</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>184</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>227</positionX>
+      <positionY>70</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>184</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>227</positionX>
+      <positionY>23</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>184</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>769</positionX>
+      <positionY>23</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>184</linkSequence>
+        <bendSequence>4</bendSequence>
+      </processLinkBendPK>
+      <positionX>769</positionX>
+      <positionY>270</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>185</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>692</positionX>
+      <positionY>91</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>189</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>397</positionX>
+      <positionY>623</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>189</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>397</positionX>
+      <positionY>422</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>191</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>270</positionX>
+      <positionY>90</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>191</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>270</positionX>
+      <positionY>256</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>191</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>270</positionX>
+      <positionY>430</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>203</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1413</positionX>
+      <positionY>114</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>204</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1322</positionX>
+      <positionY>172</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <version>110</version>
+        <linkSequence>210</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>112</positionX>
+      <positionY>455</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <fieldId>filtroDataVencimento</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Data Vencimento</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>SolicitacaoMedicaoContratos</processId>
+        <fieldId>nomeFilial</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Filial</fieldDescription>
+      <slotId>2</slotId>
+    </ProcessFormField>
+  </list>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+      <version>1</version>
+      <sequence>58</sequence>
+      <attempts>2</attempts>
+      <sucessFullMessage>Atividade automática de integração</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>2</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+      <version>1</version>
+      <sequence>71</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Atividade automática de integração</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+      <version>1</version>
+      <sequence>165</sequence>
+      <attempts>2</attempts>
+      <sucessFullMessage>Integration performed successfully</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>2</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+      <version>1</version>
+      <sequence>171</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integration performed successfully</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>SolicitacaoMedicaoContratos</processId>
+      <version>1</version>
+      <sequence>198</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>

@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<!-- CONTROLE DE VERSAO 
+			SM2CE - AGO.24 - PROPJETO ALCADAS - 24-25
+		-->
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+		<!-- CSS E CUSTOM -->
+		<link type="text/css" rel="stylesheet" href="css/custom.css" />	
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="custom/custom.js"></script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<!-- DADOS DA SOLICITACAO E WF DE ORIGEM -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV(this)" id="spDADOS_WF"> </i>APROVA&Ccedil;&Atilde;O DE WF CONFORME AL&Ccedil;ADAS
+					</div>
+					<!-- CONTROLE -->
+					<input type="hidden" name="codSolicitante" id="codSolicitante">
+
+					<!-- DADOS -->
+					<div class="card-body" id="divDADOS_WF" style="display:block;">
+						<div class="row form-group">
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Solicitante</label>
+								<input type="text" class="form-control" id="nomeSolicitante" name="nomeSolicitante" readonly="readonly">
+							</div>
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>e-mail</label>
+								<input type="text" class="form-control" id="emailSolicitante" name="emailSolicitante" readonly="readonly">
+							</div>
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+								<label>Data Solicita&ccedil;&atilde;o</label>
+								<input type="text" class="form-control" id="dtAberturaChamado" name="dtAberturaChamado" readonly="readonly">
+							</div>
+							<!-- NUMERO WF/CHAMADO -->
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+								<label>N&ordm; WF Aprova&ccedil;&atilde;o</label>
+								<input type="text" class="form-control" id="numChamado" name="numChamado" readonly="readonly">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- WF DE ORIGEM E VALOR PARA APROVACAO -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoORG')"> WF/CHAMADO DE ORIGEM
+					</div>
+					<div class="card-body" id="div_secaoORG" style="display:block;">
+						<div class="row form-group">
+							<!-- NUMERO WF/ORIGEM-->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>N&ordm; WF Origem</label>
+								<input type="text" class="form-control" id="numChamadoOrigem" name="numChamadoOrigem" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Valor Solicitado</label>
+								<input type="text" class="form-control" id="valorSolicitado" name="valorSolicitado" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<!-- FILIAL -->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Filial</label>
+								<input type="hidden" id="cdFilial" name="cdFilial" />
+								<input type="text" class="form-control" id="filial" name="filial" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<!-- CENTRO DE CUSTO -->
+							<div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
+								<label>Centro de Custo</label>
+								<input type="hidden" id="cdCentroCusto" name="cdCentroCusto" />
+								<input type="text" class="form-control" id="centroCusto" name="centroCusto" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<!-- CARTA DE EXCECAO -->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<input type="hidden" id="valorCartaExcecao" name="valorCartaExcecao" />
+								<label>Carta de Exce&ccedil;&atilde;o</label>
+								<input type="text" class="form-control" id="cartaExcecao" name="cartaExcecao" readonly="readonly" style="font-size: x-small;text-align: center;" />	
+							</div>
+						</div>
+						<div class="row form-group">
+							<!-- OPERACAO 
+							     Compras Diversas, Serviços, Obras 
+							-->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Opera&ccedil;&atilde;o</label>
+								<input class="form-control" id="operacao" name="operacao" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<!-- POOL DE ABERTURA -->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+								<label>Pool de Abertura</label>
+								<input class="form-control" id="poolAbertura" name="poolAbertura" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div> 
+							<!-- TIPO DE SOLICITACAO -->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="display: none;">
+								<label>Tipo de Solicita&ccedil;&atilde;o</label>
+								<input class="form-control" id="tipoSolicitacao" name="tipoSolicitacao" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+							<!-- NIVEL TIPO DE VALIDACAO  -->
+							<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="display: none;">
+								<label>N&iacute;vel de Valida&ccedil;&atilde;o</label>
+								<input class="form-control" id="nivelValidacao" name="nivelValidacao" readonly="readonly" style="font-size: x-small;text-align: center;" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- APROVACAO -->
+				<div class="card m-1" id="pnlAprovador">
+					<div class="card-header panel-estilizado text-center" > APROVADOR
+					</div>
+					<div class="card-body" id="div_secaoAPV" style="display:block;">
+						<div class="row form-group">
+							<input type="hidden" id="seAprovado" name="seAprovado" value="nao_confirmado">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<label>Aprovador: </label>
+									<input type="text" id="nomeAprovador" name="nomeAprovador" class="form-control" readonly="readonly">
+								</div>
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="rdAprovado">Aprovado?</label>
+									<div class="col-lg-8">
+										<input type="radio" id="rdAprovado-1" name="rdAprovado" value="sim" /> Sim
+										<input type="radio" id="rdAprovado-2" name="rdAprovado" value="nao" /> N&atilde;o
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<label >Observa&ccedil;&otilde;es:</label>
+									<textarea class="form-control" rows="3" name="txtObservacao" id="txtObservacao"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- TABELA DE APROVADORES E SEQUENCIA DE APROVACAO 
+					 LOGIN, EMAIL, NOME, VALOR TETO DE APROVACAO E SEQUENCIA DE APROVACAO -->
+				<div class="card m-1" style="display: none;"> 
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoAPV')"> APROVADORES
+					</div>
+					<div class="card-body" id="div_secaoAPV" style="display:block;">
+						<div class="table-responsive">
+							<table id="targetAprovadores" tablename="targetAprovadores" nodeletebutton="true" noaddbutton="true" class="table table-hover table-condensed table-responsive" style="vertical-align:inherit;">
+								<thead>
+									<tr>
+										<th>Sequ&ecirc;ncia</th>
+										<th>Login</th>
+										<th>Valor Teto</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="lnApv">
+										<td><input type="text" id="apvSequencia" name="apvSequencia" readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvLogin"     name="apvLogin"     readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvValorTeto" name="apvValorTeto" readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvStatus"    name="apvStatus"    readonly="readonly" class="form-control" value="nao_confirmado"/></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- REGISTRO DAS APROVACOES -->
+				<div class="card m-1" id="pnlAprovacoes">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoHST')"> APROVA&Ccedil;&Otilde;ES
+					</div>
+					<div class="card-body" id="div_secaoHST" style="display:block;">
+						<div class="table-responsive">
+							<table id="targetAutorizacoes" tablename="targetAutorizacoes" nodeletebutton="true"
+								noaddbutton="true" class="table table-hover table-condensed table-responsive"
+								style="vertical-align:inherit;">
+								<thead>
+									<tr>
+										<th>Quando</th>
+										<th>Respons&aacute;vel</th>
+										<th>Substituto</th>
+										<th>e-mail</th>
+										<th>Decis&atilde;o</th>
+										<th>Obs</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="lnHST">
+										<td><input type="text" id="apvQuando"      name="apvQuando"      readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvNome"        name="apvNome"        readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvSubstituto"  name="apvSubstituto"  readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvEMail"       name="apvEMail"       readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvDecisao"     name="apvDecisao"     readonly="readonly" class="form-control" /></td>
+										<td><input type="text" id="apvObs"         name="apvObs"         readonly="readonly" class="form-control" /></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- DOCUMENTO ORIGINAL -->
+				<div class="card m-1">
+					<div class="card-header panel-estilizado text-center" onclick="esconderDIV('div_secaoDOC')"> DOCUMENTO ORIGINAL
+					</div>
+					<!-- BOTAO PARA VISUALIZAR DOCTO ORIGINAL FUNCAO openDocument(id, version, docSolicitacao) -->
+					<div class="card-footer">
+						<input type="hidden" id="orig_documentid"     name="orig_documentid">	
+						<input type="hidden" id="orig_version"        name="orig_version">
+						<input type="hidden" id="orig_docSolicitacao" name="orig_docSolicitacao">
+						<!--
+							<button type="button" class="btn btn-primary" id="btnVisualizarDocOriginal" onclick="openDocument()">Visualizar Documento Original</button>
+						-->
+					</div>
+					<div class="card-body" id="div_secaoDOC" style="display:block;">
+						<div class="row form-group">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<!-- IMAGEM DO DOCUMENTO ORIGINAL - CARGAATRAVES DA FUNCAO showDocument -->
+								<div id="divDocument">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- FIM DO FORMULARIO -->
+				<div class="row form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<hr style="margin-bottom:0px;">
+					<span>Fim do formul&aacute;rio - SM2CE - Aprova&ccedil;&amacr;o Unificada</SPAN>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,3258 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>Compras MatMed Manual</processId>
+    </processDefinitionPK>
+    <processDescription>Compras MatMed Manual</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>true</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId></categoryId>
+    <managerEngineAllocationId>Associado</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssociatedController ConditionAssociated=&quot;OR&quot;&gt;&lt;ControlXML TypeAssociated=&quot;Usuário&quot;&gt;&lt;AssignmentController&gt;&lt;User&gt;imwn2dyhbuywfa0f1522083830483&lt;/User&gt;&lt;/AssignmentController&gt;&lt;/ControlXML&gt;&lt;/AssociatedController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Compras MatMed Manual</processId>
+      <version>2</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>5351664</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>100</positionX>
+      <positionY>79</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Analise do comprador</stateName>
+      <stateDescription>Analise do comprador</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA5</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;poolAbertura&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>237</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>22</sequence>
+      </processStatePK>
+      <stateName>Cotação Bionexo</stateName>
+      <stateDescription>Cotação Bionexo</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA22</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>490</positionX>
+      <positionY>237</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>25</sequence>
+      </processStatePK>
+      <stateName>Analise Da Cotação</stateName>
+      <stateDescription>Analise Da Cotação</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA25</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>684</positionX>
+      <positionY>61</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>41</sequence>
+      </processStatePK>
+      <stateName>Solução Incosistência</stateName>
+      <stateDescription>Solução Incosistência</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA41</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1137</positionX>
+      <positionY>237</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>48</sequence>
+      </processStatePK>
+      <stateName>Correção do Solicitante</stateName>
+      <stateDescription>Correção do Solicitante</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA48</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>307</positionX>
+      <positionY>61</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>53</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Solicitante</stateName>
+      <stateDescription>Aprovação do Solicitante</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA53</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>990</positionX>
+      <positionY>61</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>57</sequence>
+      </processStatePK>
+      <stateName>Emitir Pedido de Compras</stateName>
+      <stateDescription>Emitir Pedido de Compras</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>827</positionX>
+      <positionY>547</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>59</sequence>
+      </processStatePK>
+      <stateName>Exceção da Integração</stateName>
+      <stateDescription>Exceção da Integração</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA59</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>827</positionX>
+      <positionY>675</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>102</sequence>
+      </processStatePK>
+      <stateName>Anexar Pedido de Compras</stateName>
+      <stateDescription>Anexar Pedido de Compras</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>990</positionX>
+      <positionY>547</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>107</sequence>
+      </processStatePK>
+      <stateName>Exceção da Integração</stateName>
+      <stateDescription>Exceção da Integração</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA107</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>990</positionX>
+      <positionY>675</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>110</sequence>
+      </processStatePK>
+      <stateName>Download Pedido Compas</stateName>
+      <stateDescription>Download Pedido Compas</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName>SLA110</deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;5&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1180</positionX>
+      <positionY>540</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>62</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>903</positionX>
+      <positionY>600</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>57</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>67</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1025</positionX>
+      <positionY>421</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>68</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>195</positionX>
+      <positionY>20</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>70</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1335</positionX>
+      <positionY>254</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>71</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>863</positionX>
+      <positionY>79</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>97</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>863</positionX>
+      <positionY>254</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>98</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>720</positionX>
+      <positionY>639</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>105</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1335</positionX>
+      <positionY>564</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>106</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1067</positionX>
+      <positionY>600</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>102</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>120</sequence>
+      </processStatePK>
+      <stateName>Aprovações conforme Alçadas 24-25</stateName>
+      <stateDescription>Aprovações conforme Alçadas 24-25</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId>AprovaçãoUnificada</subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>684</positionX>
+      <positionY>397</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>true</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>2</stateType>
+      <bpmnType>100</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <cancelSubProcess>true</cancelSubProcess>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <sendToNextTaskInSubProcess>true</sendToNextTaskInSubProcess>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>32</sequence>
+      </processStatePK>
+      <stateName>Aprov?</stateName>
+      <stateDescription>Aprov?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>850</positionX>
+      <positionY>395</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>39</sequence>
+      </processStatePK>
+      <stateName>Aprovado</stateName>
+      <stateDescription>Aprovado</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>1160</positionX>
+      <positionY>45</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>45</sequence>
+      </processStatePK>
+      <stateName>Aprovado?</stateName>
+      <stateDescription>Aprovado?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>330</positionX>
+      <positionY>221</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>84</sequence>
+      </processStatePK>
+      <stateName>Ajuste cotação?</stateName>
+      <stateDescription>Ajuste cotação?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>707</positionX>
+      <positionY>214</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>125</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Esta atividade indica que o processo terminado e que não ocorrerá nenhum tipo de pós processamento.</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1335</positionX>
+      <positionY>79</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>68</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>2</version>
+        <sequence>32</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;seAprovado&quot;)) == &quot;nao&quot;</condition>
+      <destinationSequenceId>67</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>2</version>
+        <sequence>32</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;seAprovado&quot;) == &quot;&quot; </condition>
+      <destinationSequenceId>57</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>2</version>
+        <sequence>39</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;decisaoSolicitante&quot;) == &quot;nao&quot;</condition>
+      <destinationSequenceId>41</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>2</version>
+        <sequence>39</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;decisaoSolicitante&quot;) == &quot;sim&quot;</condition>
+      <destinationSequenceId>0</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>2</version>
+        <sequence>45</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;correcaoSolicitacao&quot;) == &quot;true&quot;;</condition>
+      <destinationSequenceId>48</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>2</version>
+        <sequence>45</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;isAlcada&quot;) == &quot;false&quot;;</condition>
+      <destinationSequenceId>57</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>2</version>
+        <sequence>45</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;isAlcada&quot;) == &quot;true&quot;;</condition>
+      <destinationSequenceId>120</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>4</expressionOrder>
+        <version>2</version>
+        <sequence>45</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;isAlcada&quot;) == &quot;erro&quot;;</condition>
+      <destinationSequenceId>48</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>2</version>
+        <sequence>84</sequence>
+      </conditionProcessStatePK>
+      <condition>True</condition>
+      <destinationSequenceId>97</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>6</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>36</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>32</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>42</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Nao</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>44</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>125</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Sim</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>46</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>45</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>47</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Sim - Bionexo</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>49</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>48</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Nao</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>51</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>41</initialStateSequence>
+      <finalStateSequence>70</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>56</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>39</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>66</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>32</initialStateSequence>
+      <finalStateSequence>67</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Nao</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>69</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>68</initialStateSequence>
+      <finalStateSequence>48</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>72</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>71</initialStateSequence>
+      <finalStateSequence>53</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>48</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>76</linkSequence>
+      </processLinkPK>
+      <actionLabel>1 - Emitir Pedido de Compras</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>59</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>85</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>22</initialStateSequence>
+      <finalStateSequence>84</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>86</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>84</initialStateSequence>
+      <finalStateSequence>25</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Sim</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>91</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>62</initialStateSequence>
+      <finalStateSequence>59</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>92</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Sim - s/ Alçada</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>93</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>25</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>95</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>84</initialStateSequence>
+      <finalStateSequence>97</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Não - s/ Alçada</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>99</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>98</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>101</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>57</initialStateSequence>
+      <finalStateSequence>102</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>108</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>106</initialStateSequence>
+      <finalStateSequence>107</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>109</linkSequence>
+      </processLinkPK>
+      <actionLabel>1 - Anexar Pedido de Compras</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>107</initialStateSequence>
+      <finalStateSequence>102</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>111</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>102</initialStateSequence>
+      <finalStateSequence>110</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>112</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>110</initialStateSequence>
+      <finalStateSequence>105</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>113</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>125</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>114</linkSequence>
+      </processLinkPK>
+      <actionLabel>2 - By-pass Anexar Pedido de Compras</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>59</initialStateSequence>
+      <finalStateSequence>102</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>115</linkSequence>
+      </processLinkPK>
+      <actionLabel>2 - By-pass Donwload Pedido Compras</actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>107</initialStateSequence>
+      <finalStateSequence>110</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>121</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>84</initialStateSequence>
+      <finalStateSequence>120</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>122</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>45</initialStateSequence>
+      <finalStateSequence>120</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>123</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>120</initialStateSequence>
+      <finalStateSequence>32</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>126</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>70</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>127</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>67</initialStateSequence>
+      <finalStateSequence>68</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>128</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>97</initialStateSequence>
+      <finalStateSequence>98</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>129</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>105</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>130</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>105</initialStateSequence>
+      <finalStateSequence>71</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>131</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>67</initialStateSequence>
+      <finalStateSequence>68</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>132</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>97</initialStateSequence>
+      <finalStateSequence>98</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+    log.info(&apos;\n$$$$$$$$$$ afterProcessCreate SolicitacaoComprasMatMed $$$$$$$$$$&apos;);&#xd;
+    var primeiraCompra = false;&#xd;
+    var indexesItens = hAPI.getChildrenIndexes(&quot;tbProd&quot;);&#xd;
+    for(var i = 0; i &lt; indexesItens.length; i++){&#xd;
+        var tdSelectPrimeiraCompra = hAPI.getCardValue(&quot;tdSelectPrimeiraCompra___&quot; + indexesItens[i]);&#xd;
+        log.info(&quot;Primeira Compra Item &quot; + i + &quot; :&quot; + tdSelectPrimeiraCompra);&#xd;
+        if(tdSelectPrimeiraCompra == &quot;sim&quot;){&#xd;
+            primeiraCompra = true;&#xd;
+        }&#xd;
+    }&#xd;
+    log.info(&quot;Primeira Compra: &quot;+primeiraCompra);&#xd;
+    if(primeiraCompra == true){&#xd;
+        var workflowEngineServiceProvider = ServiceManager.getServiceInstance(&quot;ECMWorkflowEngineService&quot;);&#xd;
+        var attachments = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessAttachmentDtoArray&apos;);&#xd;
+        var appointment = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessTaskAppointmentDtoArray&apos;);&#xd;
+        var colleagueIds = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArray&apos;);&#xd;
+        colleagueIds.getItem().add(&apos;Pool:Group:GCRN_Assistencial&apos;);&#xd;
+        var workflowEngineServiceLocator = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ECMWorkflowEngineServiceService&apos;);&#xd;
+        var workflowEngineService = workflowEngineServiceLocator.getWorkflowEngineServicePort();&#xd;
+        var cardData = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArrayArray&apos;);&#xd;
+        var arrayCampos = [];&#xd;
+&#xd;
+        var inputSolicitacaoPrincipal = &quot;inputSolicitacaoPrincipal&quot;;&#xd;
+        arrayCampos.push([inputSolicitacaoPrincipal, processId]);&#xd;
+&#xd;
+        var inputDataSolicitacao = &quot;inputDataSolicitacao&quot;;&#xd;
+        var data = new Date();&#xd;
+        var dia  = data.getDate();&#xd;
+        var mes  = data.getMonth() + 1;&#xd;
+        var ano  = data.getFullYear();&#xd;
+        dia = (dia&lt;=9 ? &quot;0&quot;+dia : dia);&#xd;
+        mes = (mes&lt;=9 ? &quot;0&quot;+mes : mes);&#xd;
+        var dataLocal = dia+&quot;/&quot;+mes+&quot;/&quot;+ano;&#xd;
+        log.info(&quot;dataLocal: &quot;+dataLocal);&#xd;
+        arrayCampos.push([inputDataSolicitacao, dataLocal]);&#xd;
+&#xd;
+        var inputCodigoFilial = &quot;inputCodigoFilial&quot;;&#xd;
+        var codFilial = hAPI.getCardValue(&quot;codFilial&quot;);&#xd;
+        arrayCampos.push([inputCodigoFilial, codFilial]);&#xd;
+&#xd;
+        var inputNomeFilial = &quot;inputNomeFilial&quot;;&#xd;
+        var filial = hAPI.getCardValue(&quot;filial&quot;);&#xd;
+        arrayCampos.push([inputNomeFilial, filial]);&#xd;
+&#xd;
+        var inputCNPJFilial = &quot;inputCNPJFilial&quot;;&#xd;
+        var cnpj_filial = hAPI.getCardValue(&quot;cnpj_filial&quot;);&#xd;
+        arrayCampos.push([inputCNPJFilial, cnpj_filial]);&#xd;
+&#xd;
+        var indexes = hAPI.getChildrenIndexes(&quot;tbProd&quot;);&#xd;
+        for(var i = 0; i &lt; indexes.length; i++){&#xd;
+            var tdSelectPrimeiraCompra = hAPI.getCardValue(&quot;tdSelectPrimeiraCompra___&quot; + indexes[i]);&#xd;
+            if(tdSelectPrimeiraCompra == &quot;sim&quot;){&#xd;
+                var codProd = hAPI.getCardValue(&quot;codProd___&quot; + indexes[i]);&#xd;
+                var inputTdCodigoProduto = &quot;inputTdCodigoProduto___&quot;+ parseInt(i) + 1;&#xd;
+                arrayCampos.push([inputTdCodigoProduto, codProd]);&#xd;
+                var nomeProd = hAPI.getCardValue(&quot;nomeProd___&quot; + indexes[i]);&#xd;
+                var inputTdNomeProduto = &quot;inputTdNomeProduto___&quot;+ parseInt(i) + 1;&#xd;
+                arrayCampos.push([inputTdNomeProduto, nomeProd]);&#xd;
+                var qtdProd = hAPI.getCardValue(&quot;qtdProd___&quot; + indexes[i]);&#xd;
+                var inputTdQuantidade = &quot;inputTdQuantidade___&quot;+ parseInt(i) + 1;&#xd;
+                arrayCampos.push([inputTdQuantidade, qtdProd]);&#xd;
+            }&#xd;
+        }&#xd;
+        for(var i = 0; i &lt; arrayCampos.length; i++){&#xd;
+            var campoValor = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArrayArray&apos;);&#xd;
+            var campoX = arrayCampos[i][0];&#xd;
+            var valorX = arrayCampos[i][1];&#xd;
+            if(valorX == null) valorX = &quot; &quot;;&#xd;
+            if(!isNaN(valorX)) valorX = valorX.toString();&#xd;
+            campoValor.getItem().add(campoX);&#xd;
+            campoValor.getItem().add(valorX);&#xd;
+            cardData.getItem().add(campoValor);&#xd;
+        }&#xd;
+        log.dir(arrayCampos);&#xd;
+        var username = &quot;integrador.fluig@oncoclinicas.com&quot;;&#xd;
+        var password = &quot;hUbust*7&quot;;&#xd;
+        var companyId = getValue(&quot;WKCompany&quot;);&#xd;
+        var processIdName = &quot;ativacao_vinculacao_produtos_matmed&quot;;&#xd;
+        var choosedState = 0;&#xd;
+        var comments = &quot;Solicitação inicializada pela Solicitação de Compras MatMed&quot;;&#xd;
+        var userId = &quot;imwn2dyhbuywfa0f1522083830483&quot;;&#xd;
+        var completeTask = true;&#xd;
+        var managerMode = false;&#xd;
+        var response = workflowEngineService.startProcess(&#xd;
+            username,&#xd;
+            password,&#xd;
+            companyId,&#xd;
+            processIdName,&#xd;
+            choosedState,&#xd;
+            colleagueIds,&#xd;
+            comments,&#xd;
+            userId,&#xd;
+            completeTask,&#xd;
+            attachments,&#xd;
+            cardData,&#xd;
+            appointment,&#xd;
+            managerMode&#xd;
+        );&#xd;
+        log.info(&quot;\n$$$$$$$$$$ Response $$$$$$$$$$&quot;);&#xd;
+        log.dir(response);&#xd;
+        var iProcess = &quot;&quot;;&#xd;
+        for(var i = 0; i &lt; response.getItem().size(); i++){&#xd;
+            var item = response.getItem().get(i).getItem();&#xd;
+            var key = item.get(0);&#xd;
+            var value = item.get(1);&#xd;
+            if(key == &quot;iProcess&quot;) iProcess = value;&#xd;
+        }&#xd;
+        log.info(&quot;\n$$$$$$$$$$ iProcess: &quot;+iProcess);&#xd;
+        var user = getValue(&quot;WKUser&quot;);&#xd;
+        var obs = &quot;Ativação e Vinculação de Produtos MatMed: &quot;+iProcess;&#xd;
+        hAPI.setTaskComments(user, processId, 0, obs);&#xd;
+    }&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask57</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask57(attempt, message) {&#xd;
+    //MONTA OS XMLs&#xd;
+    var listProduto = consultaPaiFilho([&apos;itemProd&apos;, &apos;codProd&apos;, &apos;qtdProd&apos;, &apos;valorProd&apos;, &apos;valorTotalProd&apos;, &apos;fabricanteProd&apos;, &apos;codFornVencedorProd&apos;, &apos;valIpiProd&apos;]);&#xd;
+    var listFornecedor = consultaPaiFilho([&apos;codForn&apos;, &apos;nomeForn&apos;, &apos;lojaForn&apos;, &apos;diasPrazo&apos;,&apos;prazoForn&apos;, &apos;codCondForn&apos;, &apos;formaForn&apos;, &apos;freteFornHidden&apos;, &apos;valorFreForn&apos;]);&#xd;
+&#xd;
+    for (var i = 0; i &lt; listFornecedor.length; i++) {&#xd;
+        var codFornecedor = listFornecedor[i].codForn;&#xd;
+        var contentPedido = {&#xd;
+            codFornecedor: codFornecedor,&#xd;
+            nomeFornecedor: listFornecedor[i].nomeForn,&#xd;
+            loja: listFornecedor[i].lojaForn,&#xd;
+            codCondPagamento: listFornecedor[i].codCondForn,&#xd;
+            codFormaPagamento: listFornecedor[i].formaForn,&#xd;
+            diasPrazo: listFornecedor[i].diasPrazo,&#xd;
+            prazoFornecedor: listFornecedor[i].prazoForn,&#xd;
+            tipoFrete: listFornecedor[i].freteFornHidden,&#xd;
+            valorFrete: listFornecedor[i].valorFreForn,           &#xd;
+            listProduto:[]&#xd;
+        }&#xd;
+        for(var j = 0; j &lt; listProduto.length; j++){&#xd;
+            if (codFornecedor == listProduto[j].codFornVencedorProd){&#xd;
+                contentPedido.listProduto.push({&#xd;
+                   item: listProduto[j].itemProd,&#xd;
+                   codProduto: listProduto[j].codProd,&#xd;
+                   qtd: listProduto[j].qtdProd,&#xd;
+                   valor: listProduto[j].valorProd,&#xd;
+                   valorIpi: listProduto[j].valIpiProd,&#xd;
+                   totalProduto: listProduto[j].valorTotalProd,&#xd;
+                   fabricante: listProduto[j].fabricanteProd,&#xd;
+                })&#xd;
+            }&#xd;
+        }&#xd;
+        //FAZ INTEGRAÇÃO COM PROTHEUS&#xd;
+        try{&#xd;
+            myLog(&apos;Iniciando A INTEGRAÇÃO FORNECEDOR: &apos;, contentPedido.nomeFornecedor);&#xd;
+            var campoIntegracao = hAPI.getCardValue(&apos;listPedidoCompra&apos;);&#xd;
+            if (campoIntegracao == &apos;&apos;) {&#xd;
+                campoIntegracao = &apos;{}&apos;&#xd;
+            }&#xd;
+            var pedidosGerados = JSON.parse(campoIntegracao);&#xd;
+            myLog(&apos;JSON: &apos;, JSON.stringify(pedidosGerados));&#xd;
+            if (pedidosGerados[contentPedido.nomeFornecedor] == undefined) {&#xd;
+                var xmlAtual = montaXML(contentPedido);&#xd;
+                if(xmlAtual != undefined){&#xd;
+                    myLog(&apos;XML GERADO&apos;, xmlAtual);&#xd;
+                    //EMITE PEDIDO DE COMPRAS&#xd;
+                    var dsPedido = DatasetFactory.getDataset(&apos;ds_gerarPedidoCompra&apos;, new Array(xmlAtual), null, null);&#xd;
+                    var codPedido = dsPedido.getValue(0, &quot;codigoPedido&quot;);&#xd;
+                    var statusRetorno = dsPedido.getValue(0, &quot;statusRetorno&quot;);&#xd;
+                    myLog(&apos;RESULT PEDIDO &apos;, codPedido);&#xd;
+                    if (codPedido == &apos;ERRO&apos; || codPedido == null || codPedido == &apos;null&apos;) {&#xd;
+                        throw &quot;Erro na integração. \n&quot; + statusRetorno;&#xd;
+                    } else {&#xd;
+                        myLog(&apos;CODIGO FORNECEDOR&apos;, contentPedido.nomeFornecedor);&#xd;
+                        pedidosGerados[contentPedido.nomeFornecedor + &quot;&quot;] = &quot;&quot; + codPedido;&#xd;
+                        var stringJson = JSON.stringify(pedidosGerados);&#xd;
+                        myLog(&apos;PEDIDOS GERADO STRING&apos;, stringJson);&#xd;
+                        hAPI.setCardValue(&apos;listPedidoCompra&apos;, stringJson);&#xd;
+                    }&#xd;
+                }&#xd;
+                &#xd;
+            }&#xd;
+        }catch(e){&#xd;
+            throw &quot;ERRO PARA INTEGRAR O PEDIDO DE COMPRAS. &quot;+e;&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function montaXML(contentPedido) {&#xd;
+    if (contentPedido.listProduto.length &gt; 0) {&#xd;
+        var modeloXML = &apos;&lt;PedidoCompra&gt;&lt;Operacao&gt;&lt;Id&gt;1&lt;/Id&gt;&lt;/Operacao&gt;&lt;Cabecalho&gt;&lt;/Cabecalho&gt;&lt;Itens&gt;&lt;/Itens&gt;&lt;/PedidoCompra&gt;&apos;;&#xd;
+        var xml = new XML(modeloXML);&#xd;
+        xml.Cabecalho.C7_FILIAL = hAPI.getCardValue(&quot;codFilial&quot;);&#xd;
+        xml.Cabecalho.C7_FORNECE = contentPedido.codFornecedor;&#xd;
+        xml.Cabecalho.C7_LOJA = contentPedido.loja;&#xd;
+        xml.Cabecalho.C7_COND = contentPedido.codCondPagamento;&#xd;
+        xml.Cabecalho.C7_EMISSAO = converteDataProtheus(getCurrentDate());&#xd;
+        xml.Cabecalho.C7_FILENT = hAPI.getCardValue(&quot;codFilial&quot;);&#xd;
+        xml.Cabecalho.C7_CONTATO = &apos;N.A&apos;;&#xd;
+        xml.Cabecalho.C7_NUM = &apos;&apos;;&#xd;
+        xml.Cabecalho.C7_TPFRETE = contentPedido.tipoFrete;&#xd;
+        xml.Cabecalho.C7_FRETE = removeMascaraMonetaria(contentPedido.valorFrete);&#xd;
+        for (var i = 0; i &lt; contentPedido.listProduto.length; i++) {&#xd;
+            var produtoAtual = contentPedido.listProduto[i];&#xd;
+            xml.Itens.Item[i] = &apos;&apos;;&#xd;
+            xml.Itens.Item[i].C7_ITEM = produtoAtual.item;&#xd;
+            xml.Itens.Item[i].C7_XFORPAG = contentPedido.codFormaPagamento;&#xd;
+            xml.Itens.Item[i].C7_PRODUTO = produtoAtual.codProduto;&#xd;
+            xml.Itens.Item[i].C7_ZPRIORI = hAPI.getCardValue(&quot;prioridadeHidden&quot;);&#xd;
+            xml.Itens.Item[i].C7_QUANT = produtoAtual.qtd;&#xd;
+            xml.Itens.Item[i].C7_PRECO = removeMascaraMonetaria(produtoAtual.valor);&#xd;
+            xml.Itens.Item[i].C7_TOTAL = removeMascaraMonetaria(produtoAtual.totalProduto);&#xd;
+            xml.Itens.Item[i].C7_ZFABRIC = removeAcentos(produtoAtual.fabricante);&#xd;
+            xml.Itens.Item[i].C7_ZSEQ = Math.floor((Math.random() * 90000) + 10000) + &apos;&apos;;&#xd;
+            xml.Itens.Item[i].C7_CC = hAPI.getCardValue(&quot;codCentroCusto&quot;);&#xd;
+            //xml.Itens.Item[i].C7_DATPRF = converteDataProtheus(contentPedido.prazoFornecedor);&#xd;
+            xml.Itens.Item[i].C7_DATPRF = converteDataProtheus(getCurrentData(contentPedido.diasPrazo));            &#xd;
+            xml.Itens.Item[i].C7_ZIDFLG = hAPI.getCardValue(&quot;codSolicitacao&quot;);&#xd;
+            xml.Itens.Item[i].C7_ZINFADI = removeAcentos(hAPI.getCardValue(&quot;infoAdicionais&quot;));&#xd;
+            xml.Itens.Item[i].C7_ZLCENTR = removeAcentos(hAPI.getCardValue(&quot;localEntrega&quot;));&#xd;
+            //xml.Itens.Item[i].C7_VALIPI = removeMascaraMonetaria(produtoAtual.valorIpi);&#xd;
+            xml.Itens.Item[i].C7_IPI = calcPorcentagem(removeMascaraMonetaria(produtoAtual.totalProduto), removeMascaraMonetaria(produtoAtual.valorIpi));&#xd;
+            log.info(&quot;KAKAROTO IPI: &quot; + removeMascaraMonetaria(produtoAtual.valorIpi));&#xd;
+        }&#xd;
+        log.info(&quot;xml pedido: &quot;+ xml);&#xd;
+        return xml;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function calcPorcentagem(valor, percentual){&#xd;
+    if(valor &gt; 0){&#xd;
+        var valProduto = parseFloat(valor); &#xd;
+        var valPercentual = parseFloat(percentual);&#xd;
+        var vlTotal = parseFloat((valPercentual*100)/valProduto);&#xd;
+        return vlTotal;&#xd;
+    } else{&#xd;
+        return 0;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function getCurrentData(diasPrazo) {&#xd;
+	&#xd;
+	diasPrazo = parseFloat(diasPrazo)&#xd;
+    var now = new Date();&#xd;
+	now.setDate(now.getDate() + diasPrazo);&#xd;
+    var year = now.getFullYear();&#xd;
+    var month = addZero(now.getMonth() + 1, 2);&#xd;
+    var day = addZero(now.getDate(), 2);&#xd;
+    var currentDate = day + &apos;/&apos; + month + &apos;/&apos; + year;&#xd;
+    return currentDate;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeCancelProcess</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeCancelProcess(colleagueId,processId){&#xd;
+	if(hAPI.getCardValue(&apos;isAlcada&apos;) == &apos;none&apos;){&#xd;
+		hAPI.setCardValue(&apos;isAlcada&apos;, &apos;&apos;); &#xd;
+	}&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+    GETSLA()&#xd;
+    Global();&#xd;
+&#xd;
+    if (ATIVIDADE_ATUAL == analiseComprador) {&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;tipoCotacaoHidden&quot;) == &quot;fechada&quot; &amp;&amp; hAPI.getCardValue(&quot;possuiExclusividadeHidden&quot;) == &quot;false&quot;) {&#xd;
+            var anexos = hAPI.listAttachments();&#xd;
+            var qtdAnexos = anexos.size();&#xd;
+            if (qtdAnexos == 0) {&#xd;
+                throw &quot;É necessário anexar as cotações realizadas para continuar o processo&quot;;&#xd;
+            }&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId,nextSequenceId,userList){&#xd;
+    var ATIVIDADE_ATUAL = getValue(&apos;WKNumState&apos;);&#xd;
+    log.info(&apos;xxxxxxComprasMatMed_ATIVIDADE_ATUAL: &apos; + ATIVIDADE_ATUAL);&#xd;
+	hAPI.setCardValue(&quot;codSolicitacao&quot;, getValue(&quot;WKNumProces&quot;));&#xd;
+	&#xd;
+	if ((nextSequenceId == 4 || nextSequenceId == &apos;4&apos;) &amp;&amp; hAPI.getCardValue(&quot;aceite&quot;) != &quot;S&quot;) {&#xd;
+        notificacaoEncerramento(hAPI.getCardValue(&apos;emailSolicitante&apos;), hAPI.getCardValue(&apos;nomeSolicitante&apos;))&#xd;
+&#xd;
+    }&#xd;
+&#xd;
+&#xd;
+	if(ATIVIDADE_ATUAL == alcadaAprovacao){&#xd;
+		var proximaAlcada = parseInt(hAPI.getCardValue(&quot;contadorAlcada&quot;))+1;&#xd;
+		hAPI.setCardValue(&quot;contadorAlcada&quot;, proximaAlcada);&#xd;
+	}&#xd;
+	&#xd;
+	if (ATIVIDADE_ATUAL == analiseComprador){&#xd;
+		//Adiciona os motivos de reprovação nos comentarios da solicitação&#xd;
+		if (hAPI.getCardValue(&quot;correcaoSolicitacao&quot;) == &quot;true&quot;){&#xd;
+			hAPI.setTaskComments(getValue(&quot;WKUser&quot;), getValue(&quot;WKNumProces&quot;), &#xd;
+				0, &quot;Solicitação reprovada pelo Comprador! \n&quot; + hAPI.getCardValue(&quot;motivoAnaliseComprador&quot;));&#xd;
+        }&#xd;
+        &#xd;
+        log.info(&apos;xxxxxx prioridadeOriginal: &apos; + hAPI.getCardValue(&quot;prioridadeOriginal&quot;) );&#xd;
+        log.info(&apos;xxxxxx prioridadeHidden: &apos; + hAPI.getCardValue(&quot;prioridadeHidden&quot;) );&#xd;
+        if(hAPI.getCardValue(&quot;prioridadeOriginal&quot;) != hAPI.getCardValue(&quot;prioridadeHidden&quot;)){&#xd;
+            try {&#xd;
+                var prioridade =  hAPI.getCardValue(&quot;prioridadeHidden&quot;);&#xd;
+                if(prioridade == &apos;N&apos;){&#xd;
+                    prioridade = &apos;NORMAL&apos;;&#xd;
+                }else if(prioridade == &apos;O&apos;){&#xd;
+                    prioridade = &apos;ONCOPROD&apos;;&#xd;
+                }else{&#xd;
+                    prioridade = &apos;EMERGENCIAL&apos;;&#xd;
+                }&#xd;
+&#xd;
+                var parametros = new java.util.HashMap();&#xd;
+                parametros.put(&quot;NUMSOLICITACAO&quot;, hAPI.getCardValue(&quot;codSolicitacao&quot;));&#xd;
+                parametros.put(&quot;NOMESOLICITANTE&quot;, hAPI.getCardValue(&quot;nomeSolicitante&quot;));&#xd;
+                parametros.put(&quot;PRIORIDADE&quot;, prioridade);&#xd;
+                parametros.put(&quot;RESP_ALTERACAO&quot;, hAPI.getCardValue(&quot;responsavelAltPriori&quot;));&#xd;
+                parametros.put(&quot;JUSTIFICATIVA&quot;, hAPI.getCardValue(&quot;justicativaAltPrioridade&quot;).trim());  &#xd;
+    &#xd;
+                var assuntoEmail = &apos;Alteração de prioridade do chamado &apos;;&#xd;
+                assuntoEmail += hAPI.getCardValue(&quot;codSolicitacao&quot;);&#xd;
+                parametros.put(&quot;subject&quot;, assuntoEmail);&#xd;
+                var destinatarios = new java.util.ArrayList();&#xd;
+                destinatarios.add(hAPI.getCardValue(&quot;emailSolicitante&quot;));&#xd;
+&#xd;
+&#xd;
+               &#xd;
+&#xd;
+                notifier.notify(&quot;imwn2dyhbuywfa0f1522083830483&quot;, &quot;notifica_alteracao_prioridade&quot;, parametros, destinatarios, &quot;text/html&quot;);&#xd;
+&#xd;
+                log.info(&apos;xxxxxx email do chamado &apos;+  hAPI.getCardValue(&quot;codSolicitacao&quot;) +&apos; enviado&apos;);&#xd;
+&#xd;
+    &#xd;
+            } catch (e) {&#xd;
+                log.info(&apos;Erro ao enviar email de alteração de prioridade do Compras Mat/Med: &apos; + e);&#xd;
+            }&#xd;
+        }&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function notificacaoEncerramento(emailSolicitante, solicitante) {&#xd;
+    var filter = new Array()&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;SOLICITACAO&apos;, getValue(&quot;WKNumProces&quot;), &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;SOLICITANTE&apos;, solicitante, &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;EMAIL_SOLICITANTE&apos;, emailSolicitante, &apos;&apos;, ConstraintType.MUST))&#xd;
+    filter.push(DatasetFactory.createConstraint(&apos;PROCESSO&apos;, getValue(&quot;WKDef&quot;), &apos;&apos;, ConstraintType.MUST))&#xd;
+    var ds_envioEmailEncerramento = DatasetFactory.getDataset(&apos;ds_envioEmailEncerramento&apos;, null, filter, null);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>Anexo</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function Anexo() {&#xd;
+&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ *Envia anexo para uma solicitação&#xd;
+ *@codSolicitacao - Codigo da solicitção&#xd;
+ *@atividade - número da atividade em que será anexado o documento&#xd;
+ *@anexoB64 - Arquivo convertido em base64&#xd;
+ **/&#xd;
+function enviaAnexoSolicitacao(codSolicitacao, atividade, anexoB64, nomeFornecedorComp) {&#xd;
+ &#xd;
+    log.info(&quot;KAKAROTO INICIO DO ANEXO&quot;);&#xd;
+    log.info(&quot;PARAMETROS: cod &quot;+ codSolicitacao + &quot; - atividade - &quot; + atividade +&quot; - anexo - &quot;+ anexoB64)&#xd;
+    log.info(&quot;KAKAROTO nome file: Pedido_Compras_&quot; + nomeFornecedorComp)&#xd;
+    var nomeFornecedor = removeCaracteres(nomeFornecedorComp);&#xd;
+    // Obtém a instância do serviço &apos;WorkflowEngineService&apos;&#xd;
+    var workflowEngineServiceProvider = ServiceManager.getServiceInstance(&quot;ECMWorkflowEngineService&quot;);&#xd;
+    var processAttachmentDtoArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessAttachmentDtoArray&apos;);&#xd;
+    var processAttachmentDto = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessAttachmentDto&apos;);&#xd;
+    var attachment = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.Attachment&apos;);&#xd;
+    var keyValueDto = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.KeyValueDto&apos;);&#xd;
+    var keyValueDtoArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.KeyValueDtoArray&apos;);&#xd;
+    var processTaskAppointmentDto = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessTaskAppointmentDto&apos;);&#xd;
+    var processTaskAppointmentDtoArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.ProcessTaskAppointmentDtoArray&apos;);&#xd;
+    var stringArray = workflowEngineServiceProvider.instantiate(&apos;br.com.oncoclinicas.fluig.StringArray&apos;);&#xd;
+    stringArray.getItem().add(&quot;15joqaztn156s2hg1491851925301&quot;)&#xd;
+&#xd;
+    processAttachmentDto.setAttachmentSequence(1);&#xd;
+    processAttachmentDto.setCompanyId(1);&#xd;
+    processAttachmentDto.setFileName(&quot;Pedido_Compras_&quot; + nomeFornecedor + &quot;.pdf&quot;);&#xd;
+    processAttachmentDto.setDescription(&quot;Pedido_Compras_&quot; + nomeFornecedor + &quot;.pdf&quot;);&#xd;
+    processAttachmentDto.setNewAttach(true);&#xd;
+    processAttachmentDto.setVersion(1000);&#xd;
+&#xd;
+    attachment.setAttach(true);&#xd;
+    attachment.setFileName(&quot;Pedido_Compras_&quot; + nomeFornecedor + &quot;.pdf&quot;);&#xd;
+    attachment.setFilecontent(java.util.Base64.getDecoder().decode(new java.lang.String(anexoB64).getBytes(&quot;UTF-8&quot;)));&#xd;
+    processAttachmentDto.getAttachments().add(attachment);&#xd;
+    processAttachmentDtoArray.getItem().add(processAttachmentDto);&#xd;
+&#xd;
+    var idIntegrador = &apos;imwn2dyhbuywfa0f1522083830483&apos;;&#xd;
+    if (hAPI.getCardValue(&apos;ambiente&apos;) == &apos;devTst&apos;) {&#xd;
+        log.info(&quot;KAKAROTO ambiente dev&quot;);&#xd;
+        idIntegrador = &apos;imwn2dyhbuywfa0f1522083830483&apos;;&#xd;
+    }&#xd;
+    // Instancia o serviço&#xd;
+    var workflowEngineServiceLocator = workflowEngineServiceProvider.instantiate(&quot;br.com.oncoclinicas.fluig.ECMWorkflowEngineServiceService&quot;);&#xd;
+    var workflowEngineService = workflowEngineServiceLocator.getWorkflowEngineServicePort();&#xd;
+    var servico = workflowEngineService.saveAndSendTaskClassic(&quot;integrador.fluig@oncoclinicas.com&quot;,&#xd;
+        &quot;hUbust*7&quot;,&#xd;
+        1,&#xd;
+        parseInt(codSolicitacao),&#xd;
+        parseInt(atividade),&#xd;
+        stringArray,&#xd;
+        &quot;&quot;,&#xd;
+        idIntegrador,&#xd;
+        false,&#xd;
+        processAttachmentDtoArray,&#xd;
+        keyValueDtoArray,&#xd;
+        processTaskAppointmentDtoArray,&#xd;
+        true,&#xd;
+        0);&#xd;
+&#xd;
+    //Verifica erro na integração do anexo&#xd;
+    for (var i = 0; i &lt; servico.getItem().size(); i++) {&#xd;
+        log.info(&quot;KAKAROTO result: &quot; + servico.getItem().get(i).getKey() + &quot; - &quot; + servico.getItem().get(i).getValue());&#xd;
+        if (servico.getItem().get(i).getKey() == &quot;ERROR&quot;) {&#xd;
+            return &quot;Erro para anexar o arquivo. - &quot; + servico.getItem().get(i).getValue();&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    return true;&#xd;
+}&#xd;
+//Busca o relatório pdf no Protheus&#xd;
+function getPdfPedidoProtheus(codPedido, codFilial) {&#xd;
+    var c1 = DatasetFactory.createConstraint(&apos;FILIAL&apos;, codFilial, codFilial, ConstraintType.MUST);&#xd;
+    var c2 = DatasetFactory.createConstraint(&apos;PEDIDO&apos;, codPedido, codPedido, ConstraintType.MUST);&#xd;
+    var ds_relatorio = DatasetFactory.getDataset(&apos;ds_pdfPedidoCompra&apos;, null, [c1, c2], null);&#xd;
+    if (ds_relatorio.getValue(0, &quot;SUCESSO&quot;) == &quot;true&quot;) {&#xd;
+        return {&#xd;
+            &apos;status&apos;: &apos;true&apos;,&#xd;
+            &apos;result&apos;: ds_relatorio.getValue(0, &quot;PDF&quot;)&#xd;
+        }&#xd;
+    } else {&#xd;
+        return {&#xd;
+            &apos;status&apos;: &apos;false&apos;,&#xd;
+            &apos;result&apos;: ds_relatorio.getValue(0, &quot;DESCRICAO&quot;)&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function removeCaracteres(string) {&#xd;
+    string = string.split(&quot;/&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;|&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;&lt;&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;&gt;&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;*&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;:&quot;).join(&quot;&quot;);&#xd;
+    string = string.split(&quot;“&quot;).join(&quot;&quot;);&#xd;
+    return string;&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>SLA</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function GETSLA() {&#xd;
+    var active = getValue(&apos;WKNumState&apos;)&#xd;
+&#xd;
+    if (active == 0 || active == getStartActive().getValue(0, &quot;processStatePK.sequence&quot;)) {&#xd;
+&#xd;
+        var codigo = hAPI.getCardValue(&apos;COD_SOLICITACAO&apos;);&#xd;
+        var dataSLA;&#xd;
+        // verifica se o processo foi iniciado com o campo COD_SOLICITACAO para consultar o sla&#xd;
+        // do contrario consulta o sla do processo default&#xd;
+        if (codigo != &apos;&apos; &amp;&amp; codigo != undefined) {&#xd;
+            dataSLA = getSlaById(codigo)&#xd;
+            if (dataSLA.rowsCount &lt;= 0) {&#xd;
+                dataSLA = getSlaDefault()&#xd;
+                hAPI.setCardValue(&apos;ISDEFAULT&apos;, &apos;&apos; + true)&#xd;
+            }&#xd;
+        } else {&#xd;
+            dataSLA = getSlaDefault();&#xd;
+            hAPI.setCardValue(&apos;ISDEFAULT&apos;, &apos;&apos; + true)&#xd;
+        }&#xd;
+        // valida se o chamado possui SLA&#xd;
+        if (dataSLA.rowsCount &gt; 0) {&#xd;
+&#xd;
+            // seta o valor id do documento e a versao&#xd;
+            hAPI.setCardValue(&apos;COD_SOLICITACAO&apos;, &apos;&apos; + dataSLA.getValue(0, &apos;documentid&apos;))&#xd;
+            hAPI.setCardValue(&apos;VERSAO&apos;, &apos;&apos; + dataSLA.getValue(0, &apos;version&apos;))&#xd;
+            // converte a string JsonSla em objeto e popula os campos&#xd;
+            dataSLA = dataSLA.getValue(0, &apos;jsonSLA&apos;)&#xd;
+            dataSLA = JSON.parse(dataSLA)&#xd;
+            hAPI.setCardValue(&apos;SLA_TOTAL&apos;, &apos;&apos; + dataSLA.slaTotal)&#xd;
+&#xd;
+&#xd;
+            for (var key in dataSLA.SLA) {&#xd;
+				&#xd;
+                var sla = dataSLA.SLA[key]&#xd;
+                hAPI.setCardValue(&apos;SLA&apos; + sla.codAtividade, sla.sla)&#xd;
+            }&#xd;
+&#xd;
+        } else {&#xd;
+&#xd;
+            throw &quot;Não foi encontrado um registro de SLA para essa solicitacao,&quot; +&#xd;
+                &quot; portanto ela nao pode ser iniciada!!! Contate a equipe de melhorias Continuas&quot;&#xd;
+&#xd;
+        }&#xd;
+&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+// consulta o sla pelo codigo da solicitaçã&#xd;
+function getSlaById(id) {&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;metadata#active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isActive&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;documentid&apos;, id, id, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;ds_ficharioSLA&apos;, null, cons, null);&#xd;
+}&#xd;
+// consulta o SLA pelo codigo do processo&#xd;
+function getSlaDefault() {&#xd;
+    var codProcess = getValue(&quot;WKDef&quot;);&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;metadata#active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;idProcesso&apos;, codProcess, codProcess, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isActive&apos;, true, true, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;isDefault&apos;, true, true, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;ds_ficharioSLA&apos;, null, cons, null);&#xd;
+&#xd;
+}&#xd;
+// consulta qual o Id da atividade inicial do fluxo()&#xd;
+function getStartActive() {&#xd;
+    var idProcess = getValue(&quot;WKDef&quot;)&#xd;
+    var versionProcess = getValue(&quot;WKVersDef&quot;)&#xd;
+&#xd;
+    var cons = []&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;initialState&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;processStatePK.processId&apos;, idProcess, idProcess, ConstraintType.MUST))&#xd;
+    cons.push(DatasetFactory.createConstraint(&apos;processStatePK.version&apos;, versionProcess, versionProcess, ConstraintType.MUST))&#xd;
+    return DatasetFactory.getDataset(&apos;processState&apos;, null, cons, null);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask102</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask102() {&#xd;
+    myLog(&quot;SERVICO DE ANEXO&quot;);&#xd;
+    myLog(&quot;CAMPO PEIDO: &quot;, hAPI.getCardValue(&apos;listPedidoCompra&apos;));&#xd;
+    if (hAPI.getCardValue(&apos;listPedidoCompra&apos;) == &apos;&apos;){&#xd;
+        throw &quot;Nenhum pedido de compra encontrado no fluig para anexar.&quot;&#xd;
+    }else{&#xd;
+        var pedidosGerados = JSON.parse(hAPI.getCardValue(&apos;listPedidoCompra&apos;));&#xd;
+        for (var nomeFornecedor in pedidosGerados) {&#xd;
+            if(!existeAnexoByName(&quot;Pedido_Compras_&quot; + nomeFornecedor + &quot;.pdf&quot;)){&#xd;
+                anexaPdfFluig(pedidosGerados[nomeFornecedor], nomeFornecedor);&#xd;
+            }&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+function anexaPdfFluig(codPedido, nomeFornecedor) {&#xd;
+    //BUSCA O ANEXO DO PEDIDO&#xd;
+    var codSolicitacao = hAPI.getCardValue(&apos;codSolicitacao&apos;);&#xd;
+    var codFilial = hAPI.getCardValue(&apos;codFilial&apos;);&#xd;
+    var resultPdfProtheus = getPdfPedidoProtheus(codPedido, codFilial);&#xd;
+    myLog(&apos;RESULT PDF &apos;, resultPdfProtheus.result);&#xd;
+    if (resultPdfProtheus.status != &apos;true&apos;) {&#xd;
+        throw &quot;Erro para buscar o realtório do pedido de compras no Protheus \n&quot; + resultPdfProtheus.result;&#xd;
+    } else {&#xd;
+        myLog(&quot;PARM ENVIA ANEXO: &quot;, codSolicitacao + pedidoCompras + nomeFornecedor)&#xd;
+        //ENVIA O ANEXO PARA O FLUIG&#xd;
+        var statusAnexo = enviaAnexoSolicitacao(codSolicitacao, anexaSolicitacao, resultPdfProtheus.result, nomeFornecedor + &quot; - &quot; + codPedido);&#xd;
+        myLog(&apos;RESULT ANEXO FLUIG &apos;, statusAnexo);&#xd;
+        if (statusAnexo != true) {&#xd;
+            throw statusAnexo + &quot;.&quot;;&#xd;
+        } else {&#xd;
+            myLog(&quot;PEDIDO GERADO: &quot;, codPedido);&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function existeAnexoByName(nomeAnexo){&#xd;
+    var attachments = hAPI.listAttachments();&#xd;
+    var existeAnexo = false;&#xd;
+    var nomePossivelAnexo = nomeAnexo;&#xd;
+    for (var i = 0; i &lt; attachments.size(); i++) {&#xd;
+        var attachment = attachments.get(i);&#xd;
+        if (attachment.getDocumentDescription() == nomePossivelAnexo) {&#xd;
+            existeAnexo = true;&#xd;
+        }&#xd;
+    }&#xd;
+    return existeAnexo;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>Global</eventId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var ATIVIDADE_ATUAL = null;&#xd;
+var inicio = 4;&#xd;
+var analiseComprador = 5;&#xd;
+var cotacaoBionexo = 22;&#xd;
+var analiseCotacao = 25;&#xd;
+var alcadaAprovacao = 30;&#xd;
+var pedidoCompras = 57;&#xd;
+var anexaSolicitacao = 102;&#xd;
+var execaoIntegracao = 59;&#xd;
+var aprovSolicitante = 53;&#xd;
+var inconsistencia = 41;&#xd;
+var correcaoSolicitante = 48;&#xd;
+&#xd;
+function Global(){&#xd;
+    ATIVIDADE_ATUAL = getValue(&apos;WKNumState&apos;);&#xd;
+}&#xd;
+&#xd;
+//Funcao para remover a mascara monetaria&#xd;
+function removeMascaraMonetaria(mask) {&#xd;
+    if (mask != undefined &amp;&amp; mask != &apos;&apos;) {&#xd;
+        mask = mask.replace(&apos;R$&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos; &apos;, &apos;&apos;);&#xd;
+        //mask = mask = mask.replace(/[\.]/g, &apos;&apos;);&#xd;
+&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+        mask = mask.replace(&apos;.&apos;, &apos;&apos;);&#xd;
+&#xd;
+        mask = mask.replace(&apos;,&apos;, &apos;.&apos;);&#xd;
+        return parseFloat(mask);&#xd;
+    } else {&#xd;
+        return 0.00;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function myLog(msng, obj) {&#xd;
+    log.info(&apos;KAKAROTO&gt;&gt;: &apos; + msng + &apos; &apos; + obj);&#xd;
+}&#xd;
+&#xd;
+function addZero(x, n) {&#xd;
+    if (x.toString().length &lt; n) {&#xd;
+        x = &quot;0&quot; + x;&#xd;
+    }&#xd;
+    return x;&#xd;
+}&#xd;
+&#xd;
+function converteDataProtheus(dataFluig) {&#xd;
+    if (dataFluig != undefined) {&#xd;
+        var arrayData = dataFluig.split(&quot;/&quot;);&#xd;
+        var data = &apos;&apos;;&#xd;
+        if (arrayData.length == 3) {&#xd;
+            var ano = arrayData[2];&#xd;
+            var mes = arrayData[1];&#xd;
+            var dia = arrayData[0];&#xd;
+            data = ano + &apos;&apos; + mes + &apos;&apos; + dia;&#xd;
+        }&#xd;
+        return data;&#xd;
+    } else {&#xd;
+        return &apos;&apos;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function getCurrentDate() {&#xd;
+    var now = new Date();&#xd;
+    var year = now.getFullYear();&#xd;
+    var month = addZero(now.getMonth() + 1, 2);&#xd;
+    var day = addZero(now.getDate(), 2);&#xd;
+    var currentDate = day + &apos;/&apos; + month + &apos;/&apos; + year;&#xd;
+    return currentDate;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Consulta campos de Pai Filho no formulário&#xd;
+ * @param fieldList Array de strings dos atributos &quot;Name&quot; (sem &quot;___&quot;) dos campos do pai filho&#xd;
+ * @return Array de objetos, cada index do array corresponde a uma linha do pai filho com o&#xd;
+ * &quot;Name&quot; de cada campo como seletor do atributo&#xd;
+ */&#xd;
+function consultaPaiFilho(fildList) {&#xd;
+    var resultPaiFilho = [];&#xd;
+    var numProcess = getValue(&quot;WKNumProces&quot;);&#xd;
+    //Consulta todos os campos do formulário apartir do WKNumProces&#xd;
+    var mapa = hAPI.getCardData(parseInt(numProcess));&#xd;
+    var it = mapa.keySet().iterator();&#xd;
+    //Loop para percorrer todos os campos do formulário&#xd;
+    while (it.hasNext()) {&#xd;
+        var campo = it.next();&#xd;
+        //Verifica se o campo atual do loop pertence a um Pai Filho&#xd;
+        if (campo.indexOf(&quot;___&quot;) &gt; -1) {&#xd;
+            var nomeCampo = campo.split(&quot;___&quot;)[0];&#xd;
+            var indexCampo = parseInt(campo.split(&quot;___&quot;)[1]);&#xd;
+&#xd;
+            //Percorre a lista de campos informada como parametro&#xd;
+            for (var i = 0; i &lt; fildList.length; i++) {&#xd;
+                if (fildList[i] == nomeCampo) {&#xd;
+                    if (resultPaiFilho[indexCampo - 1] == undefined) {&#xd;
+                        resultPaiFilho[indexCampo - 1] = {};&#xd;
+                    }&#xd;
+                    //Adiciona um atributo com o nome do campo contendo seu valor ao array de resultado&#xd;
+                    //Cada linha do array corresponde a uma linha da tabela com a primeira linha sendo o index 0&#xd;
+                    resultPaiFilho[indexCampo - 1][nomeCampo] = mapa.get(campo);&#xd;
+                }&#xd;
+            }&#xd;
+        }&#xd;
+    }&#xd;
+    return resultPaiFilho;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Recebe uma String como paramentro e a retorna sem os acentos&#xd;
+ * @param string&#xd;
+ * @returns&#xd;
+ */&#xd;
+function removeAcentos(string){&#xd;
+	string = new java.lang.String(string);&#xd;
+  	string = string.toUpperCase();&#xd;
+  	string = string.replaceAll(&quot;Á|À|Â|Ã|Ä&quot;,&quot;A&quot;);&#xd;
+  	string = string.replaceAll(&quot;É|È|Ê|Ë&quot;,&quot;E&quot;);&#xd;
+  	string = string.replaceAll(&quot;Í|Ì|Î|Ï&quot;,&quot;I&quot;);&#xd;
+  	string = string.replaceAll(&quot;Ó|Ò|Ô|Õ|Ö&quot;,&quot;O&quot;);&#xd;
+  	string = string.replaceAll(&quot;Ú|Ù|Û|Ü&quot;,&quot;U&quot;);&#xd;
+  	string = string.replaceAll(&quot;Ç&quot;,&quot;C&quot;);&#xd;
+  	string = string.replaceAll(&quot;[$]&quot;,&quot;S&quot;);&#xd;
+  	string = string.replaceAll(&quot;[^A-Za-z0-9- ]&quot;,&quot;&quot;);&#xd;
+  	return string;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>159</height>
+      <width>1371</width>
+      <positionX>40</positionX>
+      <positionY>12</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>141</height>
+      <width>1511</width>
+      <positionX>40</positionX>
+      <positionY>370</positionY>
+      <stateName>Aprovação</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>187</height>
+      <width>1511</width>
+      <positionX>40</positionX>
+      <positionY>176</positionY>
+      <stateName>Compras MatMed</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>241</height>
+      <width>1511</width>
+      <positionX>40</positionX>
+      <positionY>520</positionY>
+      <stateName>Integração Sistemica</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>FF8040</color>
+      <height>749</height>
+      <width>31</width>
+      <positionX>0</positionX>
+      <positionY>12</positionY>
+      <stateName>Compras Mat/Med Manual</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>1300</positionX>
+      <positionY>630</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <componGrafSequence>81</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Aprovação Solicitante</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>1090</positionX>
+      <positionY>411</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <componGrafSequence>82</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Correção Solicitante</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>930</positionX>
+      <positionY>244</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <componGrafSequence>96</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Emitir Pedido Compras</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>1420</positionX>
+      <positionY>12</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <componGrafSequence>124</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Revisado em 09.24 Nova Alçada de Aprovação 24-25</stateName>
+    </ProcessComponGraf>
+  </list>
+  <list>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>117</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>81</initialStateSequence>
+      <finalStateSequence>105</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>118</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>82</initialStateSequence>
+      <finalStateSequence>67</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>1</version>
+        <linkSequence>119</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>96</initialStateSequence>
+      <finalStateSequence>97</finalStateSequence>
+    </ProcessLinkAssoc>
+  </list>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>6</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>117</positionX>
+      <positionY>271</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>69</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>360</positionX>
+      <positionY>37</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>73</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>212</positionX>
+      <positionY>96</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>91</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>963</positionX>
+      <positionY>614</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>91</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>963</positionX>
+      <positionY>710</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>92</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>360</positionX>
+      <positionY>581</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>93</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>543</positionX>
+      <positionY>97</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>108</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1131</positionX>
+      <positionY>614</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>108</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1131</positionX>
+      <positionY>712</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>113</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1042</positionX>
+      <positionY>22</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>113</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1352</positionX>
+      <positionY>22</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>Compras MatMed Manual</processId>
+        <version>2</version>
+        <linkSequence>122</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>360</positionX>
+      <positionY>438</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>Compras MatMed Manual</processId>
+      <version>1</version>
+      <sequence>57</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName>Processo Compras MatMed.servicetask57</serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>Compras MatMed Manual</processId>
+      <version>1</version>
+      <sequence>102</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName>Processo Compras MatMed.servicetask102</serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>orig_documentid</processField>
+      <subProcessField>orig_documentid</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>operacao</processField>
+      <subProcessField>operacao</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>poolAbertura</processField>
+      <subProcessField>poolAbertura</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>orig_docSolicitacao</processField>
+      <subProcessField>orig_docSolicitacao</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>orig_version</processField>
+      <subProcessField>orig_version</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>seAprovado</processField>
+      <subProcessField>seAprovado</subProcessField>
+      <mapFlow>0</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>filial</processField>
+      <subProcessField>filial</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>centroCusto</processField>
+      <subProcessField>centroCusto</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>codSolicitacao</processField>
+      <subProcessField>numChamadoOrigem</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+    <SubProcessFieldRelationship>
+      <tenantId>1</tenantId>
+      <processCode>Compras MatMed Manual</processCode>
+      <stateSequence>120</stateSequence>
+      <version>1</version>
+      <subProcessCode>AprovaçãoUnificada</subProcessCode>
+      <processField>txtTotValCotacao</processField>
+      <subProcessField>valorSolicitado</subProcessField>
+      <mapFlow>2</mapFlow>
+    </SubProcessFieldRelationship>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+</list>

@@ -1,0 +1,22 @@
+application.type=widget
+application.code=PAINEL_AUTORIZACAO
+application.title=Painel do Aprovador
+application.description=Painel Autoriza\u00e7\u00e3o WF
+application.category=SM2CE
+application.renderer=freemarker
+application.uiwidget=true
+application.mobileapp=true
+
+application.resource.js.1  =/resources/js/PAINEL_AUTORIZACAO.js?24.11.v05 
+application.resource.js.2  =/resources/js/custom.js?24.11.v05
+application.resource.css.3 =/resources/css/PAINEL_AUTORIZACAO.css?24.11.v05
+
+view.file=view.ftl
+edit.file=edit.ftl
+
+locale.file.base.name=PAINEL_AUTORIZACAO
+
+developer.code=rca0261.negocios@gmail.com
+developer.name=Ricardo Andrade
+developer.url=www.sm2ce.com.br
+

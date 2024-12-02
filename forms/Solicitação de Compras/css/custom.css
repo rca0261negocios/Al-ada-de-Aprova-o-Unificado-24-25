@@ -1,0 +1,211 @@
+.fluig-style-guide .form-controlTable {
+  /*display: block;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  */
+ 
+  display: block;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.resetPanelTitle{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-size: 16px !important;
+  color: inherit !important;
+}
+.resetPanelHeading {	
+  color: #333  !important;
+  background-color: #f5f5f5  !important;
+  border-color: #ddd  !important;
+  padding: 10px 15px  !important;
+  border-bottom: 1px solid transparent  !important;
+  border-top-right-radius: 3px  !important;
+  border-top-left-radius: 3px  !important;
+}
+
+.nopaddingDiv {
+   padding-left: 0 !important;
+   padding-right: 5 !important;
+}
+
+
+.nopaddingInput {
+   padding-left: 1 !important;
+   padding-right: 1 !important;
+}
+
+.linhaSelecionada{
+	background-color: #CBFF72;
+}
+
+.linhaSelecionadaJust{
+	background-color: #ee3a22;
+}
+
+#tbCotacoes tbody tr td input{
+	border: 0px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+#tbCotacoes tbody tr td{
+	padding: 0px;
+}
+
+#tbItensDesvinculados tbody tr td img{
+	display: none;
+}
+
+
+table tbody tr th{
+	font-size: 13px;
+}
+
+
+
+.fluig-style-guide .form-control-sem-width {
+display: block;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form-control-sem-display{
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;	
+}
+
+.fluigiconNoTop {
+  position: relative;
+  /* top: 1px; */
+  line-height: 1;
+  display: inline-block;
+  font-family: 'Fluig Icons';
+  font-style: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.approval-table{
+	margin-top: -10px;
+	margin-bottom: 40px;
+}
+
+.pointer { cursor: pointer; }
+
+.readonly{
+	cursor: not-allowed;
+	background-color: #eee !important;
+	opacity: 1;
+}
+
+.readonlySelected{
+	cursor: not-allowed;
+	background-color: transparent !important;
+	opacity: 1;
+}
+
+
+.table-datatable thead tr th{
+	font-size: 13px;
+} 
+
+.table-datatable tbody tr td{
+	font-size: 12px;
+} 
+
+.disabledSelect{
+	cursor: not-allowed;
+	background-color: #eee !important;
+	opacity: 1;
+}
+
+.disabledSelectPiva{
+  background: #EEE !important;
+  pointer-events: none;
+  touch-action: none;
+}
+
+.disabledBtnPrimary{
+	cursor: not-allowed !important;
+	background-color: #A8A8A8 !important;
+	opacity: 1;
+	border-color: #A8A8A8 !important;
+}
+
+.form-group.required .control-label:after { 
+    color: #d00;
+    content: "*";
+    margin-left: -2px;
+    top:7px;
+}
+
+.fluig-style-guide .input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #fff !important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.fake-disabled{
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+
+.zProduto{
+  width: 319px !important;
+}

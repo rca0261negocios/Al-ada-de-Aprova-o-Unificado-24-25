@@ -1,0 +1,79 @@
+.fluig-style-guide .form-controlTable {
+  display: block;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+#table-wrapper-notebook,#table-wrapper-desktop,#table-wrapper-allInOne,#table-wrapper-celular,#table-wrapper-fixo{
+  position:relative;
+}
+
+#table-scroll-notebook,#table-scroll-desktop,#table-scroll-allInOne,#table-scroll-celular,#table-scroll-fixo{
+  max-height:400px;
+  overflow:auto;  
+}
+.readonly{
+	cursor: not-allowed;
+	background-color: #eee !important;
+	opacity: 1;
+}
+
+.error-field{
+	border: 2px solid #d9534f !important;
+}
+
+
+#tbProd {
+	width: 2000px !important;
+}
+
+#loadTable {
+    width: 100%;
+    height:200px;  
+    text-align: center; 
+    position:absolute; 
+}
+.required:after{ 
+  	color: red;
+    content: "*";
+    margin-left: 1px;
+    top: 7px;
+}
+.min-width-field{
+	min-width:120px;
+}
+
+.hidden{
+	display:none;
+}
+
+.tdProdHidden{
+	display:none;
+}
+
+.tdInfoPacienteStyle{
+	background-color: #ebfbff !important;
+}	
+
+.nowrap {
+  white-space: nowrap ;
+}
+
+.inputValid {
+	border: 1px solid red !important;
+}
+
+.bpm-mobile-trash-column{
+	z-index:3;
+}

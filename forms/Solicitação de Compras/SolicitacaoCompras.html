@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<!-- CONTROLE DE VERSAO 
+	
+	SM2CE - 12.04.24 GLPI 555105/554737/555199/555598
+	SM2CE - AGO.24 - PROPJETO ALCADAS - 24-25
+	-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Solicitação de Compras</title>
+    <link type="text/css" rel="stylesheet" href="custom.css" />
+    <link type="text/css" rel="stylesheet" href="/portal/resources/css/jquery-ui/jquery.ui.min.css" />
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+    <!-- Customizados -->
+    <script type="text/javascript" src="js/jquery.maskedinput-1.4.js"></script>
+    <script type="text/javascript" src="js/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript" src="util_dataSet_1-5-0.js"></script>
+    <script type="text/javascript" src="js/enableFields.js"></script>
+    <script type="text/javascript" src="js/displayFields.js"></script>
+    <script type="text/javascript" src="js/activities.js"></script>
+    <script type="text/javascript" src="js/beforeSendValidate.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/customV2.js"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+    <!-- Importa Classe da Widget de Pesquisa de Satisfação -->
+
+    <!-- <script type="text/javascript" src="/util/resources/js/Utils.js"></script> -->
+    <script type="text/javascript" src="/SistemaChamados/resources/js/util/getParamsUrl.js"></script>
+    <script type="text/template" class="templateItensAglu">
+        <tr>
+            <td>{{numSolicitacao}}</td>
+            <td>{{prioridade}}</td>
+            <td>{{itemSC}}</td>
+            <td>{{produto}}</td>
+            <td>{{descricao}}</td>
+            <td>{{unMedida}}</td>
+            <td>{{quantidade}}</td>
+            <td>{{saldo}}</td>
+            <td>{{ConsumoMedio}}</td>
+            <td>{{necessidade}}</td>
+            <td>{{armazem}}</td>
+            <td>{{prazoProdutoF}}</td>
+            <td>{{observacao}}</td>
+            <td>{{nmFabricante}}</td>
+            <td>{{centroCusto}}</td>
+            <td>{{contaContabil}}</td>
+        </tr>
+    </script>
+    <script type="text/template" class="templateItensAprov">
+        <tr>
+            <td>{{fornec}}</td>
+            <td>{{itemSC}}</td>
+            <td>{{produto}}</td>
+            <td>{{descricao}}</td>
+            <td>{{unMedida}}</td>
+            <td>{{quantidade}}</td>
+            <td>{{saldo}}</td>
+            <td>{{necessidade}}</td>
+            <td>{{armazem}}</td>
+            <td>{{dtEmissao}}</td>
+            <td>{{observacao}}</td>
+            <td>{{centroCusto}}</td>
+            <td>{{contaContabil}}</td>
+        </tr>
+    </script>
+    <script type="text/template" class="templateCotacoesItens">
+        <tr>
+            <td><input type="checkbox" name="ckCotacoesItens" checked="{{selecionado}}" disabled="disabled" value="on" /></td>
+            <td>{{cnpj}}</td>
+            <td>{{razaoSocial}}</td>
+            <td>{{fabricante}}</td>
+            <td>{{validadeProposta}}</td>
+            <td class="text-center">{{quantidade}}</td>
+            <td>{{embalagem}}</td>
+            <td class="text-right">{{precoUnitario}}</td>
+            <td class="text-right"></td>
+            <td class="text-right">{{precoTotal}}</td>
+            <td class="text-center">{{prazoEntrega}}</td>
+            <td>{{nmFormaPagamento}}</td>
+        </tr>
+    </script>
+    <script type="text/template" class="templateCotacoesItensSemVencedora">
+        <tr>
+            <td>{{selecionado}}</td>
+            <td>{{cnpj}}</td>
+            <td>{{razaoSocial}}</td>
+            <td>{{fabricante}}</td>
+            <td>{{validadeProposta}}</td>
+            <td class="text-center">{{quantidade}}</td>
+            <td>{{embalagem}}</td>
+            <td class="text-right">{{precoUnitario}}</td>
+            <td class="text-right"></td>
+            <td class="text-right">{{precoTotal}}</td>
+            <td class="text-center">{{prazoEntrega}}</td>
+            <td>{{nmFormaPagamento}}</td>
+        </tr>
+    </script>
+</head>
+<body>
+    <div class="fluig-style-guide" id="content">
+        <form>
+            <div id="divDataAprovadores" style="display: none;">
+                <input type="hidden" name="descritorCompras" id="descritorCompras">
+                <input type="hidden" name="grupoAnaliseComprador" id="grupoAnaliseComprador">
+                <input type="hidden" name="existeAlcadas" id="existeAlcadas">
+                <input type="hidden" name="aprovadorAlcada1" id="aprovadorAlcada1">
+                <input type="hidden" name="aprovadorAlcada2" id="aprovadorAlcada2">
+                <input type="hidden" name="aprovadorAlcada3" id="aprovadorAlcada3">
+                <input type="hidden" name="aprovadorAlcada4" id="aprovadorAlcada4">
+                <input type="hidden" name="aprovadorAlcada5" id="aprovadorAlcada5">
+                <input type="hidden" name="aprovadorAlcada6" id="aprovadorAlcada6">
+                <input type="hidden" name="valorAprovadorAlcada1" id="valorAprovadorAlcada1">
+                <input type="hidden" name="valorAprovadorAlcada2" id="valorAprovadorAlcada2">
+                <input type="hidden" name="valorAprovadorAlcada3" id="valorAprovadorAlcada3">
+                <input type="hidden" name="valorAprovadorAlcada4" id="valorAprovadorAlcada4">
+                <input type="hidden" name="valorAprovadorAlcada5" id="valorAprovadorAlcada5">
+                <input type="hidden" name="aprovAlcadaConhecimento1" id="aprovAlcadaConhecimento1">
+                <input type="hidden" name="aprovAlcadaConhecimento2" id="aprovAlcadaConhecimento2">
+                <input type="hidden" name="aprovAlcadaConhecimento3" id="aprovAlcadaConhecimento3">
+                <input type="hidden" name="aprovAlcadaConhecimento4" id="aprovAlcadaConhecimento4">
+                <input type="hidden" name="aprovAlcadaConhecimento5" id="aprovAlcadaConhecimento5">
+                <input type="hidden" name="aprovAlcadaConhecimento6" id="aprovAlcadaConhecimento6">
+                <input type="hidden" name="poolAbertura" id="poolAbertura">
+                <input type="hidden" name="afterDefinirVencedor" id="afterDefinirVencedor" value="false">
+                <input type="hidden" name="tipoUsabilidade" id="tipoUsabilidade" value="false">
+            </div>
+
+            <!-- REVISAO ALCADAS 24-25 SM2 RCA 09.2024 -->
+            <input type="hidden" name="orig_documentid"     id="orig_documentid" />    
+            <input type="hidden" name="orig_version"        id="orig_version" />
+            <input type="hidden" name="orig_docSolicitacao" id="orig_docSolicitacao" />
+            <input type="hidden" name="seAprovado"          id="seAprovado" />
+            <input type="hidden" name="operacao"            id="operacao" value="Sollicita&ccedil;&atilde;o de Compras" />
+
+            <!--  -->
+            <input type="hidden" name="passAtividadeCotacao" id="passAtividadeCotacao" value="false">
+            <input type="hidden" name="retornouPDC" id="retornouPDC" value="false">
+            <input type="hidden" name="xmlDadosFornecedores" id="xmlDadosFornecedores" value="false">
+            <input type="hidden" name="fornecedoresCadastrar" id="fornecedoresCadastrar" value="0">
+            <input type="hidden" name="fornecedoresPendente" id="fornecedoresPendente" value="0">
+            <input type="hidden" name="numeroFicha" id="numeroFicha">
+            <input type="hidden" name="nomeCompradorCotacao" id="nomeCompradorCotacao">
+            <input type="hidden" name="emailCompradorCotacao" id="emailCompradorCotacao">
+            <input type="hidden" name="foneCompradorCotacao" id="foneCompradorCotacao">
+            <input type="hidden" name="FilialAlcada" id="FilialAlcada">
+            <input type="hidden" name="nomeFilialEnt" id="nomeFilialEnt">
+            <input type="hidden" name="endFilialEnt" id="endFilialEnt">
+            <input type="hidden" name="cidFilialEnt" id="cidFilialEnt">
+            <input type="hidden" name="ufFilialEnt" id="ufFilialEnt">
+            <input type="hidden" name="cnpjFilialEnt" id="cnpjFilialEnt">
+            <input type="hidden" name="classificacaoFili" id="classificacaoFili">
+            <input type="hidden" name="primeiraAlcada" id="primeiraAlcada" value="false">
+            <input type="hidden" name="fornecCotacao" id="fornecCotacao">
+            <input type="hidden" name="cnpjCotacao" id="cnpjCotacao">
+            <input type="hidden" name="endFornecCotacao" id="endFornecCotacao">
+            <input type="hidden" name="contatoCotacao" id="contatoCotacao">
+            <input type="hidden" name="deptoCotacao" id="deptoCotacao">
+            <input type="hidden" name="telCotacao" id="telCotacao">
+            <input type="hidden" name="emailCotacao" id="emailCotacao">
+            <input type="hidden" name="isProdutoTI" id="isProdutoTI">
+            <input type="hidden" name="apravacaoTI" id="apravacaoTI" value="sim">
+            <input type="hidden" name="isRegularizadora" id="isRegularizadora" value="nao">
+            <input type="hidden" name="qtdAnexos" id="qtdAnexos" value="0">
+            <input type="hidden" name="qtdCotacao" id="qtdCotacao">
+
+            <!-- Campos Analytics  -->
+            <input type="hidden" id="analyticsTpSolicitacao" name="analyticsTpSolicitacao" value="Solicitacao Cancelamento NF" />
+            <input type="hidden" id="analyticsDtInicio" name="analyticsDtInicio" value="" />
+            <input type="hidden" id="analyticsHrInicio" name="analyticsHrInicio" value="" />
+            <input type="hidden" id="analyticsDtPrazo" name="analyticsDtPrazo" value="" />
+            <input type="hidden" id="analyticsHrPrazo" name="analyticsHrPrazo" value="" />
+            <input type="hidden" id="analyticsDtFim" name="analyticsDtFim" value="" />
+            <input type="hidden" id="analyticsHrFim" name="analyticsHrFim" value="" />
+            <input type="hidden" id="analyticsNmFilial" name="analyticsNmFilial" value="" />
+            <input type="hidden" id="analyticsNmResponsavelSLA" name="analyticsNmResponsavelSLA" value="" />
+            <input type="hidden" id="analyticsPrazoSLA" name="analyticsPrazoSLA" value="" />
+            <input type="hidden" id="analyticsMedidaPrazoSLA" name="analyticsMedidaPrazoSLA" value="" />
+            <input type="hidden" name="listaEmailsRelat" id="listaEmailsRelat">
+            <input type="hidden" name="cdAtividade" id="cdAtividade">
+            <input type="hidden" name="cdNivelAtualAprovacao" id="cdNivelAtualAprovacao">
+            <input type="hidden" name="motivoReprovacao" id="motivoReprovacao">
+            <input type="hidden" name="contratoAprovado" id="contratoAprovado" value="false">
+            <input type="hidden" id="nrReprovacoes" name="nrReprovacoes" />
+            <input type="hidden" id="cdSolicitante" name="cdSolicitante" />
+
+            <!--#FLUIG-86 Alteração de alçadas-->
+            <input type="hidden" id="finalAlcada" name="finalAlcada" />
+
+            <!--#FLUIG-93 Contador para controle da alçada de aprovação atual durante a atividade de repetição-->
+            <input type="hidden" id="contadorAlcada" name="contadorAlcada" value="1" />
+
+            <!--#FLUIG-93 Campo para controle do aprovador da alçada atual durante a atividade de repetição-->
+            <input type="hidden" id="aprovacaoAutomatica" name="aprovacaoAutomatica" value="nao" />
+            <input type="hidden" id="aprovadorAtualConhecimento" name="aprovadorAtualConhecimento" />
+            <input type="hidden" id="aprovadorAtual" name="aprovadorAtual" />
+            <input type="hidden" id="nomeAprovadorAtual" name="nomeAprovadorAtual" />
+
+            <!-- #FLUIG-539 Campo para controle no backend de solicitações de compras regularizadoras -->
+            <input type="hidden" name="urlRegularizadoras" id="urlRegularizadoras">
+
+            <!-- #FLUIG-924 Campo para controle no backend da validação dos dados bancários do fornecedor vencedor da cotação -->
+            <input type="hidden" name="dadosBancariosFornecedor" id="dadosBancariosFornecedor" value="[]">
+
+            <!-- #FLUIG-924 Campo para preenchimento do Numero do Pedido de Compras gerado no backend -->
+            <input type="hidden" name="numPedido" id="numPedido" value="[]">
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img src="img/novo_logo.png" alt="logo">
+                </a>
+            </div>
+            <!-- Início aprovação do solicitante -->
+            <div class="solucao panel panel-default identificacao">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center ">
+                        <b>i18n.translate("label.solucao")</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="col-lg-12 form-group">
+                            <label for="aceite" class="col-lg-3 control-label">i18n.translate("label.aceite")
+                            </label>
+                            <div class="col-md-3">
+                                <input type="radio" name="aceite" id="aceiteSim" value="S"> i18n.translate("label.aceite.sim")</input>
+                                <input type="radio" name="aceite" id="aceiteNao" value="N"> i18n.translate("label.aceite.nao")</input>
+                            </div>
+                            <!-- <div class="col-md-3 col-md-offset-3 divBtnPesquisa">
+                                <button type="button" name="iniciarPesquisa" id="iniciarPesquisa" data-loading-text="Loading..." class="btn btn-primary">
+                                Responder Pesquisa de Satisfação
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-12 complementoSolicitante">
+                        <div class="col-lg-12 form-group">
+                            <label for="compSolicitante" class="col-lg-4 control-label">i18n.translate("label.complemento.solicitante")
+                            </label>
+                            <div class="col-lg-12">
+                                <input type="text" name="compSolicitante" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 complementoAnalista">
+                        <div class="col-lg-12 form-group">
+                            <label for="retorno" class="col-lg-4 control-label">i18n.translate("label.complemento.analista") </label>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" name="retorno" id="retorno" rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim aprovação do solicitante -->
+            <p>&nbsp</p>
+            <div id="cabecCompras" class="panel panel-default identificacao">
+                <div class="panel-heading ">
+                    <h3 class="panel-title text-center ">
+                        <b>Informações Gerais</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtNmRequisitante" class="col-lg-3 control-label">Requisitante: </label>
+                            <div class="col-lg-9">
+                                <input type="hidden" class="form-control" id="idRequisitante" name="idRequisitante">
+                                <input type="text" class="form-control" id="txtNmRequisitante" name="txtNmRequisitante" readonly="readonly">
+                                <input type="hidden" name="ehSugestaoCompras" id="ehSugestaoCompras">
+                                <input type="hidden" name="prodJsonSugest" id="prodJsonSugest">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <label class="col-lg-3 control-label">Data de Emissão:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control data" id="dtEmissao" name="dtEmissao" readonly="readonly">
+                                <input type="hidden" name="campoIdentificador" id="campoIdentificador" value="" />
+                                <input type="hidden" name="hiddenTipoProduto" id="hiddenTipoProduto" value="COMPRAS" />
+                                <input type="hidden" name="hiddenPrioridadeSolicitacao" id="hiddenPrioridadeSolicitacao" value="" />
+                                <input type="hidden" name="hiddenTipoProdSolicitacao" id="hiddenTipoProdSolicitacao" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <input type="hidden" id="FilialUsabilidade" name="FilialUsabilidade" />
+                            <input type="hidden" id="filial_protheus"   name="filial_protheus" />
+                            <input type="hidden" id="hiddenFilial"      name="hiddenFilial" />
+                            <input type="hidden" id="filial"            name="filial" />
+                            <label class="control-label">Filial:</label>
+                            <div class="col-lg-9">
+                                <input type="zoom" id="zoomFilial" name="zoomFilial" class="form-control" 
+                                        data-zoom="{
+                                            'displayKey':'FILTRO',
+                                            'datasetId':'ds_filiais',
+                                            'maximumSelectionLength':'1',
+                                            'placeholder':'Escolha a Filial',
+											'fields':[
+												{'field':'CODIGO','label':'Codigo'},
+												{'field':'DESCRICAO','label':'Filial','standard':'true'},
+												{'field':'CGC','label':'CGC'},
+												{'field':'ID_GESTOR','label':'ID_GESTOR','visible': 'false'},										
+												{'field':'CODIGO_FLUIG','label':'CODIGO_FLUIG','visible': 'false'},
+												{'field':'RAZAO_SOCIAL','label':'RAZAO_SOCIAL','visible': 'false'},
+												{'field':'ENDERECO','label':'ENDERECO','visible': 'false'},
+												{'field':'COMPLEMENTO','label':'COMPLEMENTO','visible': 'false'},
+												{'field':'CEP','label':'CEP','visible': 'false'},
+												{'field':'BAIRRO','label':'BAIRRO','visible': 'false'},
+												{'field':'CIDADE','label':'CIDADE','visible': 'false'},
+												{'field':'ESTADO','label':'ESTADO','visible': 'false'},
+												{'field':'CLASSIFICAÇÃO','label':'CLASSIFICAÇÃO','visible': 'false'},
+												{'field':'TASY','label':'TASY.'},
+                                            	{'field':'USABILIDADE'  ,'label':'FLUIG'   , 'visible':false }
+											]
+                                }" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 hidden" id="divSolicitacao">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtSolicitacao" class="col-lg-3 control-label">Solicitação: </label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="txtSolicitacao" name="txtSolicitacao" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 hidden" id="divNrProtheus">
+                        <div class="col-lg-12 form-group ">
+                            <label for="txtNumeroProtheus" class="col-lg-3 control-label">Número Protheus: </label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="txtNumeroProtheus" name="txtNumeroProtheus" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 hidden" id="divComprador">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtComprador" class="col-lg-3 control-label">Comprador: </label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="txtComprador" name="txtComprador" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <label class="col-lg-3 control-label"> Centro de Custo: </label>
+                            <input type="hidden" name="txtNomeCentroCusto" id="txtNomeCentroCusto">
+                            <input type="hidden" name="txtCodCentroCusto" id="txtCodCentroCusto">
+                            <input type="zoom" name="centroCusto" id="centroCusto" data-zoom="{
+                                'displayKey': 'FILTRO',
+                                'maximumSelectionLength':'1',
+                                'datasetId':'ds_centrosCusto',
+                                'placeholder':'Escolha um Centro de Custo',
+                                'fields':[
+                                {
+                                    'field':'CODIGO',
+                                    'label':'Cod.'
+                                },{
+                                    'field':'DESCRICAO',
+                                    'label':'Descrição',
+                                    'standard':'true'
+                                }]
+                            }" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtAInfoAdicionais" class="col-lg-4 control-label">Informações Adicionais:
+                                </label>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" rows="3" name="txtAInfoAdicionais" id="txtAInfoAdicionais" maxlength="10000"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtLocalEntrega" class="col-lg-3 control-label">Referência Local de Entrega:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="txtLocalEntrega" name="txtLocalEntrega">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col-lg-9 form-group">
+                            <label for="prioridadeGeral" class="col-lg-3 control-label">Prioridade:</label>
+                            <div class="col-lg-6">
+                                <select class="form-control" id="prioridadeGeral" name="prioridadeGeral"  onchange="exibeMotivoEmergencial(this)">
+                                        <option value="N">Normal</option>
+                                        <option value="E">Emergencial</option>
+                                        <option value="O">Oncoprod</option>
+                                    </select>
+                                <input type="hidden" id="hiddenPrioridadeGeral" name="hiddenPrioridadeGeral" value="N">
+                                <input type="hidden" id="respAlteracaoPriori" name="respAlteracaoPriori">
+                                <input type="hidden" id="hiddenPrioridadeGeralOrig" name="hiddenPrioridadeGeralOrig" value="N">
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="display: none;" id="div_motivoEmergencial">
+                            <label for="motivoEmergencial" class="col-lg-12 control-label">Motivo Emergencial:</label>
+                            <select class="form-control" id="motivoEmergencial" name="motivoEmergencial">
+                                <option value="">Selecione o motivo</option>
+                                <option value="Falha operacional fornecedor">Falha operacional fornecedor</option>
+                                <option value="Pedido de compras bloqueado fornecedor">Pedido de compras bloqueado fornecedor</option>
+                                <option value="Pedido de remessa fora contagem Oncoprod">Pedido de remessa fora contagem Oncoprod</option>
+                                <option value="Projeção insuficiente">Projeção insuficiente</option>
+                                <option value="Ruptura mercado">Ruptura mercado</option>
+                                <option value="Solicitação de compras fora do calendário">Solicitação de compras fora do calendário</option>
+                                <option value="Ruptura Oncoprod">Ruptura Oncoprod</option>
+                                <option value="Ruptura Fornecedor Acordo Comercial">Ruptura Fornecedor Acordo Comercial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Todos os Produtos serão de primeira compra?</label>
+                            <div class="custom-radio custom-radio-primary">
+                                <input type="radio" name="primeiraCompra" value="primeiraCompraSim" id="primeiraCompraSim">
+                                <label for="primeiraCompraSim">Sim</label>
+                            </div>
+                            <div class="custom-radio custom-radio-inline custom-radio-primary">
+                                <input type="radio" name="primeiraCompra" value="primeiraCompraNao" id="primeiraCompraNao">
+                                <label for="primeiraCompraNao">Não</label>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-12 hidden" id="motTrocaPriori">
+                        <div class="col-lg-12 form-group">
+                            <label for="motivoAlteracaoPrioridade" class="col-lg-3 control-label">Motivo da troca de prioridade:</label>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" name="motivoAlteracaoPrioridade" id="motivoAlteracaoPrioridade" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 hidden" id="divSolicitacoesAglutinadas">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtSolicitacoesAdd" class="col-lg-3 control-label">Solicitações Aglutinadas:
+                                </label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="txtSolicitacoesAdd" name="txtSolicitacoesAdd" readonly="	">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 form-inline hidden" id="divContratoImportado">
+                        <div class="col-lg-12 form-group hidden" id="divContrato">
+                            <label for="rdContrato" class="col-lg-3 control-label">Contrato? </label>
+                            <div class="col-lg-9 ">
+                                <input type="radio" id="rdContratoSim" value="sim" name="rdContrato"> Sim
+                                </input>
+                                <input type="radio" id="rdContratoNao" value="nao" name="rdContrato"> Não
+                                </input>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 form-group hidden " id="divImportado" style="padding: 15px 15px;">
+                            <div class="col-lg-9 ">
+                                <input type="checkbox" id="ckImportado" name="ckImportado" value="on"> Importado?
+                                </input>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-6 hidden" id="divValidadeCotacao">
+                        <div class="col-lg-12 form-group">
+                            <label for="dtValidadeCotacao" class="col-lg-3 control-label datepickerinput">Data de
+                                    Validade da Cotação:
+                                </label>
+                            <div class="col-lg-9 ">
+                                <input type="text" class="form-control-sem-width input-xs" id="dtValidadeCotacao" name="dtValidadeCotacao">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6 hidden" id="divHoraValidadeCotacao">
+                        <div class="col-lg-12 form-group">
+                            <label for="hrValidadeCotacao" class="col-lg-3 control-label">Hora de Validade da
+                                    Cotação:
+                                </label>
+                            <div class="col-lg-9 ">
+                                <input type="text" class="form-control-sem-width hora input-xs" id="hrValidadeCotacao" name="hrValidadeCotacao">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 hidden" id="divPedidoCorporativo">
+                        <div class="col-lg-12 form-group required">
+                            <label for="hrValidadeCotacao" class="col-lg-3 control-label">Pedido Corporativo:</label>
+                            <div class="col-lg-9 ">
+                                <input type="checkbox" class="readonly" id="pedidoCorporativo" disabled="disabled" name="pedidoCorporativo" value="1">
+                                <input type="hidden" id="hiddenPedidoCorporativo" name="hiddenPedidoCorporativo" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="itensPedidos" class="panel panel-default identificacao">
+                <div class="panel-heading ">
+                    <h3 class="panel-title text-center ">
+                        <b>Itens e Pedidos</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row col-md-12 sugestao" style="display:none;">
+                        <div class="alert alert-warning font alert-link" role="alert">
+                        	<b>ATENÇÃO! PARA RESETAR OS VALORES BASTA REINICIAR A PÁGINA.</b>
+                        </div>
+                    </div>
+                    <ul class="nav nav-tabs clearfix" role="tablist" data-tabs="tabs">
+                        <li class="active">
+                            <a href="#itensPedidoCompra" role="tab" data-toggle="tab">Itens</a>
+                        </li>
+                        <li class="hidden" id="tabAglutinacaoSolic">
+                            <a href="#aglutinacaoSolic" role="tab" data-toggle="tab">Aglutinação</a>
+                        </li>
+                        <li class="hidden" id="tabAglutinacaoItensSolic">
+                            <a href="#aglutinacaoItensSolic" role="tab" data-toggle="tab">Itens da Aglutinação</a>
+                        </li>
+                        <li class="hidden" id="tabContratos">
+                            <a href="#contratos" role="tab" data-toggle="tab">Contratos</a>
+                        </li>
+                        <li class="hidden" id="tabPedidosGerados">
+                            <a href="#pedidosGerados" role="tab" data-toggle="tab">Pedidos Gerados</a>
+                        </li>
+                        <li class="hidden" id="tabItensDesvinculados">
+                            <a href="#itensDesvinculados" role="tab" data-toggle="tab">Itens Desvinculados</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="itensPedidoCompra" class="tab-pane active panel-body">
+                            <div class="col-md-4 form-group" id="divBtnAddItens">
+                                <div class="col-lg-12">
+                                    <label for="btAdicionaItem" class="col-lg-4 control-label">Adicionar Item:
+                                        </label>
+                                    <span class="btn btn-default fluigicon fluigicon-plus-sign btn-sm " id="btAdicionaItem"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-md-offset-1 form-group hidden" id="divDesvincularItens">
+                                <div class="col-lg-12" id="divBtDesvincularItens">
+                                    <label for="btDesvincularItem" class="col-lg-4 control-label">Desvincular Itens:
+                                        </label>
+                                    <span class="btn btn-default fluigicon fluigicon-minus-sign btn-sm" id="btDesvincularItem"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="table-responsive" id="divItens"  style="overflow-y: scroll; width: 100%; height: 250px">
+                                    <table tablename="tbItens" id="tbItens" deleteicon="img/delete.png" noaddbutton="true" class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th class="lixeira">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                <th>Item:</th>
+                                                <th>Primeira Compra:</th>
+                                                <th>Produto:</th>
+                                                <th>UN:</th>
+                                                <th>Quant.:</th>
+                                                <th>Saldo:</th>
+                                                <th>Cons. Médio:</th>
+                                                <th>Dt. Necessidade:</th>
+                                                <th>Armazém:</th>
+                                                <th>Observação:</th>
+                                                <th>Fabricante:</th>
+                                                <th>CTA Contábil:</th>
+                                                <th>Justificativa Ajuste:</th>
+                                                <th>Aceita Justificativa:</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" class="form-control-sem-display input-sm checkControle hidden" id="ckItem" name="ckItem" value="on" />
+                                                    <input type="hidden" name="linhaSelecionadaItem" id="linhaSelecionadaItem" value="false">
+
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="txtSeqItemProduto" name="txtSeqItemProduto" size="4" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <select name="tdSelectPrimeiraCompra" id="tdSelectPrimeiraCompra" class="form-control">
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                </td>
+                                                <td> 
+                                                    <input type="text" id="produto" name="produto" style="width: 319px !important;" 
+                                                    		onchange="verCLASSIFICACAO(this)" 
+                                                    		placeholder="Digite parte do nome e aperte ENTER para consultar um produto" class="form-control correcaoCotacao" value=""/>                                                
+                                                </td>                                           
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="txtUnidMedProduto" name="txtUnidMedProduto" size="3" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm numero" id="txtQuantidadeProduto" name="txtQuantidadeProduto" onchange="updateQuantProduto(this)" size="5">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="txtSaldoProduto" name="txtSaldoProduto" size="5" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="txtConsumoMedio" name="txtConsumoMedio" size="5" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm data" id="dtNecessidadeProduto" name="dtNecessidadeProduto" size="10">
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="armazem" name="armazem" style="width: 120px !important;" onchange="verCLASSIFICACAO(this)" placeholder="Digite + ENTER" title="Digite parte do nome do armazem e tecle ENTER" class="form-control" />                                                
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtObsProduto" name="txtObsProduto">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="nmFabricante" name="nmFabricante" size="20" />
+                                                </td>
+                                                <td>
+                                                    <div class="input-group noPaddingDiv">
+                                                        <input type="hidden" class="form-controlTable input-sm " id="txtIdContaContabil" name="txtIdContaContabil">
+                                                        <input type="text" class="form-controlTable input-sm readonly" id="txtContaContabil" name="txtContaContabil" readonly="readonly">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm" id="justAjusteCotacao" name="justAjusteCotacao" size="20" readonly="readonly" />
+                                                </td>                                               
+                                                <td>
+                                                    <select name="aceitaJustificativa" id="aceitaJustificativa" class="form-control">
+                                                        <option value=""></option>
+                                                        <option value="nao">Não</option>
+                                                        <option value="sim">Sim</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm hidden" id="txtStaples" name="txtStaples" size="3">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm hidden" id="grupoProduto" name="grupoProduto" size="3">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="origCodItemProduto"   id="origCodItemProduto">
+                                                    <input type="hidden" name="txtCodItemProduto"    id="txtCodItemProduto">
+                                                    <input type="hidden" name="txtCodItemProdutoIni" id="txtCodItemProdutoIni">
+                                                    <input type="hidden" name="txtDescProduto"       id="txtDescProduto" readonly="readonly" size="25">
+                                                    <input type="hidden" name="tipoProduto"          id="tipoProduto" value=""> 
+                                                    <input type="hidden" name="txtIdArmazemProduto"  id="txtIdArmazemProduto">
+                                                    <input type="hidden" name="txtArmazemProduto"    id="txtArmazemProduto">                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="aglutinacaoSolic" class="tab-pane panel-body">
+                            <div class="col-md-4" id="divBtAdicionaSolic">
+                                <div class="col-lg-12">
+                                    <label for="btAdicionaSolic" class="col-lg-4 control-label">Adicionar
+                                            Solicitação:
+                                        </label>
+                                    <span class="btn btn-default fluigicon fluigicon-plus-sign btn-sm" id="btAdicionaSolic"></span>
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-12"></div>
+
+                            <div class="col-md-4">
+                                <div class="table-responsive">
+                                    <table tablename="tbSolicAglutinadas" id="tbSolicAglutinadas" deleteicon="img/delete.png" noaddbutton="true" customFnDelete="excluiSolicAglu(this)" class="table table-striped table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <td>Número Solicitação:</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>
+                                                    <div class="input-group noPaddingDiv">
+                                                        <input type="text" class="form-control nopaddingInput" id="txtNumSolicAdd" name="txtNumSolicAdd" readonly="readonly">
+                                                        <span class="btn btn-default fluigicon fluigicon-search fluigicon-xs buttonCrud input-group-addon zoomSolicitacao" name="btZoomSolic" id="btZoomSolic" style="top: 0; bottom: 0;"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="aglutinacaoItensSolic" class="tab-pane panel-body">
+                            <div id="dataTableItensAglutinados" class="table-responsive"></div>
+                        </div>
+                        <div id="contratos" class="tab-pane  panel-body">
+                            <div class="col-md-12">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtObjetoContrato" class="col-lg-3 control-label">Objeto Contrato:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <textarea rows="3" class="form-control" id="txtObjetoContrato" name="txtObjetoContrato"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtReajusteContrato" class="col-lg-3 control-label">Reajuste
+                                            Contrato:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" id="txtReajusteContrato" name="txtReajusteContrato">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtRescisaoContrato" class="col-lg-3 control-label">Rescisão
+                                            Contrato:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" id="txtRescisaoContrato" name="txtRescisaoContrato">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtValContrato" class="col-lg-3 control-label">Valor Contrato:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control valor" id="txtValContrato" name="txtValContrato">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="dtValidadeContrato" class="col-lg-3 control-label ">Data Validade
+                                            Contrato: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control" id="dtValidadeContrato" name="dtValidadeContrato">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12" id="divDocumentacaoContrato" style="display: none">
+                                <div class="col-md-12">
+                                    <div class="col-lg-12 form-group">
+                                        <div class="col-lg-3">
+                                            <input type="checkbox" id="ckFaltaDocumentacao" name="ckFaltaDocumentacao" onclick="habilitaParecerContrato()" value="on"> Falta documentação?
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtParecerContrato" class="col-lg-4 control-label">Parecer da
+                                                documentação: </label>
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control readonly" rows="3" name="txtParecerContrato" id="txtParecerContrato" readonly="readonly"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div id="pedidosGerados" class="tab-pane  panel-body">
+                            <div id="dataTablePedidosGerados" class="table-responsive">
+                                <table tablename="tbPedidosGerados" id="tbPedidosGerados" deleteicon="img/delete.png" noaddbutton="true" class="table table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Seq.</th>
+                                            <th>Pedido</th>
+                                            <th>Produto</th>
+                                            <th>Descrição</th>
+                                            <th>Fornecedor</th>
+                                            <th>Qtde</th>
+                                            <th>Total</th>
+                                            <th>Prazo Entrega</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" class="input-md" id="ckEliminaPedido" name="ckEliminaPedido" value="on" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" id="seqItemPedGerado" name="seqItemPedGerado" size="4" readonly="readonly">
+                                                <input type="hidden" id="ObsItemPedGerado" name="ObsItemPedGerado" />
+                                                <input type="hidden" id="FabItemPedGerado" name="FabItemPedGerado" />
+                                                <input type="hidden" id="hashIndicePedido" name="hashIndicePedido" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" id="pedGerado" name="pedGerado" size="6" readonly="readonly">
+                                                <input type="hidden" id="PrioridadePedGerado" name="PrioridadePedGerado" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" id="produtoPedGerado" name="produtoPedGerado" size="6" readonly="readonly">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" id="descProdutoPedGerado" name="descProdutoPedGerado" readonly="readonly">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" id="descFornecPedGerado" name="descFornecPedGerado" readonly="readonly">
+                                                <input type="hidden" id="RazaoFantasiaFornecPed" name="RazaoFantasiaFornecPed" />
+                                                <input type="hidden" id="CnpjFornecPed" name="CnpjFornecPed" />
+                                                <input type="hidden" id="LogradouroFornecPed" name="LogradouroFornecPed" />
+                                                <input type="hidden" id="CidadeFornecPed" name="CidadeFornecPed" />
+                                                <input type="hidden" id="EstadoFornecPed" name="EstadoFornecPed" />
+                                                <input type="hidden" id="PaisFornecPed" name="PaisFornecPed" />
+                                                <input type="hidden" id="ContatoFornecPed" name="ContatoFornecPed" />
+                                                <input type="hidden" id="DeptoFornecPed" name="DeptoFornecPed" />
+                                                <input type="hidden" id="TelefoneFornecPed" name="TelefoneFornecPed" />
+                                                <input type="hidden" id="MailFornecPed" name="MailFornecPed" />
+                                                <input type="hidden" id="entregaItemPedGerado" name="entregaItemPedGerado">
+                                                <input type="hidden" id="umItempedGerado" name="umItempedGerado">
+                                                <input type="hidden" id="precoItemPedGerado" name="precoItemPedGerado">
+                                                <input type="hidden" id="VlrFreteItemPedGerado" name="VlrFreteItemPedGerado">
+                                                <input type="hidden" id="VlrIpiItemPedGerado" name="VlrIpiItemPedGerado">
+                                                <input type="hidden" id="VlrDespPedGerado" name="VlrDespPedGerado">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm numero readonly" id="qtdItemPedGerado" name="qtdItemPedGerado" size="5" readonly="readonly">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm valor readonly" id="totalItemPedGerado" name="totalItemPedGerado" size="16" readonly="readonly">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-controlTable input-sm readonly" readonly="readonly" id="prazoEntregaPedido" name="prazoEntregaPedido" size="10">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+
+                            </div>
+
+
+                            <div id="divBotaoEnviarEmailPedido">
+                                <button type="button" class="btn btn-info" id="btEmailPedido">
+                                        <span class="fluigicon fluigicon-envelope fluigicon-sm"></span>
+                                        Enviar e-mail Pedido
+                                    </button>
+
+                            </div>
+                        </div>
+                        <div id="itensDesvinculados" class="tab-pane panel-body">
+                            <div class="col-md-4 form-group" id="divBtVincularItens">
+                                <div class="col-lg-12">
+                                    <label for="btVincularItem" class="col-lg-4 control-label">Vincular Itens:
+                                        </label>
+                                    <span class="btn btn-default fluigicon fluigicon-plus-sign btn-sm" id="btVincularItem"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table tablename="tbItensDesvinculados" id="tbItensDesvinculados" deleteicon="img/delete.png" noaddbutton="true" class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                <th>Prioridade:</th>
+                                                <th>Item:</th>
+                                                <th>Produto:</th>
+                                                <th>Descrição:</th>
+                                                <th>UN:</th>
+                                                <th>Quant.:</th>
+                                                <th>Saldo:</th>
+                                                <th>Cons. Médio:</th>
+                                                <th>Dt. Necessidade:</th>
+                                                <th>Armazém:</th>
+                                                <th>Prazo</th>
+                                                <th>Observação:</th>
+                                                <th>Fabricante:</th>
+                                                <th>CTA Contábil:</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" class="form-control-sem-display input-sm checkControle" id="ckItemDesv" name="ckItemDesv" value="on" />
+                                                    <input type="hidden" name="linhaSelecionadaItemDesv" id="linhaSelecionadaItemDesv" value="false">
+                                                </td>
+                                                <td>
+                                                    <select class="form-controlTable fake-disabled" id="sPrioridadeProdutoDesv" name="sPrioridadeProdutoDesv">
+                                                            <option value="N">Normal</option>
+                                                            <option value="E">Emergencial</option>
+                                                            <option value="R">Reguladora</option>
+                                                            <option value="AUTO">Autonomia</option>
+                                                        </select>
+                                                    <input type="hidden" id="hiddenPrioridadeDesv" name="hiddenPrioridadeDesv" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm" id="txtSeqItemProdutoDesv" name="txtSeqItemProdutoDesv" size="4" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm" id="txtCodItemProdutoDesv" name="txtCodItemProdutoDesv" size="6" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm" id="txtDescProdutoDesv" name="txtDescProdutoDesv" readonly="readonly">
+
+                                                    <input type="hidden" class="form-controlTable input-sm readonly" name="tipoProdutoDesv" id="tipoProdutoDesv" value="">
+
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtUnidMedProdutoDesv" name="txtUnidMedProdutoDesv" size="3" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtQuantidadeProdutoDesv" name="txtQuantidadeProdutoDesv" size="5" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtSaldoProdutoDesv" name="txtSaldoProdutoDesv" size="5" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="txtConsumoMedioDesv" name="txtConsumoMedioDesv" size="5" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm datepickerinput" id="dtNecessidadeProdutoDesv" name="dtNecessidadeProdutoDesv" size="10" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtArmazemProdutoDesv" name="txtArmazemProdutoDesv" size="25" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="prazoProdutoDesv" name="prazoProdutoDesv" size="10" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtObsProdutoDesv" name="txtObsProdutoDesv" readonly="readonly">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm readonly" id="nmFabricanteDesv" name="nmFabricanteDesv" size="20" readonly="readonly" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-controlTable input-sm " id="txtContaContabilDesv" name="txtContaContabilDesv" readonly="readonly">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- dim div itensPedido -->
+
+            <!--#FLUIG-255 -Field set aprovação de TI -->
+            <input type='hidden' name='performedGeraCotacao' id='performedGeraCotacao' value='false' />
+            <div id="aprovaGestorTI" class="aprovaGestorTI panel panel-default identificacao">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center ">
+                        <b>Aprovador Gestor TI</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class='row'>
+                        <div class="form-group col-md-6">
+                            <label>
+                                    Nome
+                                    <em class="formee-req">*</em>
+                                </label>
+                            <input type="text" name=nomeGestorTI class="form-control" value="" readonly="readonly" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>
+                                    Data
+                                    <em class="formee-req">*</em>
+                                </label>
+                            <input type="text" name="dataGestorTI" class="form-control value=" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class="form-group col-md-12">
+                            <label>
+                                    Aprovação
+                                    <em class="formee-req">*</em>
+                                </label>
+                            </br>
+                            <input type="radio" name="aprovacaoTI" id="decisaosim" value="sim" /> Aprovar
+                            <input type="radio" name="aprovacaoTI" id="decisaonao" value="nao" /> Reprovar
+                        </div>
+                    </div>
+                    <div class="form-group  row">
+                        <div class="col-md-12">
+                            <label>
+                                    Motivo
+                                    <em class="formee-req">*</em>
+                                </label>
+                            <textarea name="motivoGestorTI" id="motivoGestorTI" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fornecCotacoes" class="panel panel-default identificacao hidden">
+                <div class="panel-heading ">
+                    <h3 class="panel-title text-center ">
+                        <b>Fornecedores e Cotações</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-tabs clearfix" role="tablist" data-tabs="tabs" id="tabFornecCot">
+                        <li class="active">
+                            <a href="#fornecedores" role="tab" data-toggle="tab" id="tabFornecedores">Fornecedores</a>
+                        </li>
+                        <li class="hidden" id="tabInfFornec">
+                            <a href="#infoFornec" role="tab" data-toggle="tab" id="tabInfoFornecedores">Informações Fornecedor</a>
+                        </li>
+                        <li class="hidden" id="tabCotacoes">
+                            <a href="#cotacoes" role="tab" data-toggle="tab">Cotações</a>
+                        </li>
+                        <li class="hidden" id="tabTotais">
+                            <a href="#totais" role="tab" data-toggle="tab">Totais</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="fornecedores" class="tab-pane active panel-body">
+                            <div class="col-md-12">
+                                <div class="col-lg-12 form-group">
+                                    <label for="rdTipoCotacaoTabela" class="col-lg-4 control-label">Tipo Cotação?
+                                        </label>
+                                    <div class="col-lg-8 ">
+                                        <input type="radio" id="rdTipoCotacaoTabela" value="tabela" name="rdTipoCotacao"> Tabela Preço
+                                        </input>
+                                        <input type="radio" id="rdTipoCotacaoAberta" value="aberta" name="rdTipoCotacao"> Aberta
+                                        </input>
+                                        <input type="radio" id="rdTipoCotacaoFechada" value="fechada" name="rdTipoCotacao"> Fechada
+                                        </input>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tabelaFornecedores" class="hidden">
+
+                                <div class="col-md-4" id="divAddFornecedor">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="btAdicionaFornec" class="col-lg-4 control-label">Adicionar
+                                                Fornecedor: </label>
+                                        <span class="btn btn-default fluigicon fluigicon-plus-sign btn-sm" id="btAdicionaFornec"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="table-responsive ">
+                                        <table tablename="tbFornecs" id="tbFornecs" deleteicon="img/delete.png" noaddbutton="true" class="table table-condensed hidden">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fornecedor:</th>
+                                                    <th>Nome Fornecedor:</th>
+                                                    <th>Loja:</th>
+                                                    <th>CNPJ:</th>
+                                                    <th class='icms_matmed'>ICMS:</th>
+                                                    <th>Condição de Pagamento:</th>
+                                                    <th>Forma de Pagamento:</th>
+                                                    <th>Frete:</th>
+                                                    <th>Vlr Frete:</th>
+                                                    <th>Prazo Entrega:</th>
+                                                    <th>Vlr Total:</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="linhaSelecionadaFornec" id="linhaSelecionadaFornec" value="false">
+                                                        <input type="hidden" name="RazaoFantasiaFornec" id="RazaoFantasiaFornec">
+                                                        <input type="hidden" name="CnpjFornec" id="CnpjFornec">
+                                                        <input type="hidden" name="LogradouroFornec" id="LogradouroFornec">
+                                                        <input type="hidden" name="CidadeFornec" id="CidadeFornec">
+                                                        <input type="hidden" name="EstadoFornec" id="EstadoFornec">
+                                                        <input type="hidden" name="PaisFornec" id="PaisFornec">
+                                                        <input type="hidden" name="ContatoFornec" id="ContatoFornec">
+                                                        <input type="hidden" name="DeptoFornec" id="DeptoFornec">
+                                                        <input type="hidden" name="TelefoneFornec" id="TelefoneFornec">
+                                                        <input type="hidden" name="MailFornec" id="MailFornec">
+                                                        <input type="hidden" name="valorPorExtenso" id="valorPorExtenso">
+
+
+                                                        
+                                                        <input type="text" id="fornecedor" name="fornecedor" style="width: 319px !important;" onchange="verCLASSIFICACAO(this)" placeholder="Digite parte do nome e aperte ENTER para consultar um Fornecedor" class="form-control" />  
+                                                        <input type="hidden" id="txtCodFornecCotacao" name="txtCodFornecCotacao">
+                                                
+                                                        
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm" id="txtNomeFornecCotacao" name="txtNomeFornecCotacao" readonly="readonly" size="50">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm " id="txtLojaFornecCotacao" name="txtLojaFornecCotacao" readonly="readonly" size="4">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm " id="txtCnpjFornecCotacao" name="txtCnpjFornecCotacao" readonly="readonly" size="20">
+                                                    </td>
+                                                    <td class="icms_matmed">
+                                                        <select name="icms_matmed" id="icms_matmed" class="form-controlTable input-sm">
+                                                                <option disabled='disabled' value=''>Selecione o ICMS
+                                                                </option>
+                                                            </select>
+                                                        <input type="hidden" id="icms_matmed_field" name="icms_matmed_field">
+                                                    </td>
+                                                    <td style="width: 180px">
+                                                        <input type="hidden" id="txtCodFormaPagamentoBionexo"  name="txtCodFormaPagamentoBionexo">
+                                                        <input type="hidden" id="txtCodFormaPagamentoProtheus" name="txtCodFormaPagamentoProtheus">
+                                                        <input type="hidden" id="txtNomeFormaPagamentoBionexo" name="txtNomeFormaPagamentoBionexo" readonly="readonly">
+                                                        <input type="text"   id="condicaoPagamento"            name="condicaoPagamento" 
+                                                        					 style="width: 319px !important;" 
+                                                        					 onchange="verCLASSIFICACAO(this)" 
+                                                                             placeholder="Digite e aperte ENTER uma Cond.Pagamento" 
+                                                                             class="form-control correcaoCotacao Cotacao" 
+                                                                             required />
+                                                    </td>
+                                                    <td style="width: 180px">
+                                                        <div class="col-lg-12 form-group">
+                                                            <select class="form-controlTable" id="sFormaPagamento" name="sFormaPagamento">
+                                                                    <option value="">---</option>
+                                                                    <option value="1">Boleto</option>
+                                                                    <option value="2">Depósito Bancário</option>
+                                                                    <option value="3">Ordem de Pagamento</option>
+                                                                </select>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <select class="form-controlTable modFrete" id="sModalidadeFrete" name="sModalidadeFrete">
+                                                                <option value="">---</option>
+                                                                <option value="C">CIF</option>
+                                                                <option value="F">FOB</option>
+                                                            </select>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm valor vlrFrete" id="vlrFrete" name="vlrFrete" size="12">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm" id="prazoFornec" name="prazoFornec" size="12">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-controlTable input-sm readonly" id="valorTotalFornec" name="valorTotalFornec" size="12">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div id="divBotoesCotacao" class="hidden">
+                                        <button type="button" class="btn btn-info" id="btEmailCotacao">
+                                                <span class="fluigicon fluigicon-envelope fluigicon-sm"></span>
+                                                Enviar e-mail Cotação
+                                            </button>
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                </div>
+                                <div class="form-group hidden" id="contentJustificativaForn">
+                                    <label for="justificativaFornecedor" class="col-sm-2 control-label">Justificativa</label>
+                                    <div class="col-md-12">
+                                        <textarea name="justificativaFornecedor" id="justificativaFornecedor" readonly="readonly" class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="divEnviarBionexo">
+                                    <div class="form-group">
+                                        <span class="btn btn-primary" id="btEnviaBionexo">Enviar para o
+                                                Bionexo</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 hidden hidden" id="divReceberBionexo">
+                                    <div class="form-group">
+                                        <span class="btn btn-primary" id="btRecebeCotacaoBionexo">Receber Cotação
+                                                Bionexo</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12" id="divPDCCriado">
+                                    <div class="col-md-6 form-group">
+                                        <label for="txtNrPDC" class="col-md-4 control-label">PDC Criado: </label>
+                                        <div class="col-md-6 ">
+                                            <input type="text" class="form-control readonly" name="txtNrPDC" id="txtNrPDC" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Fim div fornecedores -->
+
+                        <div id="cotacoes" class="tab-pane panel-body">
+                            <div id="cotacoesAbertas" class="table-responsive hidden"></div>
+                            <div id="cotacoesFechadas" class="hidden">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table tablename="tbCotacoes" id="tbCotacoes" deleteicon="img/delete.png" customFnDelete="deleteCotacao(this)" noaddbutton="true" class="table table-bordered table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>Vencedora</th>
+                                                    <th>Cód. Fornecedor</th>
+                                                    <th>Descrição Fornecedor</th>
+                                                    <th>Fabricante</th>
+                                                    <th>Quant.</th>
+                                                    <th>U.M.</th>
+                                                    <th>Vl. Unitário</th>
+                                                    <th>Vl. Total</th>
+                                                    <th>Outras Despesas</th>
+                                                    <th>Vl. IPI</th>
+                                                    <th>Prazo</th>
+                                                    <th>Condição de Pagamento</th>
+                                                    <th>Tabela de Preço</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <input type="hidden" name="linhaSelecionadaCotacao" id="linhaSelecionadaCotacao" value="false">
+                                                        <input type="hidden" name="origItemCotacao" id="origItemCotacao">
+                                                        <input type="hidden" name="codItemCotacao" id="codItemCotacao">
+                                                        <input type="hidden" name="DescItemCotacao" id="DescItemCotacao">
+                                                        <input type="hidden" name="ObsItemCotacao" id="ObsItemCotacao">
+                                                        <input type="hidden" name="JustificativaItemCotacao" id="JustificativaItemCotacao">
+                                                        <input type="hidden" name="cnpjFornCotacao" id="cnpjFornCotacao">
+                                                        <input type="hidden" name="SeqItemCotacao" id="SeqItemCotacao">
+                                                        <input type="checkbox" class="input-md" id="vencedoraCotacao" name="vencedoraCotacao" value="on" />
+                                                    </td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="codFornecedorCotacao" name="codFornecedorCotacao" readonly="readonly" size="10"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="descFornecedorCotacao" name="descFornecedorCotacao" readonly="readonly" size="40"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="descFabricante" name="descFabricante" readonly="readonly" size="25"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="qtdeItemCotacao" name="qtdeItemCotacao" readonly="readonly" size="7"></td>
+                                                    <td><input type="hidden" id="idMmItemCotacao" name="idMmItemCotacao">
+                                                        <input type="text" class="form-controlTable input-sm readonly" id="umItemCotacao" name="umItemCotacao" readonly="readonly" size="3">
+                                                    </td>
+                                                    <td><input type="text" class="form-controlTable input-sm" id="vlrUnitItemCotacao" name="vlrUnitItemCotacao" size="16"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly " id="vlrTotalItemCotacao" name="vlrTotalItemCotacao" readonly="readonly" value="R$ 0,00" size="16"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm valor" id="outrasDespItemCotacao" name="outrasDespItemCotacao" value="R$ 0,00" size="12"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm valor" id="vlrIpiItemCotacao" name="vlrIpiItemCotacao" size="12"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="prazoItemCotacao" name="prazoItemCotacao" size="10" readonly="readonly"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm cotacao" id="descCondPgtoItemCotacao" name="descCondPgtoItemCotacao" readonly="readonly"></td>
+                                                    <td><input type="text" class="form-controlTable input-sm readonly" id="tabPrecoItemCotacao" name="tabPrecoItemCotacao"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" id="divJustificativa">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtJustificacaoCotacao" class="col-lg-4 control-label">Justificativa: </label>
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control" rows="3" name="txtJustificacaoCotacao" id="txtJustificacaoCotacao"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fim div cotacoes -->
+
+
+                            <div id="divBotoesGravaPedido" class="hidden">
+                                <button type="button" class="btn btn-info" id="btGravaPedido">
+                                        <span class="fluigicon fluigicon-pencil fluigicon-sm"></span>
+                                        Gravar Pedido
+                                    </button>
+                            </div>
+
+
+                        </div>
+
+                        <div id="totais" class="tab-pane panel-body">
+                            <div class="form-group clearfix">
+                                <div class="col-md-6">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtTotValMercadoria" class="col-lg-3 control-label">Valor Total
+                                                da
+                                                Mercadoria: </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="txtTotValMercadoria" name="txtTotValMercadoria" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtTotValDespesas" class="col-lg-3 control-label">Valor Total
+                                                Outras
+                                                Despesas: </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="txtTotValDespesas" name="txtTotValDespesas" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtTotValMercadoria" class="col-lg-3 control-label">Valor Total
+                                                do
+                                                Frete: </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="txtTotValFrete" name="txtTotValFrete" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtTotValDespesas" class="col-lg-3 control-label">Valor Total do
+                                                IPI: </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="txtTotValIPI" name="txtTotValIPI" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="col-lg-12 form-group">
+                                        <label for="txtTotValCotacao" class="col-lg-3 control-label">Valor Total
+                                                Cotação: </label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" id="txtTotValCotacao" name="txtTotValCotacao" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                <fieldset>
+                                    <legend>Negociação</legend>
+                                    <div class="form-group clearfix">
+                                        <div class="col-md-6">
+                                            <div class="col-lg-12 form-group">
+                                                <label for="rdTeveNegociacao" class="col-lg-4 control-label">Teve
+                                                        Negociação?</label>
+                                                <div class="col-lg-8 ">
+                                                    <input type="radio" id="rdTeveNegociacaoSim" value="sim" name="rdTeveNegociacao"> Sim
+                                                    </input>
+                                                    <input type="radio" id="rdTeveNegociacaoNao" value="nao" name="rdTeveNegociacao"> Não
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="inputsNegociacao" class="form-group clearfix">
+                                        <div class="col-md-6">
+                                            <div class="col-lg-12 form-group">
+                                                <label for="txtPropostaInic" class="col-lg-3 control-label">Proposta
+                                                        Inical: </label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" class="form-control valor" id="txtPropostaInic" name="txtPropostaInic">
+                                                    <span class="help-block">Obrigatório anexar documento
+                                                            comprovando o
+                                                            valor negociado.</span>
+                                                    <span class="help-block">O valor da proposta inicial deverá ser
+                                                            maior que o valor total da
+                                                            cotação.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-lg-12 form-group">
+                                                <label for="txtDesconto" class="col-lg-3 control-label">Desconto:
+                                                    </label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" class="form-control valor" id="txtDesconto" name="txtDesconto" readonly="readonly">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <!-- Fim div totais -->
+                        <div id="infoFornec" class="tab-pane panel-body">
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtStatusFornec" class="col-lg-3 control-label">Status: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtStatusFornec" name="txtStatusFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtRazaoFantasiaFornec" class="col-lg-3 control-label">Razão Social:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtRazaoFantasiaFornec" name="txtRazaoFantasiaFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtCnpjFornec" class="col-lg-3 control-label">CNPJ: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtCnpjFornec" name="txtCnpjFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtInscEstadFornec" class="col-lg-3 control-label">Inscrição
+                                            Estadual:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtInscEstadFornec" name="txtInscEstadFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtCepFornec" class="col-lg-3 control-label">CEP: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtCepFornec" name="txtCepFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtLogradouroFornec" class="col-lg-3 control-label">Logradouro:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtLogradouroFornec" name="txtLogradouroFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtCidadeFornec" class="col-lg-3 control-label">Cidade: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtCidadeFornec" name="txtCidadeFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtEstadoFornec" class="col-lg-3 control-label">Estado: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtEstadoFornec" name="txtEstadoFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtEstadoSiglaFornec" class="col-lg-3 control-label">Sigla UF:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtEstadoSiglaFornec" name="txtEstadoSiglaFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtPaisFornec" class="col-lg-3 control-label">País: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtPaisFornec" name="txtPaisFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtPaisSiglaFornec" class="col-lg-3 control-label">Sigla: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtPaisSiglaFornec" name="txtPaisSiglaFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtTelefoneFornec" class="col-lg-3 control-label">Telefone: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtTelefoneFornec" name="txtTelefoneFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtFaxFornec" class="col-lg-3 control-label">Fax: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtFaxFornec" name="txtFaxFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtContatoFornec" class="col-lg-3 control-label">Contato: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtContatoFornec" name="txtContatoFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtMailFornec" class="col-lg-3 control-label">E-mail: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtMailFornec" name="txtMailFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtTipoFornec" class="col-lg-3 control-label">Tipo: </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtTipoFornec" name="txtTipoFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-lg-12 form-group">
+                                    <label for="txtCategoriaFornec" class="col-lg-3 control-label">Última Compra:
+                                        </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" class="form-control readonly" id="txtCategoriaFornec" name="txtCategoriaFornec" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fim div informações gerais fornec -->
+                    </div>
+                    <!--  fim tab-content -->
+                </div>
+                <!-- fim div panel-body -->
+            </div>
+            <!-- fim div fornecCotacoes -->
+
+            <fieldset id="aprovacaoRegularizadora">
+                <legend>Aprovação da Regularizadora</legend>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="nomeAprovRegularizadora">Aprovador:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nomeAprovRegularizadora" id="nomeAprovRegularizadora" readonly="readonly" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="dataAprovRegularizadora">Data da Aprovação:</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="dataAprovRegularizadora" id="dataAprovRegularizadora" readonly="readonly" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="decisaoAprovRegularizadora">Decisão:</label>
+                        <div class="input-group">
+                            <input type="radio" name="decisaoAprovRegularizadora" id="decisaoAprovRegularizadoraApro" value="sim"> Aprovar
+                            <input type="radio" name="decisaoAprovRegularizadora" id="decisaoAprovRegularizadoraRepro" value="nao"> Reprovar
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="motivoAprovRegularizadora">Motivo:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" name="motivoAprovRegularizadora" id="motivoAprovRegularizadora"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div id="aprovacoesCotacoes1" class="panel panel-default identificacao hidden">
+                <div class="panel-heading ">
+                    <h3 class="panel-title text-center " id="tituloSecaoAprovacoes"></h3>
+                    <h3 id="avisoRegularizadora" style="color:red;margin-top: 5px;font-weight:bold;" class="panel-title text-center hidden"> REGULARIZADORA
+                        <span class="fluigicon fluigicon-info-sign fluigicon-sm bs-docs-popover-hover" style="color:#58595b;" data-toggle="popover" title="" data-content="Esta compra não foi realizada pelo CSO. É importante observar se o processo seguiu diretrizes que garantem uma contratação com governança."
+                            data-original-title="Popover title"></span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-tabs clearfix" role="tablist" data-tabs="tabs">
+                        <li class="active">
+                            <a href="#resumoCotacoes" role="tab" data-toggle="tab">Resumo</a>
+                        </li>
+                        <li>
+                            <a href="#itensResumo" role="tab" data-toggle="tab">Itens Pedido</a>
+                        </li>
+                        <li id="tabAprovacao1" class="hidden">
+                            <a href="#aprovacao1" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                        <li id="tabAprovacao2" class="hidden">
+                            <a href="#aprovacao2" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                        <li id="tabAprovacao3" class="hidden">
+                            <a href="#aprovacao3" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                        <li id="tabAprovacao4" class="hidden">
+                            <a href="#aprovacao4" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                        <li id="tabAprovacao5" class="hidden">
+                            <a href="#aprovacao5" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                        <li id="tabAprovacao6" class="hidden">
+                            <a href="#aprovacao6" role="tab" data-toggle="tab">Aprovação</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div id="resumoCotacoes" class="tab-pane active panel-body">
+                        <div class="col-md-6 col-md-offset-6 approval-table" id="divHistoricoAprovacao"></div>
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtFilialResumo1" class="col-lg-3 control-label">Filial: </label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="txtFilialResumo1" name="txtFilialResumo1" readonly="readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtNumeroSolicResumo1" class="col-lg-3 control-label">Solicitação:</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="txtNumeroSolicResumo1" name="txtNumeroSolicResumo1" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtRequisitanteResumo1" class="col-lg-3 control-label">Requisitante: </label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="txtRequisitanteResumo1" name="txtRequisitanteResumo1" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="txVlTotalPedidoResumo1" class="col-lg-3 control-label">Valor Total Pedido: </label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="txVlTotalPedidoResumo1" name="txVlTotalPedidoResumo1" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fim div resumo -->
+                    <div id="itensResumo" class="tab-pane panel-body">
+                        <div id="dataTableItensResumo1">
+
+                            <table tablename="tbItensAprovacao" id="tbItensAprovacao" deleteicon="img/delete.png" noaddbutton="true" nodeletebutton="true" class="table table-striped table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Fornecedor</th>
+                                        <th>Produto</th>
+                                        <th>Consumo Medio</th>
+                                        <th>Saldo</th>
+                                        <th>QTDE</th>
+                                        <th>Valor Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="fornecItensPed" name="fornecItensPed" size="40" readonly="readonly">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="produtoItensPed" name="produtoItensPed" size="40" readonly="readonly">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="produtoConsumo" name="produtoConsumo" size="7" readonly="readonly">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="saldoItensPed" name="saldoItensPed" size="7" readonly="readonly">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="qtdeItensPed" name="qtdeItensPed" size="7" readonly="readonly">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-controlTable input-sm readonly" id="vlrTotalItensPed" name="vlrTotalItensPed" size="16" readonly="readonly">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <!-- Fim div itens resumo -->
+                    <div id="aprovacao1" class="tab-pane panel-body">
+                        <input type="hidden" name="dataAprovacaoAlcada1" id="dataAprovacaoAlcada1">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada1" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada1" name="nomeAprovadorAlcada1" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada1" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim1" value="aprov" name="rdAprovadoAlcada1"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao1" value="naprov" name="rdAprovadoAlcada1"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada1" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada1" id="txtJustificativaAlcada1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divMotivoReprovacao1" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao1" name="slMotivoReprovacao1" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante1" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante1" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante1" id="txtParecerSolicitante1"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Fim div justificativaResumo1 -->
+
+
+                    <div id="aprovacao2" class="tab-pane panel-body">
+                        <input type="hidden" name="dataAprovacaoAlcada2" id="dataAprovacaoAlcada2">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada2" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada2" name="nomeAprovadorAlcada2" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada2" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim2" value="aprov" name="rdAprovadoAlcada2"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao2" value="naprov" name="rdAprovadoAlcada2"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada2" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada2" id="txtJustificativaAlcada2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divMotivoReprovacao2" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao2" name="slMotivoReprovacao2" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante2" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante2" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante2" id="txtParecerSolicitante2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <!-- Fim div justificativaResumo2 -->
+                    <div id="aprovacao3" class="tab-pane panel-body">
+                        <input type="hidden" name="dataAprovacaoAlcada3" id="dataAprovacaoAlcada3">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada3" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada3" name="nomeAprovadorAlcada3" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada3" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim3" value="aprov" name="rdAprovadoAlcada3"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao3" value="naprov" name="rdAprovadoAlcada3"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada3" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada3" id="txtJustificativaAlcada3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divMotivoReprovacao3" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao3" name="slMotivoReprovacao3" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante3" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante3" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante3" id="txtParecerSolicitante3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim div justificativaResumo3 -->
+                    <div id="aprovacao4" class="tab-pane panel-body">
+
+                        <input type="hidden" name="dataAprovacaoAlcada4" id="dataAprovacaoAlcada4">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada4" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada4" name="nomeAprovadorAlcada4" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada4" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim4" value="aprov" name="rdAprovadoAlcada4"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao4" value="naprov" name="rdAprovadoAlcada4"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada4" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada4" id="txtJustificativaAlcada4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12" id="divMotivoReprovacao4" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao4" name="slMotivoReprovacao4" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante4" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante4" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante4" id="txtParecerSolicitante4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim div justificativaResumo4 -->
+
+                    <!-- aprovação 5 alcada -->
+                    <div id="aprovacao5" class="tab-pane panel-body">
+
+                        <input type="hidden" name="dataAprovacaoAlcada5" id="dataAprovacaoAlcada5">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada5" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada5" name="nomeAprovadorAlcada5" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada5" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim5" value="aprov" name="rdAprovadoAlcada5"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao5" value="naprov" name="rdAprovadoAlcada5"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada5" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada5" id="txtJustificativaAlcada5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12" id="divMotivoReprovacao5" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao5" name="slMotivoReprovacao5" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante5" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante5" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante5" id="txtParecerSolicitante5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim aprovacao 5ºalcada -->
+
+                    <!-- aprovação 6º alcada -->
+                    <div id="aprovacao6" class="tab-pane panel-body">
+                        <input type="hidden" name="dataAprovacaoAlcada6" id="dataAprovacaoAlcada6">
+                        <div class="col-md-12">
+                            <div class="col-lg-6 form-group">
+                                <label for="nomeAprovadorAlcada6" class="col-lg-4 control-label">Aprovador: </label>
+                                <div class="col-lg-8">
+                                    <input type="text" id="nomeAprovadorAlcada6" name="nomeAprovadorAlcada6" class="form-control readonly" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="col-lg-12 form-group">
+                                <label for="rdAprovadoAlcada6" class="col-lg-4 control-label">Aprovado? </label>
+                                <div class="col-lg-8 ">
+                                    <input type="radio" id="rdAprovadoAlcadaSim6" value="aprov" name="rdAprovadoAlcada6"> Sim
+                                    </input>
+                                    <input type="radio" id="rdAprovadoAlcadaNao6" value="naprov" name="rdAprovadoAlcada6"> Não
+                                    </input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtJustificativaAlcada6" class="col-lg-4 control-label">Justificativa:
+                                    </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtJustificativaAlcada6" id="txtJustificativaAlcada6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12" id="divMotivoReprovacao6" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label class="col-lg-4 control-label">Motivo da reprovação: </label>
+                                <div class="col-lg-12">
+                                    <select id="slMotivoReprovacao6" name="slMotivoReprovacao6" onchange="defineMotivoReprovacao(this)">
+                                            <option value="">--</option>
+                                            <option value="filial">Erro Filial</option>
+                                            <option value="centroCusto">Erro Centro de Custo</option>
+                                            <option value="valor">Erro Valor</option>
+                                            <option value="parecerSolicitante">Parecer do Solicitante</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="divParecerSolicitante6" style="display: none">
+                            <div class="col-lg-12 form-group">
+                                <label for="txtParecerSolicitante6" class="col-lg-4 control-label">Parecer do
+                                        Solicitante: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" rows="3" name="txtParecerSolicitante6" id="txtParecerSolicitante6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim 6º alçada -->
+                </div>
+                <!-- Fim tab content -->
+            </div>
+            <!-- Fim div aprovacoes cotacoes -->
+
+            <div id="aprovacoesContrato" class="panel panel-default identificacao hidden">
+                <div class="panel-heading ">
+                    <h3 class="panel-title text-center ">
+                        <b>Aprovação CSO Contratos</b>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="col-lg-12 form-group">
+                            <label for="rdAprovadoContrato" class="col-lg-4 control-label">Aprovado? </label>
+                            <div class="col-lg-8 ">
+                                <input type="radio" id="rdAprovadoContratoSim" value="aprov" name="rdAprovadoContrato"> Sim
+                                </input>
+                                <input type="radio" id="rdAprovadoContratoSim" value="naprov" name="rdAprovadoContrato"> Não
+                                </input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-lg-12 form-group">
+                            <label for="txtJustificaContrato" class="col-lg-4 control-label">Justificativa: </label>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" rows="3" name="txtJustificaContrato" id="txtJustificaContrato"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="hidden" name="COD_SOLICITACAO" id="COD_SOLICITACAO">
+                <input type="hidden" name="codSolicitacao" id="codSolicitacao">
+                <input type="hidden" name="emailSolicitante" id="emailSolicitante">
+                <input type="hidden" name="VERSAO" id="VERSAO" />
+                <input type="hidden" name="ISDEFAULT" id="ISDEFAULT" />
+                <input type="hidden" name="SLA133" id="SLA133" />
+                <input type="hidden" name="SLA203" id="SLA203" />
+                <input type="hidden" name="SLA182" id="SLA182" />
+                <input type="hidden" name="SLA6" id="SLA6" />
+                <input type="hidden" name="SLA4" id="SLA4" />
+                <input type="hidden" name="SLA2" id="SLA2" />
+                <input type="hidden" name="SLA14" id="SLA14" />
+                <input type="hidden" name="SLA39" id="SLA39" />
+                <input type="hidden" name="SLA10" id="SLA10" />
+                <input type="hidden" name="SLA216" id="SLA216" />
+                <input type="hidden" name="SLA223" id="SLA223" />
+                <input type="hidden" name="SLA189" id="SLA189" />
+                <input type="hidden" name="SLA149" id="SLA149" />
+                <input type="hidden" name="SLA42" id="SLA42" />
+                <input type="hidden" name="SLA43" id="SLA43" />
+                <input type="hidden" name="SLA45" id="SLA45" />
+                <input type="hidden" name="SLA49" id="SLA49" />
+                <input type="hidden" name="SLA50" id="SLA50" />
+                <input type="hidden" name="SLA164" id="SLA164" />
+                <input type="hidden" name="SLA165" id="SLA165" />
+                <input type="hidden" name="SLA232" id="SLA232" />
+                <input type="hidden" name="SLA_TOTAL" id="SLA_TOTAL" />
+            </div>
+            
+            <!-- FIM FORMULARIO -->
+            <div class="row form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <hr style="margin-bottom: 0px;">
+                <label style="font-size: small">
+                <b>Fim do Formul&aacute;rio - 2409-Al&ccedil;adas 24-25</b>
+                </label>
+            </div>
+        </form>
+
+
+        <div style="display: none;">
+            <div id="modal-content">
+                <div class="row">
+                    <div class="col-md-10">
+                        <textarea onchange="listaEmails(this)" class="form-control" rows="3" id="emailList" name="emailList"></textarea>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" onclick="openZoom('colleague','colleagueName,Nome,mail,E-mail','colleagueName,mail', '&filterValues=active,true',event.target.id + '|emails');" class="btn btn-default zoomEmails" name="btZoomEmails" id="btZoomEmails">
+                                <span class="fluigicon fluigicon-search fluigicon-xs" style="top: 0; bottom: 0;"></span>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
